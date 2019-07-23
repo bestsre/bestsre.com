@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ceph-luminous-cluster | 黑夜浮屠</title>
+    <meta property="og:title" content="ceph-luminous-cluster - 黑夜浮屠">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-04-15T16:33:24&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-04-15T16:33:24&#43;08:00">
+        
+    <meta name="Keywords" content="Golang,Ops,Kuberentes,Linux,DevOps,Docker,SRE">
+    <meta name="description" content="ceph-luminous-cluster">
+        
+    <meta name="author" content="Galen">
+    <meta property="og:url" content="https://www.bestsre.com/post/ceph-luminous-cluster/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://www.bestsre.com">
+                        黑夜浮屠
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.bestsre.com">首页</a>
+                    
+                    <a  href="https://www.bestsre.com/archives/" title="Archives">Archives</a>
+                    
+                    <a  href="https://www.bestsre.com/books/" title="E-book">E-book</a>
+                    
+                    <a  href="https://www.bestsre.com/about/" title="About">About</a>
+                    
+                    <a  href="https://www.bestsre.com" title=""></a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">ceph-luminous-cluster</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年4月15日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://www.bestsre.com/categories/Ceph">Ceph</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                                <nav id="TableOfContents">
+<ul>
+<li><a href="#ceph概述">ceph概述</a></li>
+<li><a href="#环境节点规划">环境节点规划</a></li>
+<li><a href="#集群部署">集群部署</a>
+<ul>
+<li><a href="#基础环境">基础环境</a>
+<ul>
+<li><a href="#hosts">hosts</a></li>
+<li><a href="#所有节点导入ceph-yum源">所有节点导入ceph yum源</a></li>
+<li><a href="#所有节点添加ceph用户-并赋予sudo权限">所有节点添加ceph用户,并赋予sudo权限</a></li>
+</ul></li>
+<li><a href="#部署集群">部署集群</a>
+<ul>
+<li><a href="#安装ceph-deploy">安装ceph-deploy</a></li>
+<li><a href="#在管理节点-创建集群">在管理节点，创建集群</a></li>
+<li><a href="#更改生成的-ceph-集群配置文件">更改生成的 ceph 集群配置文件</a></li>
+<li><a href="#所有节点安装-ceph">所有节点安装 ceph</a></li>
+<li><a href="#初始化ceph-monitor-node">初始化ceph monitor node</a></li>
+<li><a href="#osd部署">osd部署</a></li>
+<li><a href="#部署完成-查看集群状态">部署完成，查看集群状态</a></li>
+<li><a href="#配置ceph-mgr">配置ceph-mgr</a></li>
+<li><a href="#部署ceph-fs">部署ceph-fs</a></li>
+<li><a href="#挂载fs">挂载fs</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<h1 id="ceph概述">ceph概述</h1>
+
+<p>Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。<br />
+Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">名词</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">RADOSGW</td>
+<td align="center">对象网关守护进程</td>
+</tr>
+
+<tr>
+<td align="center">RBD</td>
+<td align="center">块存储</td>
+</tr>
+
+<tr>
+<td align="center">CEPHFS</td>
+<td align="center">文件存储</td>
+</tr>
+
+<tr>
+<td align="center">LIBRADOS</td>
+<td align="center">和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端</td>
+</tr>
+
+<tr>
+<td align="center">RADOS</td>
+<td align="center">存储集群</td>
+</tr>
+
+<tr>
+<td align="center">OSD</td>
+<td align="center">Object Storage Device,RADOS 的组件，用于存储资源</td>
+</tr>
+
+<tr>
+<td align="center">Monitor</td>
+<td align="center">监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态</td>
+</tr>
+
+<tr>
+<td align="center">MDS</td>
+<td align="center">Ceph 元数据服务器,为 Ceph 文件系统存储元数据</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="环境节点规划">环境节点规划</h1>
+
+<p>Ceph分布式存储集群由若干组件组成，包括：<code>Ceph Monitor</code>、<code>Ceph OSD</code>和<code>Ceph MDS</code>，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。</p>
+
+<p>CephRBD是否支持多Pod同时挂载呢？<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes">官方文档</a>中给出了否定的答案: 基于CephRBD的Persistent Volume仅支持两种accessmode：ReadWriteOnce和ReadOnlyMany，不支持ReadWriteMany。</p>
+
+<p>Ceph的安装模型与k8s有些类似，也是通过一个deploy node远程操作其他Node以create、prepare和activate各个Node上的Ceph组件</p>
+
+<blockquote>
+<p>资源有限，在k8s集群节点中部署ceph集群，后面的hosts还是沿用k8s集群的，可能会有些难识别</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>节点 name</strong></th>
+<th>主机名</th>
+<th align="center"><strong>节点 IP</strong></th>
+<th align="center"><strong>配置</strong></th>
+<th align="center"><strong>说明</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">ceph-mon-0</td>
+<td>node-01</td>
+<td align="center">172.24.10.20</td>
+<td align="center">centos7.4</td>
+<td align="center">管理节点，监视器 monitor,mds</td>
+</tr>
+
+<tr>
+<td align="center">ceph-mon-1</td>
+<td>node-02</td>
+<td align="center">172.24.10.21</td>
+<td align="center">centos7.4</td>
+<td align="center">监视器 monitor,mds,client</td>
+</tr>
+
+<tr>
+<td align="center">ceph-mon-2</td>
+<td>node-03</td>
+<td align="center">172.24.10.22</td>
+<td align="center">centos7.4</td>
+<td align="center">监视器 monitor,mds</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-0</td>
+<td>node-01</td>
+<td align="center">172.24.10.20</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-1</td>
+<td>node-02</td>
+<td align="center">172.24.10.21</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-2</td>
+<td>node-03</td>
+<td align="center">172.24.10.22</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-3</td>
+<td>node-04</td>
+<td align="center">172.24.10.23</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-4</td>
+<td>node-05</td>
+<td align="center">172.24.10.24</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+
+<tr>
+<td align="center">ceph-osd-5</td>
+<td>node-06</td>
+<td align="center">172.24.10.25</td>
+<td align="center">20G</td>
+<td align="center">存储节点 osd</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="集群部署">集群部署</h1>
+
+<h2 id="基础环境">基础环境</h2>
+
+<h3 id="hosts">hosts</h3>
+
+<pre><code class="language-shell">~]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+172.24.10.20  node-01
+172.24.10.21  node-02
+172.24.10.22  node-03
+172.24.10.23  node-04
+172.24.10.24  node-05
+172.24.10.25  node-06
+</code></pre>
+
+<blockquote>
+<p>同时管理节点和其他节点做好ssh-key免密码登陆</p>
+</blockquote>
+
+<h3 id="所有节点导入ceph-yum源">所有节点导入ceph yum源</h3>
+
+<pre><code class="language-shell">~]# yum install epel-release -y &amp;&amp; yum upgrade -y
+~]# rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+~]# ansible ceph -a 'rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm' # 批量安装 
+
+# 官方源太慢，后面构建集群安装包各种超时
+[Ceph]
+name=Ceph packages for $basearch
+baseurl=http://mirrors.aliyun.com/ceph/rpm-luminous/el7/$basearch
+enabled=1
+gpgcheck=1
+type=rpm-md
+gpgkey=https://download.ceph.com/keys/release.asc
+
+[Ceph-noarch]
+name=Ceph noarch packages
+baseurl=http://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch
+enabled=1
+gpgcheck=1
+type=rpm-md
+gpgkey=https://download.ceph.com/keys/release.asc
+
+[ceph-source]
+name=Ceph source packages
+baseurl=http://mirrors.aliyun.com/ceph/rpm-luminous/el7/SRPMS
+enabled=1
+gpgcheck=1
+type=rpm-md
+gpgkey=https://download.ceph.com/keys/release.asc
+
+# ansible ceph -m copy -a 'src=/etc/yum.repos.d/ceph.repo dest=/etc/yum.repos.d/ceph.repo'
+</code></pre>
+
+<h3 id="所有节点添加ceph用户-并赋予sudo权限">所有节点添加ceph用户,并赋予sudo权限</h3>
+
+<pre><code class="language-shell"># 创建密码
+python -c &quot;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&quot;
+Password: ceph
+$6$rounds=656000$PZshbGs2TMKtUgB1$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81
+# 本机sudo
+visudo 
+Defaults:ceph timestamp_timeout=-1
+ceph    ALL=(root)     NOPASSWD:ALL
+
+# ansible创建用户密码yaml
+~]# vim user.yml             
+- hosts: ceph
+  remote_user: root
+  tasks:
+  - name: add user
+    user: name=ceph password='$6$rounds=656000$PZshbGs2TMKtUgB1$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81'
+  - name: sudo config
+    copy: src=/etc/sudoers dest=/etc/sudoers
+  - name: sync ssh key
+    authorized_key: user=ceph state=present exclusive=yes key='{{lookup('file', '/home/ceph/.ssh/id_rsa.pub')}}'
+# 运行playbook
+ansible-playbook user.yml
+
+</code></pre>
+
+<h2 id="部署集群">部署集群</h2>
+
+<h3 id="安装ceph-deploy">安装ceph-deploy</h3>
+
+<p>在管理节点进行</p>
+
+<pre><code class="language-shell">~]$ sudo yum install ceph-deploy
+</code></pre>
+
+<h3 id="在管理节点-创建集群">在管理节点，创建集群</h3>
+
+<pre><code class="language-shell">~]$ mkdir ceph-cluster
+~]$ cd ceph-cluster 
+ceph-cluster]$ ceph-deploy new node-01 node-02 node-03
+</code></pre>
+
+<h3 id="更改生成的-ceph-集群配置文件">更改生成的 ceph 集群配置文件</h3>
+
+<pre><code class="language-shell">$ cat ceph.conf 
+[global]
+fsid = 64960081-9cfe-4b6f-a9ae-eb9b2be216bc
+mon_initial_members = node-01, node-02, node-03
+mon_host = 172.24.10.20,172.24.10.21,172.24.10.22
+auth_cluster_required = cephx
+auth_service_required = cephx
+auth_client_required = cephx
+
+#更改 osd 个数
+osd pool default size = 6
+[mon]
+#允许 ceph 集群删除 pool
+mon_allow_pool_delete = true
+[mgr]
+mgr modules = dashboard
+</code></pre>
+
+<h3 id="所有节点安装-ceph">所有节点安装 ceph</h3>
+
+<pre><code class="language-shell"> ~]$ ceph-deploy install --no-adjust-repos node-01 node-02 node-03 node-04 node-05 node-06
+ # 不加--no-adjust-repos 会一直使用ceph-deploy提供的默认的源，很坑
+</code></pre>
+
+<h3 id="初始化ceph-monitor-node">初始化ceph monitor node</h3>
+
+<p>初始化mon，收集所有密钥</p>
+
+<pre><code class="language-shell">cd ceph-cluster/
+ceph-deploy mon create-initial
+</code></pre>
+
+<p><strong>报错1：</strong></p>
+
+<pre><code class="language-shell">ceph-mon-2 Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.ceph-mon-2.asok mon_status
+ceph-mon-2 admin_socket: exception getting command descriptions: [Errno 2] No such file or directory
+ceph_deploy.mon mon.ceph-mon-2 monitor is not yet in quorum, tries left: 1
+ceph_deploy.mon waiting 20 seconds before retrying
+ceph_deploy.mon Some monitors have still not reached quorum:
+ceph_deploy.mon ceph-mon-0
+ceph_deploy.mon ceph-mon-1
+ceph_deploy.mon ceph-mon-2
+
+# 查看/var/run/ceph目录
+]$ ls /var/run/ceph/
+ceph-mon.k8s-master-01.asok   // 成节点的主机名的方式命名的
+
+# 移除错误环境
+]$ ceph-deploy mon destroy node-01 node-02 node-03 
+还是不行，主机名必须唯一
+
+</code></pre>
+
+<p><strong>清理环境</strong></p>
+
+<pre><code class="language-shell">$ ceph-deploy purge node-01 node-02 node-03 node-04 node-05 node-06  // 会移除所有与ceph相关的
+$ ceph-deploy purgedata node-01 node-02 node-03 node-04 node-05 node-06
+$ ceph-deploy forgetkeys
+</code></pre>
+
+<p><strong>报错2</strong></p>
+
+<pre><code class="language-shell">[node-03][INFO  ] Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+[ceph_deploy.mon][WARNIN] mon.node-03 monitor is not yet in quorum, tries left: 5
+[ceph_deploy.mon][WARNIN] waiting 5 seconds before retrying
+[node-03][INFO  ] Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+[ceph_deploy.mon][WARNIN] mon.node-03 monitor is not yet in quorum, tries left: 4
+[ceph_deploy.mon][WARNIN] waiting 10 seconds before retrying
+[node-03][INFO  ] Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+[ceph_deploy.mon][WARNIN] mon.node-03 monitor is not yet in quorum, tries left: 3
+[ceph_deploy.mon][WARNIN] waiting 10 seconds before retrying
+[node-03][INFO  ] Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+[ceph_deploy.mon][WARNIN] mon.node-03 monitor is not yet in quorum, tries left: 2
+[ceph_deploy.mon][WARNIN] waiting 15 seconds before retrying
+[node-03][INFO  ] Running command: sudo ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+[ceph_deploy.mon][WARNIN] mon.node-03 monitor is not yet in quorum, tries left: 1
+[ceph_deploy.mon][WARNIN] waiting 20 seconds before retrying
+[ceph_deploy.mon][ERROR ] Some monitors have still not reached quorum:
+[ceph_deploy.mon][ERROR ] node-02
+[ceph_deploy.mon][ERROR ] node-03
+[ceph_deploy.mon][ERROR ] node-01
+</code></pre>
+
+<p><strong>解决</strong></p>
+
+<pre><code class="language-shell">iptables 策略未通过，可以清空规则，或者添加默认的监听端口6789
+</code></pre>
+
+<p><strong>查看启动服务</strong></p>
+
+<pre><code class="language-shell">$ ps -ef|grep ceph
+ceph        4693       1  0 16:45 ?        00:00:00 /usr/bin/ceph-mon -f --cluster ceph --id node-01 --setuser ceph --setgroup ceph
+# 手动停止方法
+
+</code></pre>
+
+<h3 id="osd部署">osd部署</h3>
+
+<p><strong>在管理节点上登录到每个 osd 节点，创建 osd 节点的数据存储目录</strong>(老版本)</p>
+
+<pre><code class="language-shell"># osd-0
+ssh node-01
+sudo mkdir /var/local/osd0
+sudo chown -R ceph.ceph /var/local/osd0
+
+# osd-1
+ssh node-02
+sudo mkdir /var/local/osd1
+sudo chown -R ceph.ceph /var/local/osd1
+
+# osd-2
+ssh node-03
+sudo mkdir /var/local/osd2
+sudo chown -R ceph.ceph /var/local/osd2
+
+# osd-3
+ssh node-04
+sudo mkdir /var/local/osd3
+sudo chown -R ceph.ceph /var/local/osd3
+
+# osd-4
+ssh node-05
+sudo mkdir /var/local/osd4
+sudo chown -R ceph.ceph /var/local/osd4
+
+# osd-5
+ssh node-06
+sudo mkdir /var/local/osd5
+sudo chown -R ceph.ceph /var/local/osd5
+</code></pre>
+
+<p><strong>在管理节点上执行命令，使每个 osd 就绪(prepare)</strong>（老版本）</p>
+
+<pre><code class="language-shell">ceph-deploy osd prepare node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
+# --overwrite-conf
+</code></pre>
+
+<p><strong>激活每个osd节点</strong>（老版本）</p>
+
+<pre><code class="language-shell">ceph-deploy osd activate node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
+</code></pre>
+
+<p><strong>添加激活osd磁盘</strong>(老版本的)</p>
+
+<pre><code class="language-shell">ceph-deploy osd create --bluestore node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5   
+</code></pre>
+
+<p><strong>新版ceph-deploy直接使用create</strong><br />
+相当于prepare,activate,osd create &ndash;bluestore</p>
+
+<pre><code class="language-shell">ceph-deploy osd create --data /dev/sdb node-01
+ceph-deploy osd create --data /dev/sdb node-02
+ceph-deploy osd create --data /dev/sdb node-03
+ceph-deploy osd create --data /dev/sdb node-04
+ceph-deploy osd create --data /dev/sdb node-05
+ceph-deploy osd create --data /dev/sdb node-06
+</code></pre>
+
+<p><strong>在管理节点把配置文件和 admin 密钥拷贝到管理节点和 Ceph 节点</strong></p>
+
+<pre><code class="language-shell">ceph-deploy admin node-01 node-02 node-03 node-04 node-05 node-06
+</code></pre>
+
+<p><strong>在每个节点上赋予 ceph.client.admin.keyring 有操作权限</strong></p>
+
+<pre><code class="language-shell"> sudo ansible ceph -a 'chmod +r /etc/ceph/ceph.client.admin.keyring'
+</code></pre>
+
+<h3 id="部署完成-查看集群状态">部署完成，查看集群状态</h3>
+
+<pre><code class="language-shell">$ ceph -s
+  cluster:
+    id:     64960081-9cfe-4b6f-a9ae-eb9b2be216bc
+    health: HEALTH_WARN
+            clock skew detected on mon.node-02, mon.node-03
+ 
+  services:
+    mon: 3 daemons, quorum node-01,node-02,node-03
+    mgr: node-01(active), standbys: node-02, node-03
+    osd: 6 osds: 6 up, 6 in
+ 
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 bytes
+    usage:   6337 MB used, 113 GB / 119 GB avail
+    pgs:     
+</code></pre>
+
+<p><strong>health问题解决</strong></p>
+
+<pre><code class="language-shell">health: HEALTH_WARN
+            clock skew detected on mon.node-02, mon.node-03
+这个是时间同步造成的
+$ sudo ansible ceph -a 'yum install ntpdate -y'
+$ sudo ansible ceph -a 'systemctl stop ntpdate' 
+$ sudo ansible ceph -a 'ntpdate time.windows.com'
+
+$ ceph -s
+  cluster:
+    id:     64960081-9cfe-4b6f-a9ae-eb9b2be216bc
+    health: HEALTH_OK
+ 
+  services:
+    mon: 3 daemons, quorum node-01,node-02,node-03
+    mgr: node-01(active), standbys: node-03, node-02
+    mds: cephfs-1/1/1 up  {0=node-02=up:active}, 2 up:standby
+    osd: 6 osds: 6 up, 6 in
+ 
+  data:
+    pools:   2 pools, 192 pgs
+    objects: 21 objects, 2246 bytes
+    usage:   6354 MB used, 113 GB / 119 GB avail
+    pgs:     192 active+clean
+</code></pre>
+
+<p>查看状态</p>
+
+<pre><code class="language-shell">$ ceph osd tree
+ID  CLASS WEIGHT  TYPE NAME        STATUS REWEIGHT PRI-AFF 
+ -1       0.11691 root default                             
+ -3       0.01949     host node-01                         
+  0   hdd 0.01949         osd.0        up  1.00000 1.00000 
+ -5       0.01949     host node-02                         
+  1   hdd 0.01949         osd.1        up  1.00000 1.00000 
+ -7       0.01949     host node-03                         
+  2   hdd 0.01949         osd.2        up  1.00000 1.00000 
+ -9       0.01949     host node-04                         
+  3   hdd 0.01949         osd.3        up  1.00000 1.00000 
+-11       0.01949     host node-05                         
+  4   hdd 0.01949         osd.4        up  1.00000 1.00000 
+-13       0.01949     host node-06                         
+  5   hdd 0.01949         osd.5        up  1.00000 1.00000 
+</code></pre>
+
+<p>查看挂载</p>
+
+<pre><code class="language-shell">$ df -Th        
+Filesystem              Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs        17G  1.5G   16G   9% /
+devtmpfs                devtmpfs  478M     0  478M   0% /dev
+tmpfs                   tmpfs     488M     0  488M   0% /dev/shm
+tmpfs                   tmpfs     488M  6.6M  482M   2% /run
+tmpfs                   tmpfs     488M     0  488M   0% /sys/fs/cgroup
+/dev/sda1               xfs      1014M  153M  862M  16% /boot
+tmpfs                   tmpfs      98M     0   98M   0% /run/user/0
+tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-0
+
+]$ cat /var/lib/ceph/osd/ceph-0/type
+bluestore
+</code></pre>
+
+<h3 id="配置ceph-mgr">配置ceph-mgr</h3>
+
+<p>自从ceph 12开始，manager是必须的。应该为每个运行monitor的机器添加一个mgr，否则集群处于WARN状态。</p>
+
+<pre><code class="language-shell">$ ceph-deploy mgr create node-01 node-02 node-03
+ceph config-key put mgr/dashboard/server_addr 172.24.10.20
+ceph config-key put mgr/dashboard/server_port 7000
+ceph mgr module enable dashboard 
+http://172.24.10.20:7000/
+
+</code></pre>
+
+<h3 id="部署ceph-fs">部署ceph-fs</h3>
+
+<p><a href="http://docs.ceph.com/docs/master/rados/operations/placement-groups/">http://docs.ceph.com/docs/master/rados/operations/placement-groups/</a></p>
+
+<pre><code class="language-shell">$ ceph-deploy mds create node-01 node-02 node-03 
+$ ceph osd pool create cephfs_data 128
+$ ceph osd pool create cephfs_metadata 64
+$ ceph fs new cephfs cephfs_metadata cephfs_data
+$ ceph fs ls
+name: cephfs, metadata pool: cephfs_metadata, data pools: [cephfs_data ]
+
+$ ceph mds stat 
+cephfs-1/1/1 up  {0=node-02=up:active}, 2 up:standby
+虽然支持多 active mds并行运行，但官方文档建议保持一个active mds，其他mds作为standby
+</code></pre>
+
+<h3 id="挂载fs">挂载fs</h3>
+
+<p>client是规划在node2上的<br />
+在物理机上挂载cephfs可以使用mount命令、mount.ceph(apt-get install ceph-fs-common)或ceph-fuse(apt-get install ceph-fuse)，我们先用mount命令挂载</p>
+
+<pre><code class="language-shell">$ sudo mkdir /data/ceph-storage/ -p
+$ sudo chown -R ceph.ceph /data/ceph-storage
+
+$ ceph-authtool -l /etc/ceph/ceph.client.admin.keyring
+[client.admin]
+        key = AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ==
+
+$ sudo mount -t ceph 172.24.10.21:6789:/ /data/ceph-storage/ -o name=admin,secret=AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ==
+
+$ df -Th
+Filesystem              Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs        17G  1.5G   16G   9% /
+devtmpfs                devtmpfs  478M     0  478M   0% /dev
+tmpfs                   tmpfs     488M     0  488M   0% /dev/shm
+tmpfs                   tmpfs     488M  6.7M  481M   2% /run
+tmpfs                   tmpfs     488M     0  488M   0% /sys/fs/cgroup
+/dev/sda1               xfs      1014M  153M  862M  16% /boot
+tmpfs                   tmpfs      98M     0   98M   0% /run/user/0
+tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-1
+tmpfs                   tmpfs      98M     0   98M   0% /run/user/1000
+172.24.10.21:6789:/     ceph      120G  6.3G  114G   6% /data/ceph-storage
+</code></pre>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/books/"></a></li>
+        
+        <li><a href="/about/">About me</a></li>
+        
+        <li><a href="/archives/">归档</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://www.bestsre.com/tags/Ceph">Ceph</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://www.bestsre.com">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/" title="kubeadm部署kubernetes集群">kubeadm部署kubernetes集群</a>
+    </li>
+    
+    <li>
+        <a href="https://www.bestsre.com/post/ceph-luminous-cluster/" title="ceph-luminous-cluster">ceph-luminous-cluster</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.bestsre.com/categories/Ceph/">Ceph(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.bestsre.com/categories/Kubernetes/">Kubernetes(1)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://www.bestsre.com/tags/Ceph/">Ceph</a>
+    
+    <a href="https://www.bestsre.com/tags/Kubernetes/">Kubernetes</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://www.bestsre.com/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://www.bestsre.com">黑夜浮屠 By Galen</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129052460-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

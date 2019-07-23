@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on 黑夜浮屠</title>
+    <link>https://www.bestsre.com/tags/Kubernetes/</link>
+    <description>Recent content in Kubernetes on 黑夜浮屠</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 10 Nov 2018 11:33:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.bestsre.com/tags/Kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kubeadm部署kubernetes集群</title>
+      <link>https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/</link>
+      <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/</guid>
+      <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新，kubeadm会对集群配置方面的一些实践做调整，通过实验kubeadm可以学习到Kubernetes官方在集群配置上一些新的最佳实践。
+在Kubernetes的文档Creating a single master cluster with kubeadm中已经给出了目前kubeadm的主要特性已经处于beta状态了，在2018年将进入GA状态，说明kubeadm离可以在生产环境中使用的距离越来越近了。
+当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.</description>
+    </item>
+    
+  </channel>
+</rss>

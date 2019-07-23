@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on 自斟自饮</title>
+    <link>https://www.bestsre.com/categories/Network/</link>
+    <description>Recent content in Network on 自斟自饮</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 25 Jan 2019 11:33:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.bestsre.com/categories/Network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>抓包神器tcpdump基本使用</title>
+      <link>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
+      <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。
+tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c count ] [ -C file_size ] [ -G rotate_seconds ] [ -F file ] [ -i interface ] [ -m module ] [ -M secret ] [ -r file ] [ -s snaplen ] [ -T type ] [ -w file ] [ -W filecount ] [ -E spi@ipaddr algo:secret,.</description>
+    </item>
+    
+  </channel>
+</rss>

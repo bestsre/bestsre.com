@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 黑夜浮屠</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Nov 2018 11:33:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
 	<atom:link href="https://www.bestsre.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Kubernetes</title>
       <link>https://www.bestsre.com/categories/Kubernetes/</link>
-      <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
+      <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/categories/Kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://www.bestsre.com/categories/Linux/</link>
+      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/categories/Linux/</guid>
       <description></description>
     </item>
     
@@ -26,6 +35,15 @@
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/categories/Ceph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB</title>
+      <link>https://www.bestsre.com/categories/MongoDB/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/categories/MongoDB/</guid>
       <description></description>
     </item>
     

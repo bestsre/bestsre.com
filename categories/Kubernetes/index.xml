@@ -6,10 +6,32 @@
     <description>Recent content in Kubernetes on 黑夜浮屠</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Nov 2018 11:33:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
 	<atom:link href="https://www.bestsre.com/categories/Kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubeadm平滑升级kubernetes集群</title>
+      <link>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.</description>
+    </item>
+    
+    <item>
+      <title>kubeadm拉取谷歌镜像被墙问题解决</title>
+      <link>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
+不扯淡了，直接说方法
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建）
+ github（提交dockerfile，触发自动构建）
+ dockerfile文件</description>
+    </item>
     
     <item>
       <title>kubeadm部署kubernetes集群</title>

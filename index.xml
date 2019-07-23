@@ -6,10 +6,42 @@
     <description>Recent content on 黑夜浮屠</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Nov 2018 11:33:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
 	<atom:link href="https://www.bestsre.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubeadm平滑升级kubernetes集群</title>
+      <link>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.</description>
+    </item>
+    
+    <item>
+      <title>kubeadm拉取谷歌镜像被墙问题解决</title>
+      <link>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
+不扯淡了，直接说方法
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建）
+ github（提交dockerfile，触发自动构建）
+ dockerfile文件</description>
+    </item>
+    
+    <item>
+      <title>抓包神器tcpdump基本使用</title>
+      <link>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
+      <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。
+tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c count ] [ -C file_size ] [ -G rotate_seconds ] [ -F file ] [ -i interface ] [ -m module ] [ -M secret ] [ -r file ] [ -s snaplen ] [ -T type ] [ -w file ] [ -W filecount ] [ -E spi@ipaddr algo:secret,.</description>
+    </item>
     
     <item>
       <title>kubeadm部署kubernetes集群</title>
@@ -60,6 +92,18 @@
       
       <guid>https://www.bestsre.com/archives/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB 3.6分片复制集群</title>
+      <link>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
+      <description>mongos
+数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。
+ config server
+顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！</description>
     </item>
     
   </channel>

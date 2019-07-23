@@ -64,9 +64,21 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
     </item>
     
     <item>
+      <title>MongoDB 3.6分片复制集群</title>
+      <link>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
+      <description>mongos
+数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。
+ config server
+顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://www.bestsre.com/books/</link>
-      <pubDate>Sun, 18 Mar 2018 20:53:54 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
       <guid>https://www.bestsre.com/books/</guid>
       <description>Kubernetes
@@ -78,7 +90,7 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
     <item>
       <title>About me</title>
       <link>https://www.bestsre.com/about/</link>
-      <pubDate>Sun, 18 Mar 2018 20:53:54 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
       <guid>https://www.bestsre.com/about/</guid>
       <description> Originally Nothing!
@@ -88,22 +100,10 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
     <item>
       <title>归档</title>
       <link>https://www.bestsre.com/archives/</link>
-      <pubDate>Sun, 18 Mar 2018 20:53:54 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
       <guid>https://www.bestsre.com/archives/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>MongoDB 3.6分片复制集群</title>
-      <link>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</link>
-      <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
-      
-      <guid>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
-      <description>mongos
-数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。
- config server
-顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！</description>
     </item>
     
   </channel>

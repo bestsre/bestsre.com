@@ -9,6 +9,12 @@
   </url>
   
   <url>
+    <loc>https://www.bestsre.com/</loc>
+    <lastmod>2019-03-10T11:33:24+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.bestsre.com/categories/Kubernetes/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <priority>0</priority>
@@ -35,12 +41,6 @@
   <url>
     <loc>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.bestsre.com/</loc>
-    <lastmod>2019-03-10T11:33:24+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

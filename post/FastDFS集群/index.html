@@ -71,7 +71,7 @@ FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务�
 FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务器(Storage Server)和客户端(Client)">
 <meta itemprop="datePublished" content="2018-01-15T16:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-15T16:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="478">
+<meta itemprop="wordCount" content="598">
 
 
 
@@ -319,7 +319,7 @@ if (!doNotTrack) {
             <a href="https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"> 分布式文件系统 </a>
             
           </div>
-        <span class="more-meta"> 478 words </span>
+        <span class="more-meta"> 598 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -419,27 +419,84 @@ if (!doNotTrack) {
 </table>
 <h2 id="fastdfs">FastDFS安装配置</h2>
 <h3 id="heading-1">安装开发环境</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># yum groupinstall &#34;Development Tools&#34; &#34;Server platform Development&#34; -y</span>
-</code></pre></div><h3 id="libfastcommon">安装libfastcommon</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/libfastcommon.git</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># yum groupinstall &#34;Development Tools&#34; &#34;Server platform Development&#34; -y</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="libfastcommon">安装libfastcommon</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/libfastcommon.git</span>
 <span class="c1"># cd libfastcommon/</span>
 <span class="c1"># ./make.sh</span>
 <span class="c1"># ./make.sh install</span>
-</code></pre></div><h3 id="fastdfs-1">安装Fastdfs</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/fastdfs.git</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="fastdfs-1">安装Fastdfs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/fastdfs.git</span>
 <span class="c1"># cd fastdfs/</span>
 <span class="c1"># ./make.sh</span>
 <span class="c1"># ./make.sh install</span>
-</code></pre></div><p>3台机器都按这种方式安装好</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>3台机器都按这种方式安装好</p>
 <h3 id="tracker">配置Tracker</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /etc/fdfs/</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /etc/fdfs/</span>
 <span class="c1"># cp tracker.conf.sample tracker.conf</span>
 <span class="c1"># vim tracker.conf</span>
 <span class="nv">base_path</span><span class="o">=</span>/data/fdfs/tracker
 <span class="c1"># mkdir -pv /data/fdfs/tracker</span>
 <span class="c1"># /etc/init.d/fdfs_trackerd start  启动服务</span>
-</code></pre></div><h3 id="storage">配置Storage</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /etc/fdfs/</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="storage">配置Storage</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /etc/fdfs/</span>
 <span class="c1"># cp storage.conf.sample storage.conf</span>
 <span class="c1"># vim storage.conf</span>
 <span class="nv">group_name</span><span class="o">=</span>G1  <span class="c1">#指定组名</span>
@@ -453,8 +510,22 @@ if (!doNotTrack) {
 
 <span class="c1"># mkdir -pv /data/fdfs/storage/m0</span>
 <span class="c1"># /etc/init.d/fdfs_storaged start</span>
-</code></pre></div><h3 id="client">配置client</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cp client.conf.sample client.conf</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="client">配置client</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cp client.conf.sample client.conf</span>
 <span class="c1"># vim client.conf</span>
 <span class="nv">base_path</span><span class="o">=</span>/data/fdfs/client
 <span class="nv">tracker_server</span><span class="o">=</span>192.168.1.115:22122
@@ -462,43 +533,120 @@ if (!doNotTrack) {
 <span class="nv">tracker_server</span><span class="o">=</span>192.168.1.106:22122
 
 <span class="c1"># mkdir /data/fdfs/client</span>
-</code></pre></div><p>将3个配置文件分别拷贝到另外两台机器</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># scp client.conf storage.conf tracker.conf 192.168.1.106:/etc/fdfs/</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>将3个配置文件分别拷贝到另外两台机器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># scp client.conf storage.conf tracker.conf 192.168.1.106:/etc/fdfs/</span>
 <span class="c1"># scp client.conf storage.conf tracker.conf 192.168.1.115:/etc/fdfs/</span>
 <span class="c1"># /etc/init.d/fdfs_trackerd restart</span>
 <span class="c1"># /etc/init.d/fdfs_storaged restart</span>
-</code></pre></div><h2 id="fastdfs-2">测试FastDFS</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="fastdfs-2">测试FastDFS</h2>
 <h3 id="heading-2">上传文件</h3>
 <ul>
 <li>fdfs_upload_file [storage_ip:port] [store_path_index]</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_upload_file /etc/fdfs/client.conf /etc/issue</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_upload_file /etc/fdfs/client.conf /etc/issue</span>
 G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622
 报错：
 <span class="o">[</span>2016-08-17 18:06:28<span class="o">]</span> ERROR - file: connection_pool.c, line: 130, connect to 192.168.1.115:22122 fail, errno: 113, error info: No route to host
 防火墙的原因 iptables -F
-</code></pre></div><h3 id="heading-3">查看文件</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading-3">查看文件</h3>
 <ul>
 <li>fdfs_file_info</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_file_info /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_file_info /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
 <span class="nb">source</span> storage id: <span class="m">0</span>
 <span class="nb">source</span> ip address: 192.168.1.104
 file create timestamp: 2016-08-17 19:32:55
 file size: <span class="m">23</span>
 file crc32: <span class="m">2097312431</span> <span class="o">(</span>0x7D0272AF<span class="o">)</span>
-</code></pre></div><h3 id="heading-4">下载文件</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading-4">下载文件</h3>
 <ul>
 <li>fdfs_download_file [local_filename] <input disabled="" type="checkbox"></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_download_file /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
-</code></pre></div><h3 id="heading-5">查看存储节点状态</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_monitor /etc/fdfs/client.conf</span>
-</code></pre></div><h2 id="nginxstorage-serverhttp">配置nginx为storage server提供http访问接口</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_download_file /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading-5">查看存储节点状态</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># fdfs_monitor /etc/fdfs/client.conf</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="nginxstorage-serverhttp">配置nginx为storage server提供http访问接口</h2>
 <h3 id="fastdfs-nginx-module">下载fastdfs-nginx-module</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/fastdfs-nginx-module.git</span>
-</code></pre></div><h3 id="nginxfastdfs">下载nginx源码，并编译支持fastdfs</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># yum install openssl-devel pcre-devel -y &amp;&gt;/dev/null</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># git clone https://github.com/happyfish100/fastdfs-nginx-module.git</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nginxfastdfs">下载nginx源码，并编译支持fastdfs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># yum install openssl-devel pcre-devel -y &amp;&gt;/dev/null</span>
 <span class="c1"># wget http://nginx.org/download/nginx-1.10.1.tar.gz &amp;&gt;/dev/null</span>
 <span class="c1"># tar -xf nginx-1.10.1.tar.gz</span>
 <span class="c1"># useradd -s /sbin/nologin -M nginx</span>
@@ -515,11 +663,41 @@ file crc32: <span class="m">2097312431</span> <span class="o">(</span>0x7D0272AF
 </span><span class="se"></span>--with-pcre --add-module<span class="o">=</span>../fastdfs-nginx-module/src
 <span class="c1"># make -j 8</span>
 <span class="c1"># make install</span>
-</code></pre></div><h3 id="heading-6">复制配置文件</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#  cp /root/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading-6">复制配置文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#  cp /root/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/</span>
 <span class="c1">#  cp /root/fastdfs/conf/{http.conf,mime.types}  /etc/fdfs/</span>
-</code></pre></div><h3 id="fastdfs-nginx-module-1">配置fastdfs-nginx-module配置文件</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">base_path</span><span class="o">=</span>/data/fdfs/storage <span class="c1">#存储节点的目录位置</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="fastdfs-nginx-module-1">配置fastdfs-nginx-module配置文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">base_path</span><span class="o">=</span>/data/fdfs/storage <span class="c1">#存储节点的目录位置</span>
 <span class="nv">tracker_server</span><span class="o">=</span>192.168.1.115:22122
 <span class="nv">tracker_server</span><span class="o">=</span>192.168.1.104:22122
 <span class="nv">tracker_server</span><span class="o">=</span>192.168.1.106:22122   <span class="c1">#指定定tracker-server</span>
@@ -535,32 +713,84 @@ file crc32: <span class="m">2097312431</span> <span class="o">(</span>0x7D0272AF
 <span class="nv">store_path0</span><span class="o">=</span>/data/fdfs/storage/m0
 <span class="c1"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.106:/etc/fdfs</span>
 <span class="c1"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.115:/etc/fdfs</span>
-</code></pre></div><h3 id="nginx">配置nginx</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/nginx/nginx.conf</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nginx">配置nginx</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/nginx/nginx.conf</span>
  location ~ /G<span class="o">[</span>0-9<span class="o">]</span>+/M00/ <span class="o">{</span>
         root /data/fdfs/storage/m0/data/<span class="p">;</span>
         ngx_fastdfs_module<span class="p">;</span>
         <span class="o">}</span>
 <span class="c1"># /usr/local/nginx/sbin/nginx</span>
-</code></pre></div><h3 id="m00">为存储文件路径穿件链接至M00</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ln -sv /data/fdfs/storage/m0/data  /data/fdfs/storage/m0/data/M00</span>
-</code></pre></div><h3 id="nginxstorage">启动nginx和重启storage并上传文件测试</h3>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># /usr/local/nginx/sbin/nginx</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="m00">为存储文件路径穿件链接至M00</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ln -sv /data/fdfs/storage/m0/data  /data/fdfs/storage/m0/data/M00</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nginxstorage">启动nginx和重启storage并上传文件测试</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># /usr/local/nginx/sbin/nginx</span>
 <span class="c1"># fdfs_upload_file /etc/fdfs/client.conf /usr/share/wallpapers/CentOS7/contents/images/2560x1600.jpg</span>
 G1/M00/00/00/wKgBc1e0UamAEKGjAA6q2wjnW8s725.jpg
-</code></pre></div><h3 id="heading-7">访问查看</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading-7">访问查看</h3>
 <p>http://192.168.1.106/G1/M00/00/00/wKgBaFe0UhKAbRbCAA6q2wjnW8s458.jpg
 http://192.168.1.104/G1/M00/00/00/wKgBaFe0UhKAbRbCAA6q2wjnW8s458.jpg
 http://192.168.1.115/G1/M00/00/00/wKgBaFe0UhKAbRbCAA6q2wjnW8s458.jpg</p>
 <h2 id="heading-8">错误排查</h2>
 <h3 id="nginx400">通过nginx访问400错误</h3>
 <p>修改<code>mod_fastdfs.conf</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># default value is false</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># default value is false</span>
 <span class="nv">url_have_group_name</span> <span class="o">=</span> <span class="nb">true</span>
-</code></pre></div><p>修改之后重启nginx，和storage</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>修改之后重启nginx，和storage</p>
 <h3 id="28">返回28错误码</h3>
 <p>考虑是磁盘空间不足，无法上传新文件</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@FastDFS-S1 ~<span class="o">]</span><span class="c1"># fdfs_upload_file /etc/fdfs/client.conf 1.txt</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@FastDFS-S1 ~<span class="o">]</span><span class="c1"># fdfs_upload_file /etc/fdfs/client.conf 1.txt</span>
 <span class="o">[</span>2017-05-01 15:10:33<span class="o">]</span> ERROR - file: tracker_proto.c, line: 48, server: 192.168.1.106:22122, response status <span class="m">28</span> !<span class="o">=</span> <span class="m">0</span>
 tracker_query_storage fail, error no: 28, error info: No space left on device
 <span class="o">[</span>root@FastDFS-S1 ~<span class="o">]</span><span class="c1"># df -h</span>
@@ -570,19 +800,41 @@ tmpfs                 3.9G     <span class="m">0</span>  3.9G   0% /dev/shm
 /dev/mapper/vgs_data-lvol0
                       983G  835G   99G  90% /opt
 
-</code></pre></div><p>发现空间还是够的，查看预留空间值</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/fdfs/tracker.conf</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>发现空间还是够的，查看预留空间值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/fdfs/tracker.conf</span>
 <span class="nv">reserved_storage_space</span> <span class="o">=</span> 10%  <span class="c1"># 预留了10%的空间，很显然现在空间只剩10%的样子</span>
-</code></pre></div><p><strong>临时解决方案：</strong>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>临时解决方案：</strong>
 图片服务器会保留很多已经失效的图片，如果不做好图片清理回收机制，在这方面投入将是无底洞<code>(穷)</code>，还是得根据业务来。
 如果图片必须保存后面需要磁盘扩容前期就得做好规划，比如使用lvm逻辑卷等</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/fdfs/tracker.conf</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># vim /etc/fdfs/tracker.conf</span>
 <span class="nv">reserved_storage_space</span> <span class="o">=</span> 5%   <span class="c1"># 所有tracker节点都修改下，然后重启服务</span>
 <span class="c1"># /etc/init.d/fdfs_trackerd restart</span>
 <span class="c1"># /etc/init.d/fdfs_storaged restart</span>
 <span class="c1"># fdfs_upload_file /etc/fdfs/client.conf 1.txt   上传测试</span>
 G1/M00/83/8D/CixLa1kG4U-ARX-uAAAAAAAAAAA379.txt
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

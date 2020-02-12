@@ -74,7 +74,7 @@
 当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.12中的kubeadm是为了跟随官方对集群初始化和配置方面的最佳实践，进一步完善我们的ansible部署脚本。">
 <meta itemprop="datePublished" content="2018-11-10T11:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="585">
 
 
 
@@ -323,7 +323,7 @@ if (!doNotTrack) {
             <a href="https://www.bestsre.com/categories/kubernetes/"> Kubernetes </a>
             
           </div>
-        <span class="more-meta"> 464 words </span>
+        <span class="more-meta"> 585 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -399,54 +399,148 @@ if (!doNotTrack) {
 </table>
 <h3 id="heading-2">系统配置</h3>
 <p><strong>hosts</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cat /etc/hosts
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat /etc/hosts
 192.168.2.45 k8s-master-45
 192.168.2.46 k8s-work-46
 192.168.2.47 k8s-work-47
-</code></pre></div><p><strong>禁用selinux,firewalld</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 禁用selinux</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>禁用selinux,firewalld</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 禁用selinux</span>
 vi /etc/selinux/config
 <span class="nv">SELINUX</span><span class="o">=</span>disabled
 <span class="c1"># 禁用firewalld</span>
 systemctl stop firewalld
 systemctl disable firewalld
-</code></pre></div><p><strong>内核配置</strong>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>内核配置</strong>
 配置网桥参数，使得流量不会绕过<code>iptable</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># vim /etc/sysctl.d/k8s.conf</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># vim /etc/sysctl.d/k8s.conf</span>
 net.bridge.bridge-nf-call-ip6tables <span class="o">=</span> <span class="m">1</span>
 net.bridge.bridge-nf-call-iptables <span class="o">=</span> <span class="m">1</span>
 net.ipv4.ip_forward <span class="o">=</span> <span class="m">1</span>
 <span class="c1"># modprobe br_netfilter</span>
 <span class="c1"># sysctl -p /etc/sysctl.d/k8s.conf</span>
-</code></pre></div><p><strong>禁用swap</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">swapoff -a <span class="c1"># 临时</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>禁用swap</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">swapoff -a <span class="c1"># 临时</span>
 <span class="c1"># 永久，注释swap相关</span>
 vim /etc/fstab
 <span class="c1">#/dev/mapper/centos-swap swap                    swap    defaults        0 0</span>
 mount -a
 reboot
-</code></pre></div><p><strong>安装docker-ce</strong></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>安装docker-ce</strong></p>
 <blockquote>
 <p>需要注意的是，Kubernetes 1.12已经针对Docker的1.11.1, 1.12.1, 1.13.1, 17.03, 17.06, 17.09, 18.06等版本做了验证，最低支持的Docker版本是1.11.1，最高支持是18.06，Docker最新版本已经是18.09了，故我们安装时需要指定版本为18.06.1-ce</p>
 </blockquote>
 <p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#external-dependencies">查看扩展组件依赖版本</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yum install -y yum-utils device-mapper-persistent-data lvm2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager <span class="se">\
 </span><span class="se"></span>    --add-repo <span class="se">\
 </span><span class="se"></span>    https://download.docker.com/linux/centos/docker-ce.repo
 yum install docker-ce-18.06.1.ce-3.el7 -y
 systemctl start docker
 systemctl <span class="nb">enable</span> docker
-</code></pre></div><p><strong>调整时区</strong>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>调整时区</strong>
 时区不对，时间差较大，证书验证会不通过</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yum install ntpdate -y
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yum install ntpdate -y
 ntpdate time.windows.com
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></div><h2 id="kubeadmkubernetes">使用kubeadm部署Kubernetes</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="kubeadmkubernetes">使用kubeadm部署Kubernetes</h2>
 <h3 id="kubeadmkubelet">安装kubeadm和kubelet</h3>
 <p>每个节点进行安装
 <strong>yum源</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># google</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># google</span>
 cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
 </span><span class="s">[kubernetes]
 </span><span class="s">name=Kubernetes
@@ -468,17 +562,54 @@ cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
 </span><span class="s">repo_gpgcheck=1
 </span><span class="s">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 </span><span class="s">EOF</span>
-</code></pre></div><p><strong>安装</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yum install -y kubelet kubeadm kubectl ipvsadm
-</code></pre></div><h3 id="kubeadm-init">使用kubeadm init初始化集群</h3>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>安装</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yum install -y kubelet kubeadm kubectl ipvsadm
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="kubeadm-init">使用kubeadm init初始化集群</h3>
 <p><strong>设置kubelet开机启动</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl <span class="nb">enable</span> kubelet.service
-</code></pre></div><p><strong>kubeadm配置文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">systemctl <span class="nb">enable</span> kubelet.service
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>kubeadm配置文件</strong></p>
 <blockquote>
 <p>在kubeadm v1.11+版本中，增加了一个<code>kubeadm config print-default</code>命令，可以让我们方便的将kubeadm的默认配置输出至文件中，修改成自己想要的</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat kubeadm.yaml</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>kubeadm.k8s.io/v1alpha2<span class="w">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat kubeadm.yaml</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>kubeadm.k8s.io/v1alpha2<span class="w">
 </span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>MasterConfiguration<span class="w">
 </span><span class="w"></span>controllerManagerExtraArgs<span class="p">:</span><span class="w">
 </span><span class="w">  </span>horizontal-pod-autoscaler-use-rest-clients<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
@@ -488,22 +619,78 @@ cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
 </span><span class="w">  </span>runtime-config<span class="p">:</span><span class="w"> </span><span class="s2">&#34;api/all=true&#34;</span><span class="w">
 </span><span class="w"></span>kubernetesVersion<span class="p">:</span><span class="w"> </span><span class="s2">&#34;stable-1.12&#34;</span><span class="w"> </span><span class="c"># 指定版本v1.12.2</span><span class="w">
 </span><span class="w"></span>imageRepository<span class="p">:</span><span class="w"> </span>registry.aliyuncs.com/google_containers<span class="w"> </span><span class="c"># 指定阿里云的镜像库</span><span class="w">
-</span></code></pre></div><p><strong>镜像获取</strong>
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>镜像获取</strong>
 这种部署方式最蛋疼的地方就是拉取镜像了，主要是下面几个镜像，也可以从国内pull到本地重新打tag</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm config images pull --config kubeadm.yaml
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">registry.aliyuncs.com/google_containers/kube-apiserver:v1.12.2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm config images pull --config kubeadm.yaml
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">registry.aliyuncs.com/google_containers/kube-apiserver:v1.12.2
 registry.aliyuncs.com/google_containers/kube-controller-manager:v1.12.2
 registry.aliyuncs.com/google_containers/kube-scheduler:v1.12.2
 registry.aliyuncs.com/google_containers/kube-proxy:v1.12.2
 registry.aliyuncs.com/google_containers/pause:3.1     
 registry.aliyuncs.com/google_containers/etcd:3.2.24
 registry.aliyuncs.com/google_containers/coredns:1.2.2
-</code></pre></div><p><strong>初始化集群</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm init --config kubeadm.yaml
-</code></pre></div><p>重新初始化可以执行</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm reset
-</code></pre></div><p>就可以完成 Kubernetes Master 的部署了，部署完成后，kubeadm 会生成一行指令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Your Kubernetes master has initialized successfully!
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>初始化集群</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm init --config kubeadm.yaml
+</code></pre></td></tr></table>
+</div>
+</div><p>重新初始化可以执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm reset
+</code></pre></td></tr></table>
+</div>
+</div><p>就可以完成 Kubernetes Master 的部署了，部署完成后，kubeadm 会生成一行指令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Your Kubernetes master has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 
@@ -519,40 +706,121 @@ You can now join any number of machines by running the following on each node
 as root:
 
   kubeadm join 192.168.2.45:6443 --token 2qncip.5p98b3zuvi9rumwk --discovery-token-ca-cert-hash sha256:3227d728428eaba7145196d66dc954a554be6a3ae2d32d088632a8561602fd48
-</code></pre></div><p>这个 kubeadm join 命令，就是用来给这个 Master节点添加更多工作节点（Worker）的命令
+</code></pre></td></tr></table>
+</div>
+</div><p>这个 kubeadm join 命令，就是用来给这个 Master节点添加更多工作节点（Worker）的命令
 kubeadm 还会提示我们第一次使用 Kubernetes集群所需要的配置命令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p <span class="nv">$HOME</span>/.kube
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p <span class="nv">$HOME</span>/.kube
 sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
 sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
-</code></pre></div><p><strong>获取当前节点状态</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>获取当前节点状态</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
 NAME            STATUS     ROLES    AGE     VERSION
 k8s-master-45   NotReady   master   5m13s   v1.12.2
-</code></pre></div><p>NodeNotReady 的原因在于，我们尚未部署任何网络插件
+</code></pre></td></tr></table>
+</div>
+</div><p>NodeNotReady 的原因在于，我们尚未部署任何网络插件
 通过 kubectl describe 指令的输出可以看到，CoreDNS、kube-controller-manager等依赖于网络的 Pod 都处于 Pending 状态，即调度失败。这当然是符合预期的因为这个 Master 节点的网络尚未就绪.</p>
 <h3 id="heading-3">部署网络插件</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl apply -f <span class="s2">&#34;</span><span class="s2">https://cloud.weave.works/k8s/net?k8s-version=</span><span class="k">$(</span>kubectl version <span class="p">|</span> base64 <span class="p">|</span> tr -d <span class="s1">&#39;\n&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
-</code></pre></div><p>部署之后状态</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubectl apply -f <span class="s2">&#34;</span><span class="s2">https://cloud.weave.works/k8s/net?k8s-version=</span><span class="k">$(</span>kubectl version <span class="p">|</span> base64 <span class="p">|</span> tr -d <span class="s1">&#39;\n&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>部署之后状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
 NAME            STATUS   ROLES    AGE     VERSION
 k8s-master-45   Ready    master   6m29s   v1.12.2
-</code></pre></div><h3 id="worker">部署worker节点</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="worker">部署worker节点</h3>
 <p><strong>启动kubelet</strong>
 pause镜像</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker pull registry.aliyuncs.com/google_containers/pause:3.1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker pull registry.aliyuncs.com/google_containers/pause:3.1
 sudo docker tag registry.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
-</code></pre></div><p>启动kubelet</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start kubelet
-</code></pre></div><p>执行部署 Master 节点时生成的 kubeadm join 指令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm join 192.168.2.45:6443 --token 2qncip.5p98b3zuvi9rumwk --discovery-token-ca-cert-hash sha256:3227d728428eaba7145196d66dc954a554be6a3ae2d32d088632a8561602fd48
-</code></pre></div><p><strong>集群状态</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
+</code></pre></td></tr></table>
+</div>
+</div><p>启动kubelet</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start kubelet
+</code></pre></td></tr></table>
+</div>
+</div><p>执行部署 Master 节点时生成的 kubeadm join 指令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm join 192.168.2.45:6443 --token 2qncip.5p98b3zuvi9rumwk --discovery-token-ca-cert-hash sha256:3227d728428eaba7145196d66dc954a554be6a3ae2d32d088632a8561602fd48
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>集群状态</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubectl get node
 NAME            STATUS   ROLES    AGE     VERSION
 k8s-master-45   Ready    master   26m     v1.12.2
 k8s-work-46     Ready    &lt;none&gt;   8m51s   v1.12.2
 k8s-work-47     Ready    &lt;none&gt;   2m28s   v1.12.2
-</code></pre></div><p>添加角色标签</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl label node k8s-work-46 node-role.kubernetes.io/worker<span class="o">=</span>worker
+</code></pre></td></tr></table>
+</div>
+</div><p>添加角色标签</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kubectl label node k8s-work-46 node-role.kubernetes.io/worker<span class="o">=</span>worker
 kubectl label node k8s-work-47 node-role.kubernetes.io/worker<span class="o">=</span>worker
 
 kubectl get node
@@ -560,7 +828,9 @@ NAME            STATUS   ROLES    AGE     VERSION
 k8s-master-45   Ready    master   27m     v1.12.2
 k8s-work-46     Ready    worker   10m     v1.12.2
 k8s-work-47     Ready    worker   3m52s   v1.12.2
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

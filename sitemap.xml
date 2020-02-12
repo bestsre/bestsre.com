@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/categories/kubernetes/</loc>
+    <loc>https://www.bestsre.com/tags/kubernetes/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/kubernetes/</loc>
+    <loc>https://www.bestsre.com/categories/kubernetes/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/categories/linux/</loc>
+    <loc>https://www.bestsre.com/tags/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/linux/</loc>
+    <loc>https://www.bestsre.com/categories/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/ceph/</loc>
+    <loc>https://www.bestsre.com/categories/ceph/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/categories/ceph/</loc>
+    <loc>https://www.bestsre.com/tags/ceph/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -17,7 +17,7 @@
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/ceph-luminous-cluster/</guid>
-      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。</description>
+      <description>ceph概述 Ceph 是一个</description>
     </item>
     
     <item>
@@ -26,8 +26,7 @@
       <pubDate>Mon, 15 Jan 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</guid>
-      <description>FastDFS 是一个开源的高性能分布式文件系统（DFS）。 它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问题，特别适合以中小文件（建议范围：4KB &amp;lt; file_size &amp;lt;500MB）为载体的在线服务。
-FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务器(Storage Server)和客户端(Client)</description>
+      <description>FastDFS 是一个开源的高性能</description>
     </item>
     
   </channel>

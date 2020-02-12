@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="https://www.bestsre.com/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://www.bestsre.com/categories/</loc>
@@ -83,12 +82,12 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/categories/MongoDB/</loc>
+    <loc>https://www.bestsre.com/tags/MongoDB/</loc>
     <lastmod>2018-03-15T16:33:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/MongoDB/</loc>
+    <loc>https://www.bestsre.com/categories/MongoDB/</loc>
     <lastmod>2018-03-15T16:33:24+08:00</lastmod>
   </url>
   

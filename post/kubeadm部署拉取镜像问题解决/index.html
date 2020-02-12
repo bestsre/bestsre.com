@@ -25,8 +25,7 @@
 <meta name="author" content="黑夜浮屠" />
   <meta name="description" content="很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
- 1、查看当前kubeadm部署的镜像版本 $ kubeadm config images list I0508 13:47:27.777458 11521 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable-1.txt&amp;#34;: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) I0508 13:47:27.777532 11521 version.go:97] falling back to the local client version: v1.14.1 k8s.gcr.io/kube-apiserver:v1.14.1 k8s.gcr.io/kube-controller-manager:v1.14.1 k8s.gcr.io/kube-scheduler:v1.14.1 k8s.gcr.io/kube-proxy:v1.14.1 k8s.gcr.io/pause:3.1 k8s.gcr.io/etcd:3.3.10 k8s.gcr.io/coredns:1.3.1 2、dockerfile 目录 创建好对应的目录，一个镜像一个仓库一个目录" />
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路" />
 
 
 
@@ -64,8 +63,7 @@
 <meta property="og:title" content="kubeadm拉取谷歌镜像被墙问题解决" />
 <meta property="og:description" content="很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
- 1、查看当前kubeadm部署的镜像版本 $ kubeadm config images list I0508 13:47:27.777458 11521 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable-1.txt&#34;: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) I0508 13:47:27.777532 11521 version.go:97] falling back to the local client version: v1.14.1 k8s.gcr.io/kube-apiserver:v1.14.1 k8s.gcr.io/kube-controller-manager:v1.14.1 k8s.gcr.io/kube-scheduler:v1.14.1 k8s.gcr.io/kube-proxy:v1.14.1 k8s.gcr.io/pause:3.1 k8s.gcr.io/etcd:3.3.10 k8s.gcr.io/coredns:1.3.1 2、dockerfile 目录 创建好对应的目录，一个镜像一个仓库一个目录" />
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" />
 <meta property="article:published_time" content="2019-03-10T00:00:00+00:00" />
@@ -73,8 +71,7 @@
 <meta itemprop="name" content="kubeadm拉取谷歌镜像被墙问题解决">
 <meta itemprop="description" content="很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
- 1、查看当前kubeadm部署的镜像版本 $ kubeadm config images list I0508 13:47:27.777458 11521 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable-1.txt&#34;: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) I0508 13:47:27.777532 11521 version.go:97] falling back to the local client version: v1.14.1 k8s.gcr.io/kube-apiserver:v1.14.1 k8s.gcr.io/kube-controller-manager:v1.14.1 k8s.gcr.io/kube-scheduler:v1.14.1 k8s.gcr.io/kube-proxy:v1.14.1 k8s.gcr.io/pause:3.1 k8s.gcr.io/etcd:3.3.10 k8s.gcr.io/coredns:1.3.1 2、dockerfile 目录 创建好对应的目录，一个镜像一个仓库一个目录">
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路">
 <meta itemprop="datePublished" content="2019-03-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-03-10T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="121">
@@ -85,8 +82,7 @@
 <meta name="twitter:title" content="kubeadm拉取谷歌镜像被墙问题解决"/>
 <meta name="twitter:description" content="很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
- 1、查看当前kubeadm部署的镜像版本 $ kubeadm config images list I0508 13:47:27.777458 11521 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable-1.txt&#34;: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) I0508 13:47:27.777532 11521 version.go:97] falling back to the local client version: v1.14.1 k8s.gcr.io/kube-apiserver:v1.14.1 k8s.gcr.io/kube-controller-manager:v1.14.1 k8s.gcr.io/kube-scheduler:v1.14.1 k8s.gcr.io/kube-proxy:v1.14.1 k8s.gcr.io/pause:3.1 k8s.gcr.io/etcd:3.3.10 k8s.gcr.io/coredns:1.3.1 2、dockerfile 目录 创建好对应的目录，一个镜像一个仓库一个目录"/>
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>

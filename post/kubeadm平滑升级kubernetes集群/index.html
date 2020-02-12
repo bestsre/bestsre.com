@@ -23,8 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="黑夜浮屠" />
-  <meta name="description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers) 2、直接在master节点升级kubeadm，kubelet，kubectl sudo yum install kubeadm kubelet kubectl 3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
-$ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Making sure the cluster is healthy: [upgrade/config] Making sure the configuration is correct: [upgrade/config] Reading configuration from the cluster... [upgrade/config] FYI: You can look at this config file with &amp;#39;kubectl -n kube-system get cm kubeadm-config -oyaml&amp;#39; [upgrade] Fetching available versions to upgrade to [upgrade/versions] Cluster version: v1." />
+  <meta name="description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl." />
 
 
 
@@ -60,15 +59,13 @@ $ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Mak
 
 
 <meta property="og:title" content="kubeadm平滑升级kubernetes集群" />
-<meta property="og:description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable.txt&#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers) 2、直接在master节点升级kubeadm，kubelet，kubectl sudo yum install kubeadm kubelet kubectl 3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
-$ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Making sure the cluster is healthy: [upgrade/config] Making sure the configuration is correct: [upgrade/config] Reading configuration from the cluster... [upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39; [upgrade] Fetching available versions to upgrade to [upgrade/versions] Cluster version: v1." />
+<meta property="og:description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/" />
 <meta property="article:published_time" content="2019-03-10T11:33:24+08:00" />
 <meta property="article:modified_time" content="2019-03-10T11:33:24+08:00" />
 <meta itemprop="name" content="kubeadm平滑升级kubernetes集群">
-<meta itemprop="description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable.txt&#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers) 2、直接在master节点升级kubeadm，kubelet，kubectl sudo yum install kubeadm kubelet kubectl 3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
-$ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Making sure the cluster is healthy: [upgrade/config] Making sure the configuration is correct: [upgrade/config] Reading configuration from the cluster... [upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39; [upgrade] Fetching available versions to upgrade to [upgrade/versions] Cluster version: v1.">
+<meta itemprop="description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.">
 <meta itemprop="datePublished" content="2019-03-10T11:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2019-03-10T11:33:24&#43;08:00" />
 <meta itemprop="wordCount" content="342">
@@ -77,8 +74,7 @@ $ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Mak
 
 <meta itemprop="keywords" content="Kubernetes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="kubeadm平滑升级kubernetes集群"/>
-<meta name="twitter:description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable.txt&#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers) 2、直接在master节点升级kubeadm，kubelet，kubectl sudo yum install kubeadm kubelet kubectl 3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
-$ sudo kubeadm upgrade plan [preflight] Running pre-flight checks. [upgrade] Making sure the cluster is healthy: [upgrade/config] Making sure the configuration is correct: [upgrade/config] Reading configuration from the cluster... [upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39; [upgrade] Fetching available versions to upgrade to [upgrade/versions] Cluster version: v1."/>
+<meta name="twitter:description" content="1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>

@@ -18,7 +18,7 @@
       
       <guid>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
       <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。
-tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c count ] [ -C file_size ] [ -G rotate_seconds ] [ -F file ] [ -i interface ] [ -m module ] [ -M secret ] [ -r file ] [ -s snaplen ] [ -T type ] [ -w file ] [ -W filecount ] [ -E spi@ipaddr algo:secret,... ] [ -y datalinktype ] [ -z postrotate-command ] [ -Z user ] [ expression ] -i: 指定抓取的网络接口-i interface,-i any可以抓取所有网络接口 -D: 列出机器所有的网络接口 -w: 将捕获的包数据写入到文件中，后面再进行分析；-w -可以进行标准输出，会出现一大串的乱码,也可以使用重定向或tee -r: 从文件中读取包数据,回放场景 -c size: 指定要捕获报文数量，使用 -w 写入文件时,使用-C，限制文件的最大大小，超出时新开一个文件（单位是 1,000,000 bytes） -p: 将网卡接口设置为非混杂模式</description>
+tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c count ] [ -C file_size ] [ -G rotate_seconds ] [ -F file ] [ -i interface ] [ -m module ] [ -M secret ] [ -r file ] [ -s snaplen ] [ -T type ] [ -w file ] [ -W filecount ] [ -E spi@ipaddr algo:secret,.</description>
     </item>
     
   </channel>

@@ -23,8 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="黑夜浮屠" />
-  <meta name="description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。
-   名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。" />
+  <meta name="description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。" />
 
 
 
@@ -60,15 +59,13 @@
 
 
 <meta property="og:title" content="ceph-luminous-cluster" />
-<meta property="og:description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。
-   名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。" />
+<meta property="og:description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bestsre.com/post/ceph-luminous-cluster/" />
 <meta property="article:published_time" content="2018-04-15T16:33:24+08:00" />
 <meta property="article:modified_time" content="2018-04-15T16:33:24+08:00" />
 <meta itemprop="name" content="ceph-luminous-cluster">
-<meta itemprop="description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。
-   名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。">
+<meta itemprop="description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。">
 <meta itemprop="datePublished" content="2018-04-15T16:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-15T16:33:24&#43;08:00" />
 <meta itemprop="wordCount" content="1329">
@@ -77,8 +74,7 @@
 
 <meta itemprop="keywords" content="Ceph," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ceph-luminous-cluster"/>
-<meta name="twitter:description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。
-   名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。"/>
+<meta name="twitter:description" content="ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>

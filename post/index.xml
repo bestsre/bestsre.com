@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 叁輪體空</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
-      <description>1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.</description>
+      <description>1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.</description>
     </item>
     
     <item>
@@ -28,9 +28,7 @@
       <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建）
- github（提交dockerfile，触发自动构建）
- dockerfile文件</description>
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路</description>
     </item>
     
     <item>
@@ -51,7 +49,7 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
       <guid>https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/</guid>
       <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新，kubeadm会对集群配置方面的一些实践做调整，通过实验kubeadm可以学习到Kubernetes官方在集群配置上一些新的最佳实践。
 在Kubernetes的文档Creating a single master cluster with kubeadm中已经给出了目前kubeadm的主要特性已经处于beta状态了，在2018年将进入GA状态，说明kubeadm离可以在生产环境中使用的距离越来越近了。
-当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.</description>
+当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.12中的kubeadm是为了跟随官方对集群初始化和配置方面的最佳实践，进一步完善我们的ansible部署脚本。</description>
     </item>
     
     <item>
@@ -60,7 +58,7 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/ceph-luminous-cluster/</guid>
-      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。</description>
+      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。</description>
     </item>
     
     <item>
@@ -69,10 +67,7 @@ tcpdump常用选项 tcpdump [ -AdDefIKlLnNOpqRStuUvxX ] [ -B buffer_size ] [ -c 
       <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/MongoDB-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
-      <description>mongos
-数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。
- config server
-顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！</description>
+      <description>mongos 数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。 config server 顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！ shard 分片（sharding）是指将数据库拆分，将其分散在不同的机器上的过程。将数据分散到不同的机器上，不需要功能强大的服务器就可以存储更多的数据和处理更大的负载。基本思想就是将集合切成小块，这些块分散到若干片里，每个片只负责总数据的一部分，最后通过一个均衡器来对各个分片进行均衡（数据迁移）。 replica set 中文翻译副本集，其实就是shard的备份，防止shard挂掉之后数据丢失。复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。 仲裁者（Arbiter） 是复制集中的一个MongoDB实例，它并不保存数据。仲裁节点使用最小的资源并且不要求硬件设备，不能将Arbiter部署在同一个数据集节点中，可以部署在其他应用服务器或者监视服务器中，也可部署在单独的虚拟机中。为了确保复制集中有奇数的投票成员（包括primary），需要添加仲裁节点做为投票，否则primary不能运行时不会自动切换primary。  总结一下，应用请求mongos来操作mongodb的增删改查，配置服务器存储数据库元信息，并且和mongos做同步，数据最终存入在shard（分片）上，为了防止数据丢失同步在副本集中存储了一份，仲裁在数据存储到分片的时候决定存储到哪个节点。</description>
     </item>
     
     <item>

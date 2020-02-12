@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.55.6" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,10 +10,10 @@
     <meta property="og:title" content="kubeadm平滑升级kubernetes集群 - 叁輪體空">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2019-03-10T11:33:24&#43;08:00">
+    <meta property="article:published_time" content='2019-03-10T11:33:24&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2019-03-10T11:33:24&#43;08:00">
+    <meta property="article:modified_time" content='2019-03-10T11:33:24&#43;08:00'>
         
     <meta name="Keywords" content="Golang,Ops,Kuberentes,Linux,DevOps,Docker,SRE">
     <meta name="description" content="kubeadm平滑升级kubernetes集群">
@@ -23,12 +22,9 @@
     <meta property="og:url" content="https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
 
@@ -37,8 +33,9 @@
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -67,97 +64,179 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">kubeadm平滑升级kubernetes集群</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2019年3月10日
-                        </date>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://www.bestsre.com/categories/Kubernetes">Kubernetes</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        
-                        <div class="clear">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                                <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-检查集群可更新到的最新正式版">1、检查集群可更新到的最新正式版</a></li>
-<li><a href="#2-直接在master节点升级kubeadm-kubelet-kubectl">2、直接在master节点升级kubeadm，kubelet，kubectl</a></li>
-<li><a href="#3-再次检查可以升级到哪个版本">3、再次检查可以升级到哪个版本</a></li>
-<li><a href="#4-升级集群">4、升级集群</a></li>
-<li><a href="#5-所有node节点升级kubeadm-kubelet-并重启kubelet">5、所有node节点升级kubeadm,kubelet，并重启kubelet</a></li>
-<li><a href="#6-升级kubelet的配置">6、升级kubelet的配置</a></li>
-<li><a href="#7-查看">7、查看</a></li>
-<li><a href="#8-升级网络组件">8、升级网络组件</a></li>
-<li><a href="#9-参考">9、参考</a></li>
-</ul></li>
-</ul></li>
-</ul>
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1">1、检查集群可更新到的最新正式版</a></li>
+        <li><a href="#2masterkubeadmkubeletkubectl">2、直接在master节点升级kubeadm，kubelet，kubectl</a></li>
+        <li><a href="#3">3、再次检查可以升级到哪个版本</a></li>
+        <li><a href="#4">4、升级集群</a></li>
+        <li><a href="#5nodekubeadmkubeletkubelet">5、所有node节点升级kubeadm,kubelet，并重启kubelet</a></li>
+        <li><a href="#6kubelet">6、升级kubelet的配置</a></li>
+        <li><a href="#7">7、查看</a></li>
+        <li><a href="#8">8、升级网络组件</a></li>
+        <li><a href="#9">9、参考</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
 
-<h3 id="1-检查集群可更新到的最新正式版">1、检查集群可更新到的最新正式版</h3>
-
-<pre><code class="language-shell">这步需要访问google上的文件，被Wall，超时
-I0215 11:50:19.097435   24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &quot;https://dl.k8s.io/release/stable.txt&quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
-</code></pre>
-
-<h3 id="2-直接在master节点升级kubeadm-kubelet-kubectl">2、直接在master节点升级kubeadm，kubelet，kubectl</h3>
-
-<pre><code class="language-shell">sudo yum install kubeadm kubelet kubectl
-</code></pre>
-
-<h3 id="3-再次检查可以升级到哪个版本">3、再次检查可以升级到哪个版本</h3>
-
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">kubeadm平滑升级kubernetes集群</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年3月10日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://www.bestsre.com/categories/Kubernetes'>Kubernetes</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h3 id="1">1、检查集群可更新到的最新正式版</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">这步需要访问google上的文件，被Wall，超时
+I0215 11:50:19.097435   <span style="color:#ae81ff">24591</span> version.go:94<span style="color:#f92672">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="color:#e6db74">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled <span style="color:#f92672">(</span>Client.Timeout exceeded <span style="color:#66d9ef">while</span> awaiting headers<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="2masterkubeadmkubeletkubectl">2、直接在master节点升级kubeadm，kubelet，kubectl</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install kubeadm kubelet kubectl
+</code></pre></div><h3 id="3">3、再次检查可以升级到哪个版本</h3>
 <p>通过下面信息可以看出目前的版本是<code>v1.13.3</code>,可以升级到的最新版本是<code>v1.14.1</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo kubeadm upgrade plan
 
-<pre><code class="language-shell">$ sudo kubeadm upgrade plan
+<span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> Running pre-flight checks.
+<span style="color:#f92672">[</span>upgrade<span style="color:#f92672">]</span> Making sure the cluster is healthy:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Making sure the configuration is correct:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Reading configuration from the cluster...
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> FYI: You can look at this config file with <span style="color:#e6db74">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
+<span style="color:#f92672">[</span>upgrade<span style="color:#f92672">]</span> Fetching available versions to upgrade to
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Cluster version: v1.13.3
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> kubeadm version: v1.14.1
+I0508 11:57:25.991569   <span style="color:#ae81ff">31894</span> version.go:96<span style="color:#f92672">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="color:#e6db74">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled <span style="color:#66d9ef">while</span> waiting <span style="color:#66d9ef">for</span> connection <span style="color:#f92672">(</span>Client.Timeout exceeded <span style="color:#66d9ef">while</span> awaiting headers<span style="color:#f92672">)</span>
+I0508 11:57:25.991643   <span style="color:#ae81ff">31894</span> version.go:97<span style="color:#f92672">]</span> falling back to the local client version: v1.14.1
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Latest stable version: v1.14.1
+I0508 11:57:36.077088   <span style="color:#ae81ff">31894</span> version.go:96<span style="color:#f92672">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="color:#e6db74">&#34;https://dl.k8s.io/release/stable-1.13.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.13.txt: net/http: request canceled <span style="color:#66d9ef">while</span> waiting <span style="color:#66d9ef">for</span> connection <span style="color:#f92672">(</span>Client.Timeout exceeded <span style="color:#66d9ef">while</span> awaiting headers<span style="color:#f92672">)</span>
+I0508 11:57:36.077123   <span style="color:#ae81ff">31894</span> version.go:97<span style="color:#f92672">]</span> falling back to the local client version: v1.14.1
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Latest version in the v1.13 series: v1.14.1
 
-[preflight] Running pre-flight checks.
-[upgrade] Making sure the cluster is healthy:
-[upgrade/config] Making sure the configuration is correct:
-[upgrade/config] Reading configuration from the cluster...
-[upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
-[upgrade] Fetching available versions to upgrade to
-[upgrade/versions] Cluster version: v1.13.3
-[upgrade/versions] kubeadm version: v1.14.1
-I0508 11:57:25.991569   31894 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &quot;https://dl.k8s.io/release/stable.txt&quot;: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
-I0508 11:57:25.991643   31894 version.go:97] falling back to the local client version: v1.14.1
-[upgrade/versions] Latest stable version: v1.14.1
-I0508 11:57:36.077088   31894 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &quot;https://dl.k8s.io/release/stable-1.13.txt&quot;: Get https://dl.k8s.io/release/stable-1.13.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
-I0508 11:57:36.077123   31894 version.go:97] falling back to the local client version: v1.14.1
-[upgrade/versions] Latest version in the v1.13 series: v1.14.1
-
-Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
+Components that must be upgraded manually after you have upgraded the control plane with <span style="color:#e6db74">&#39;kubeadm upgrade apply&#39;</span>:
 COMPONENT   CURRENT       AVAILABLE
-Kubelet     3 x v1.13.3   v1.14.1
+Kubelet     <span style="color:#ae81ff">3</span> x v1.13.3   v1.14.1
 
 Upgrade to the latest version in the v1.13 series:
 
@@ -174,50 +253,31 @@ You can now apply the upgrade by executing the following command:
 	kubeadm upgrade apply v1.14.1
 
 _____________________________________________________________________
-</code></pre>
-
-<h3 id="4-升级集群">4、升级集群</h3>
-
-<pre><code class="language-shell">sudo kubeadm upgrade apply v1.14.1
-</code></pre>
-
-<h3 id="5-所有node节点升级kubeadm-kubelet-并重启kubelet">5、所有node节点升级kubeadm,kubelet，并重启kubelet</h3>
-
-<pre><code class="language-shell">sudo yum install -y kubeadm kubelet kubectl
+</code></pre></div><h3 id="4">4、升级集群</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply v1.14.1
+</code></pre></div><h3 id="5nodekubeadmkubeletkubelet">5、所有node节点升级kubeadm,kubelet，并重启kubelet</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y kubeadm kubelet kubectl
 sudo systemctl restart kubelet
-</code></pre>
-
-<h3 id="6-升级kubelet的配置">6、升级kubelet的配置</h3>
-
-<pre><code class="language-shell">sudo kubeadm upgrade node config --kubelet-version v1.14.1
-</code></pre>
-
-<h3 id="7-查看">7、查看</h3>
-
-<pre><code class="language-shell">$ kubectl get node
+</code></pre></div><h3 id="6kubelet">6、升级kubelet的配置</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade node config --kubelet-version v1.14.1
+</code></pre></div><h3 id="7">7、查看</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl get node
 NAME            STATUS   ROLES    AGE    VERSION
 k8s-master-45   Ready    master   167d   v1.14.1
 k8s-work-46     Ready    worker   167d   v1.14.1
 k8s-work-47     Ready    worker   167d   v1.14.1
-</code></pre>
-
-<h3 id="8-升级网络组件">8、升级网络组件</h3>
-
-<pre><code class="language-shell">$ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&quot;
-</code></pre>
-
-<p>其他组件根据对应的yaml文件看是否需要升级</p>
-
-<h3 id="9-参考">9、参考</h3>
-
+</code></pre></div><h3 id="8">8、升级网络组件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl apply -f <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://cloud.weave.works/k8s/net?k8s-version=</span><span style="color:#66d9ef">$(</span>kubectl version | base64 | tr -d <span style="color:#e6db74">&#39;\n&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>其他组件根据对应的yaml文件看是否需要升级</p>
+<h3 id="9">9、参考</h3>
 <p><a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/">kubeadm-upgrade官方参考</a></p>
 
-                        </div>
+        </div>
 
-                        
+        
 
 
-                        
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -237,26 +297,28 @@ k8s-work-47     Ready    worker   167d   v1.14.1
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://www.bestsre.com/tags/Kubernetes">Kubernetes</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://www.bestsre.com/tags/Kubernetes'>Kubernetes</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
     
+</div>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://www.bestsre.com">
@@ -305,25 +367,15 @@ k8s-work-47     Ready    worker   167d   v1.14.1
         <h3 class="widget-title">分类</h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="https://www.bestsre.com/categories/Ceph/">Ceph(1)</a>
-    </li>
+    <li><a href="https://www.bestsre.com/categories/Ceph/">Ceph (1)</a></li>
     
-    <li>
-        <a href="https://www.bestsre.com/categories/Kubernetes/">Kubernetes(3)</a>
-    </li>
+    <li><a href="https://www.bestsre.com/categories/Kubernetes/">Kubernetes (3)</a></li>
     
-    <li>
-        <a href="https://www.bestsre.com/categories/Linux/">Linux(1)</a>
-    </li>
+    <li><a href="https://www.bestsre.com/categories/Linux/">Linux (1)</a></li>
     
-    <li>
-        <a href="https://www.bestsre.com/categories/MongoDB/">MongoDB(1)</a>
-    </li>
+    <li><a href="https://www.bestsre.com/categories/MongoDB/">MongoDB (1)</a></li>
     
-    <li>
-        <a href="https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">分布式文件系统(2)</a>
-    </li>
+    <li><a href="https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">分布式文件系统 (2)</a></li>
     
 </ul>
     </section>
@@ -354,37 +406,33 @@ k8s-work-47     Ready    worker   167d   v1.14.1
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://www.bestsre.com">叁輪體空 By Dark404</a>.
+        &copy; 2020 <a href="https://www.bestsre.com">叁輪體空 By Dark404</a>.
         Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
         
     </div>
 </footer>
 
 
-    <script type="text/javascript">
     
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
     </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
+
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -399,10 +447,11 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 
 
 
 </body>
+
 </html>

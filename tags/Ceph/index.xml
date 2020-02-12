@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ceph on 叁輪體空</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/ceph-luminous-cluster/</guid>
-      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。</description>
+      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。</description>
     </item>
     
   </channel>

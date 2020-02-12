@@ -1,169 +1,169 @@
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://www.bestsre.com/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://www.bestsre.com/categories/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</loc>
+    <loc>https://www.bestsre.com/tags/kubernetes/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/kubernetes/</loc>
+    <loc>https://www.bestsre.com/categories/kubernetes/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <loc>https://www.bestsre.com/post/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://www.bestsre.com/tags/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://www.bestsre.com/</loc>
     <lastmod>2019-03-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
+    <loc>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/linux/</loc>
+    <loc>https://www.bestsre.com/tags/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://www.bestsre.com/categories/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/tcpdump%E6%89%8B%E5%86%8C/</loc>
+    <loc>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/use-kubeadm-build-kubernetes-cluster/</loc>
+    <loc>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</loc>
     <lastmod>2018-11-10T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/ceph/</loc>
+    <loc>https://www.bestsre.com/tags/ceph/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/ceph/</loc>
+    <loc>https://www.bestsre.com/categories/ceph/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/ceph-luminous-cluster/</loc>
+    <loc>https://www.bestsre.com/post/ceph-luminous-cluster/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2018-04-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/mongodb/</loc>
+    <loc>https://www.bestsre.com/tags/mongodb/</loc>
     <lastmod>2018-03-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/mongodb/</loc>
+    <loc>https://www.bestsre.com/categories/mongodb/</loc>
     <lastmod>2018-03-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</loc>
+    <loc>https://www.bestsre.com/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2018-03-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/fastdfs/</loc>
+    <loc>https://www.bestsre.com/tags/fastdfs/</loc>
     <lastmod>2018-01-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/fastdfs%E9%9B%86%E7%BE%A4/</loc>
+    <loc>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2018-01-15T16:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/books/</loc>
+    <loc>https://www.bestsre.com/books/</loc>
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://www.bestsre.com/about/</loc>
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://www.bestsre.com/archives/</loc>
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

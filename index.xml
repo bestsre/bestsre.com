@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Even - A super concise theme for Hugo</description>
+    <title>一个小破站</title>
+    <link>https://www.bestsre.com/</link>
+    <description>Recent content on 一个小破站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bestsre.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubeadm平滑升级kubernetes集群</title>
-      <link>http://localhost:1313/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
       <description>1、检查集群可更新到的最新正式版 1 2 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting</description>
     </item>
     
     <item>
       <title>kubeadm拉取谷歌镜像被墙问题解决</title>
-      <link>http://localhost:1313/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <link>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去dock</description>
     </item>
     
     <item>
       <title>抓包神器tcpdump基本使用</title>
-      <link>http://localhost:1313/post/tcpdump%E6%89%8B%E5%86%8C/</link>
+      <link>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</link>
       <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
       <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据</description>
     </item>
     
     <item>
       <title>kubeadm部署kubernetes集群</title>
-      <link>http://localhost:1313/post/use-kubeadm-build-kubernetes-cluster/</link>
+      <link>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</link>
       <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/use-kubeadm-build-kubernetes-cluster/</guid>
+      <guid>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</guid>
       <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新</description>
     </item>
     
     <item>
       <title>ceph-luminous-cluster</title>
-      <link>http://localhost:1313/post/ceph-luminous-cluster/</link>
+      <link>https://www.bestsre.com/post/ceph-luminous-cluster/</link>
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/ceph-luminous-cluster/</guid>
+      <guid>https://www.bestsre.com/post/ceph-luminous-cluster/</guid>
       <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基</description>
     </item>
     
     <item>
       <title>MongoDB 3.6分片复制集群</title>
-      <link>http://localhost:1313/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</link>
+      <link>https://www.bestsre.com/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Thu, 15 Mar 2018 16:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://www.bestsre.com/post/mongodb-3.6-%E5%88%86%E7%89%87%E5%A4%8D%E5%88%B6%E9%9B%86%E7%BE%A4/</guid>
       <description>mongos 数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负</description>
     </item>
     
     <item>
       <title>fastdfs-cluster</title>
-      <link>http://localhost:1313/post/fastdfs%E9%9B%86%E7%BE%A4/</link>
+      <link>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Mon, 15 Jan 2018 16:33:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/fastdfs%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</guid>
       <description>FastDFS 是一个开源的高性能分布式文件系统（DFS）。 它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问</description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/books/</link>
+      <link>https://www.bestsre.com/books/</link>
       <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/books/</guid>
+      <guid>https://www.bestsre.com/books/</guid>
       <description>Kubernetes Kubernetes-handbook - Kubernetes中文指南/云原生应用架构实践手册 Istio-handbook - Istio中文指南/服务网格实践手册 Prometheus Prometheus-book - Prometheus中文指南 云原生 微</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://www.bestsre.com/about/</link>
       <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://www.bestsre.com/about/</guid>
       <description> Originally Nothing!
  </description>
     </item>
     
     <item>
       <title>归档</title>
-      <link>http://localhost:1313/archives/</link>
+      <link>https://www.bestsre.com/archives/</link>
       <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/archives/</guid>
+      <guid>https://www.bestsre.com/archives/</guid>
       <description></description>
     </item>
     

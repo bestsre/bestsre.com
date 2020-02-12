@@ -22,7 +22,7 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Geo" />
+<meta name="author" content="黑夜浮屠" />
   <meta name="description" content="1、检查集群可更新到的最新正式版 1 2  这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)   2、直接在master节点升级kubeadm，kubelet，kubectl 1  sudo yum install kubeadm kubelet kubectl   3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  $ sudo kubeadm upgrade plan [preflight] Running pre-flight checks." />
 
@@ -121,28 +121,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
           
         
       </li>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
           
 
         
@@ -245,7 +245,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
           
 
         
@@ -256,7 +256,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
           
 
         
@@ -267,7 +267,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
           
 
         
@@ -340,87 +340,87 @@ if (!doNotTrack) {
     
     <div class="post-content">
       <h3 id="1">1、检查集群可更新到的最新正式版</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">这步需要访问google上的文件，被Wall，超时
-I0215 11:50:19.097435   <span style="color:#60e;font-weight:bold">24591</span> version.go:94<span style="color:#333">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="background-color:#fff0f0">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled <span style="color:#333">(</span>Client.Timeout exceeded <span style="color:#080;font-weight:bold">while</span> awaiting headers<span style="color:#333">)</span>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">这步需要访问google上的文件，被Wall，超时
+I0215 11:50:19.097435   <span class="m">24591</span> version.go:94<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="2masterkubeadmkubeletkubectl">2、直接在master节点升级kubeadm，kubelet，kubectl</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install kubeadm kubelet kubectl
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo yum install kubeadm kubelet kubectl
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="3">3、再次检查可以升级到哪个版本</h3>
 <p>通过下面信息可以看出目前的版本是<code>v1.13.3</code>,可以升级到的最新版本是<code>v1.14.1</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo kubeadm upgrade plan
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo kubeadm upgrade plan
 
-<span style="color:#333">[</span>preflight<span style="color:#333">]</span> Running pre-flight checks.
-<span style="color:#333">[</span>upgrade<span style="color:#333">]</span> Making sure the cluster is healthy:
-<span style="color:#333">[</span>upgrade/config<span style="color:#333">]</span> Making sure the configuration is correct:
-<span style="color:#333">[</span>upgrade/config<span style="color:#333">]</span> Reading configuration from the cluster...
-<span style="color:#333">[</span>upgrade/config<span style="color:#333">]</span> FYI: You can look at this config file with <span style="background-color:#fff0f0">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
-<span style="color:#333">[</span>upgrade<span style="color:#333">]</span> Fetching available versions to upgrade to
-<span style="color:#333">[</span>upgrade/versions<span style="color:#333">]</span> Cluster version: v1.13.3
-<span style="color:#333">[</span>upgrade/versions<span style="color:#333">]</span> kubeadm version: v1.14.1
-I0508 11:57:25.991569   <span style="color:#60e;font-weight:bold">31894</span> version.go:96<span style="color:#333">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="background-color:#fff0f0">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled <span style="color:#080;font-weight:bold">while</span> waiting <span style="color:#080;font-weight:bold">for</span> connection <span style="color:#333">(</span>Client.Timeout exceeded <span style="color:#080;font-weight:bold">while</span> awaiting headers<span style="color:#333">)</span>
-I0508 11:57:25.991643   <span style="color:#60e;font-weight:bold">31894</span> version.go:97<span style="color:#333">]</span> falling back to the <span style="color:#007020">local</span> client version: v1.14.1
-<span style="color:#333">[</span>upgrade/versions<span style="color:#333">]</span> Latest stable version: v1.14.1
-I0508 11:57:36.077088   <span style="color:#60e;font-weight:bold">31894</span> version.go:96<span style="color:#333">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="background-color:#fff0f0">&#34;https://dl.k8s.io/release/stable-1.13.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.13.txt: net/http: request canceled <span style="color:#080;font-weight:bold">while</span> waiting <span style="color:#080;font-weight:bold">for</span> connection <span style="color:#333">(</span>Client.Timeout exceeded <span style="color:#080;font-weight:bold">while</span> awaiting headers<span style="color:#333">)</span>
-I0508 11:57:36.077123   <span style="color:#60e;font-weight:bold">31894</span> version.go:97<span style="color:#333">]</span> falling back to the <span style="color:#007020">local</span> client version: v1.14.1
-<span style="color:#333">[</span>upgrade/versions<span style="color:#333">]</span> Latest version in the v1.13 series: v1.14.1
+<span class="o">[</span>preflight<span class="o">]</span> Running pre-flight checks.
+<span class="o">[</span>upgrade<span class="o">]</span> Making sure the cluster is healthy:
+<span class="o">[</span>upgrade/config<span class="o">]</span> Making sure the configuration is correct:
+<span class="o">[</span>upgrade/config<span class="o">]</span> Reading configuration from the cluster...
+<span class="o">[</span>upgrade/config<span class="o">]</span> FYI: You can look at this config file with <span class="s1">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
+<span class="o">[</span>upgrade<span class="o">]</span> Fetching available versions to upgrade to
+<span class="o">[</span>upgrade/versions<span class="o">]</span> Cluster version: v1.13.3
+<span class="o">[</span>upgrade/versions<span class="o">]</span> kubeadm version: v1.14.1
+I0508 11:57:25.991569   <span class="m">31894</span> version.go:96<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled <span class="k">while</span> waiting <span class="k">for</span> connection <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
+I0508 11:57:25.991643   <span class="m">31894</span> version.go:97<span class="o">]</span> falling back to the <span class="nb">local</span> client version: v1.14.1
+<span class="o">[</span>upgrade/versions<span class="o">]</span> Latest stable version: v1.14.1
+I0508 11:57:36.077088   <span class="m">31894</span> version.go:96<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable-1.13.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.13.txt: net/http: request canceled <span class="k">while</span> waiting <span class="k">for</span> connection <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
+I0508 11:57:36.077123   <span class="m">31894</span> version.go:97<span class="o">]</span> falling back to the <span class="nb">local</span> client version: v1.14.1
+<span class="o">[</span>upgrade/versions<span class="o">]</span> Latest version in the v1.13 series: v1.14.1
 
-Components that must be upgraded manually after you have upgraded the control plane with <span style="background-color:#fff0f0">&#39;kubeadm upgrade apply&#39;</span>:
+Components that must be upgraded manually after you have upgraded the control plane with <span class="s1">&#39;kubeadm upgrade apply&#39;</span>:
 COMPONENT   CURRENT       AVAILABLE
-Kubelet     <span style="color:#60e;font-weight:bold">3</span> x v1.13.3   v1.14.1
+Kubelet     <span class="m">3</span> x v1.13.3   v1.14.1
 
 Upgrade to the latest version in the v1.13 series:
 
@@ -440,45 +440,45 @@ _____________________________________________________________________
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="4">4、升级集群</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply v1.14.1
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply v1.14.1
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="5nodekubeadmkubeletkubelet">5、所有node节点升级kubeadm,kubelet，并重启kubelet</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y kubeadm kubelet kubectl
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo yum install -y kubeadm kubelet kubectl
 sudo systemctl restart kubelet
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="6kubelet">6、升级kubelet的配置</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade node config --kubelet-version v1.14.1
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade node config --kubelet-version v1.14.1
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="7">7、查看</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl get node
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ kubectl get node
 NAME            STATUS   ROLES    AGE    VERSION
 k8s-master-45   Ready    master   167d   v1.14.1
 k8s-work-46     Ready    worker   167d   v1.14.1
@@ -486,12 +486,12 @@ k8s-work-47     Ready    worker   167d   v1.14.1
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="8">8、升级网络组件</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl apply -f <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#fff0f0">https://cloud.weave.works/k8s/net?k8s-version=</span><span style="color:#080;font-weight:bold">$(</span>kubectl version | base64 | tr -d <span style="background-color:#fff0f0">&#39;\n&#39;</span><span style="color:#080;font-weight:bold">)</span><span style="background-color:#fff0f0">&#34;</span>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ kubectl apply -f <span class="s2">&#34;</span><span class="s2">https://cloud.weave.works/k8s/net?k8s-version=</span><span class="k">$(</span>kubectl version <span class="p">|</span> base64 <span class="p">|</span> tr -d <span class="s1">&#39;\n&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>其他组件根据对应的yaml文件看是否需要升级</p>
@@ -602,7 +602,7 @@ k8s-work-47     Ready    worker   167d   v1.14.1
 
       </i>
     </span><span class="author">
-        Geo
+        黑夜浮屠
         
       </span></span>
 

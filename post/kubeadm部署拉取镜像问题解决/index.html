@@ -22,7 +22,7 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Geo" />
+<meta name="author" content="黑夜浮屠" />
   <meta name="description" content="很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
 需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
@@ -129,28 +129,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
           
         
       </li>
@@ -242,7 +242,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
           
 
         
@@ -253,7 +253,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
           
 
         
@@ -264,7 +264,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
           
 
         
@@ -275,7 +275,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
           
 
         
@@ -353,23 +353,23 @@ if (!doNotTrack) {
 <p>只提供解决思路</p>
 </blockquote>
 <h4 id="1kubeadm">1、查看当前kubeadm部署的镜像版本</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubeadm config images list
-I0508 13:47:27.777458   <span style="color:#60e;font-weight:bold">11521</span> version.go:96<span style="color:#333">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="background-color:#fff0f0">&#34;https://dl.k8s.io/release/stable-1.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span style="color:#080;font-weight:bold">while</span> waiting <span style="color:#080;font-weight:bold">for</span> connection <span style="color:#333">(</span>Client.Timeout exceeded <span style="color:#080;font-weight:bold">while</span> awaiting headers<span style="color:#333">)</span>
-I0508 13:47:27.777532   <span style="color:#60e;font-weight:bold">11521</span> version.go:97<span style="color:#333">]</span> falling back to the <span style="color:#007020">local</span> client version: v1.14.1
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ kubeadm config images list
+I0508 13:47:27.777458   <span class="m">11521</span> version.go:96<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable-1.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span class="k">while</span> waiting <span class="k">for</span> connection <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
+I0508 13:47:27.777532   <span class="m">11521</span> version.go:97<span class="o">]</span> falling back to the <span class="nb">local</span> client version: v1.14.1
 k8s.gcr.io/kube-apiserver:v1.14.1
 k8s.gcr.io/kube-controller-manager:v1.14.1
 k8s.gcr.io/kube-scheduler:v1.14.1
@@ -382,58 +382,58 @@ k8s.gcr.io/coredns:1.3.1
 </div><h4 id="2dockerfile">2、dockerfile</h4>
 <p><strong>目录</strong>
 创建好对应的目录，一个镜像一个仓库一个目录</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkdir /opt/kuberentes_containers/<span style="color:#333">{</span>etcd,kube-apiserver,kube-controller-manager,kube-scheduler,kube-proxy,pause,coredns<span style="color:#333">}</span>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir /opt/kuberentes_containers/<span class="o">{</span>etcd,kube-apiserver,kube-controller-manager,kube-scheduler,kube-proxy,pause,coredns<span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>dockerfile</strong></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># etcd/Dockerfile</span>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># etcd/Dockerfile</span>
 FROM k8s.gcr.io/etcd:3.3.10
 
-<span style="color:#888"># kube-apiserver/Dockerfile</span>
+<span class="c1"># kube-apiserver/Dockerfile</span>
 FROM k8s.gcr.io/kube-apiserver:v1.14.1
 
-<span style="color:#888"># kube-controller-manager/Dockerfile</span>
+<span class="c1"># kube-controller-manager/Dockerfile</span>
 FROM k8s.gcr.io/kube-controller-manager:v1.14.1
 
-<span style="color:#888"># kube-scheduler/Dockerfile</span>
+<span class="c1"># kube-scheduler/Dockerfile</span>
 FROM k8s.gcr.io/kube-scheduler:v1.14.1
 
-<span style="color:#888"># pause/Dockerfile</span>
+<span class="c1"># pause/Dockerfile</span>
 FROM k8s.gcr.io/pause:3.1
 
-<span style="color:#888"># kube-proxy/Dockerfile</span>
+<span class="c1"># kube-proxy/Dockerfile</span>
 FROM k8s.gcr.io/kube-proxy:v1.14.1
 
-<span style="color:#888"># coredns/Dockerfile</span>
+<span class="c1"># coredns/Dockerfile</span>
 FROM k8s.gcr.io/coredns:1.3.1
 </code></pre></td></tr></table>
 </div>
@@ -447,20 +447,20 @@ FROM k8s.gcr.io/coredns:1.3.1
 </ul>
 <p>都是界面配置，不细说，一看就会</p>
 <h4 id="4kubeadm-">4、kubeadm 使用指定的镜像仓库</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubeadm init <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--kubernetes-version<span style="color:#333">=</span>v1.14.1 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--pod-network-cidr<span style="color:#333">=</span>10.244.0.0/16 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--apiserver-advertise-address<span style="color:#333">=</span>192.168.2.11 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--image-repository<span style="color:#333">=</span>registry.cn-hangzhou.aliyuncs.com/google_con <span style="color:#888"># 你自己的仓库地址就可以</span>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm init <span class="se">\
+</span><span class="se"></span>--kubernetes-version<span class="o">=</span>v1.14.1 <span class="se">\
+</span><span class="se"></span>--pod-network-cidr<span class="o">=</span>10.244.0.0/16 <span class="se">\
+</span><span class="se"></span>--apiserver-advertise-address<span class="o">=</span>192.168.2.11 <span class="se">\
+</span><span class="se"></span>--image-repository<span class="o">=</span>registry.cn-hangzhou.aliyuncs.com/google_con <span class="c1"># 你自己的仓库地址就可以</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -581,7 +581,7 @@ FROM k8s.gcr.io/coredns:1.3.1
 
       </i>
     </span><span class="author">
-        Geo
+        黑夜浮屠
         
       </span></span>
 

@@ -17,17 +17,22 @@
       <pubDate>Sun, 15 Apr 2018 16:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/ceph-luminous-cluster/</guid>
-      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。</description>
+      <description>ceph概述 Ceph 是一个分布式存储系统，独一无二地用统一的系统—Ceph 存储集群，提供了对象存储，块存储和文件存储三种功能。Ceph 的存储集群基于 RADOS，提供了极大伸缩性—供成千用户访问 PB 乃至 EB 级的数据。 Ceph 节点以普通硬件和智能守护进程作为支撑点， Ceph 存储集群组织起了大量节点，它们之间靠相互通讯来复制数据、同时采用 CRUSH 算法动态地重分布数据。 Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非常重要的。Ceph 的常见术语。
+   名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。</description>
     </item>
     
     <item>
       <title>fastdfs-cluster</title>
-      <link>https://www.bestsre.com/post/FastDFS%E9%9B%86%E7%BE%A4/</link>
+      <link>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Mon, 15 Jan 2018 16:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/FastDFS%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://www.bestsre.com/post/fastdfs%E9%9B%86%E7%BE%A4/</guid>
       <description>FastDFS 是一个开源的高性能分布式文件系统（DFS）。 它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问题，特别适合以中小文件（建议范围：4KB &amp;lt; file_size &amp;lt;500MB）为载体的在线服务。
-FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务器(Storage Server)和客户端(Client)</description>
+FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务器(Storage Server)和客户端(Client)
+  Tracker Server：跟踪服务器，主要做调度工作，起到均衡的作用；负责管理所有的 storage server和 group，每个 storage 在启动后会连接 Tracker，告知自己所属 group 等信息，并保持周期性心跳。
+  Storage Server：存储服务器，主要提供容量和备份服务；以 group 为单位，每个 group 内可以有多台 storage server，数据互为备份。
+  Client：客户端，上传下载数据的服务器，也就是我们自己的项目所部署在的服务器
+  环境    ip fastdfs-role     192.168.1.115 Tracker +Storage   192.168.1.104 Tracker +Storage   192.168.1.106 Tracker +Storage    FastDFS安装配置 安装开发环境 1  # yum groupinstall &amp;#34;Development Tools&amp;#34; &amp;#34;Server platform Development&amp;#34; -y   安装libfastcommon 1 2 3 4  # git clone https://github.</description>
     </item>
     
   </channel>

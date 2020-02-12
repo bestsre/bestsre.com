@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on 叁輪體空</title>
-    <link>https://www.bestsre.com/categories/Kubernetes/</link>
+    <link>https://www.bestsre.com/categories/kubernetes/</link>
     <description>Recent content in Kubernetes on 叁輪體空</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
-	<atom:link href="https://www.bestsre.com/categories/Kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bestsre.com/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,7 +17,8 @@
       <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
       
       <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
-      <description>1、检查集群可更新到的最新正式版 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.</description>
+      <description>1、检查集群可更新到的最新正式版 1 2  这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)   2、直接在master节点升级kubeadm，kubelet，kubectl 1  sudo yum install kubeadm kubelet kubectl   3、再次检查可以升级到哪个版本 通过下面信息可以看出目前的版本是v1.13.3,可以升级到的最新版本是v1.14.1
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  $ sudo kubeadm upgrade plan [preflight] Running pre-flight checks.</description>
     </item>
     
     <item>
@@ -28,18 +29,22 @@
       <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去docker-hub上搜索相关版本镜像pull下来，然后重新tag下。其实docker-hub上面也是别人从国外pull下来的重新上传上去了，可能很多版本要找对应的比较费劲。
 不扯淡了，直接说方法
-需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路</description>
+需要使用到的工具及平台  阿里云容器镜像仓库（可以海外构建） github（提交dockerfile，触发自动构建） dockerfile文件  解决步骤  只提供解决思路
+ 1、查看当前kubeadm部署的镜像版本 1 2 3 4 5 6 7 8 9 10  $ kubeadm config images list I0508 13:47:27.777458 11521 version.go:96] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable-1.txt&amp;#34;: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) I0508 13:47:27.777532 11521 version.go:97] falling back to the local client version: v1.</description>
     </item>
     
     <item>
       <title>kubeadm部署kubernetes集群</title>
-      <link>https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/</link>
+      <link>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</link>
       <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/Use-kubeadm-build-kubernetes-cluster/</guid>
+      <guid>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</guid>
       <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新，kubeadm会对集群配置方面的一些实践做调整，通过实验kubeadm可以学习到Kubernetes官方在集群配置上一些新的最佳实践。
 在Kubernetes的文档Creating a single master cluster with kubeadm中已经给出了目前kubeadm的主要特性已经处于beta状态了，在2018年将进入GA状态，说明kubeadm离可以在生产环境中使用的距离越来越近了。
-当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.12中的kubeadm是为了跟随官方对集群初始化和配置方面的最佳实践，进一步完善我们的ansible部署脚本。</description>
+当然我们线上稳定运行的Kubernetes集群是使用ansible以二进制形式的部署的高可用集群，这里体验Kubernetes 1.12中的kubeadm是为了跟随官方对集群初始化和配置方面的最佳实践，进一步完善我们的ansible部署脚本。
+系统环境准备 环境    ip hostname OS k8s-role     192.168.2.45 k8s-master-45 centos 7 master   192.168.2.46 k8s-work-46 centos7 work   192.168.2.47 k8s-work-47 centos7 work    系统配置 hosts
+1 2 3 4  cat /etc/hosts 192.168.2.45 k8s-master-45 192.168.2.46 k8s-work-46 192.168.2.47 k8s-work-47   禁用selinux,firewalld
+1 2 3 4 5 6  # 禁用selinux vi /etc/selinux/config SELINUX=disabled # 禁用firewalld systemctl stop firewalld systemctl disable firewalld   内核配置 配置网桥参数，使得流量不会绕过iptable</description>
     </item>
     
   </channel>

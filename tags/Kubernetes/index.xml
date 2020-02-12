@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubernetes on 叁輪體空</title>
-    <link>https://www.bestsre.com/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on 叁輪體空</description>
+    <title>Kubernetes on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
     
-	<atom:link href="https://www.bestsre.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubeadm平滑升级kubernetes集群</title>
-      <link>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>http://localhost:1313/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
-      <description>1、检查集群可更新到</description>
+      <guid>http://localhost:1313/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>1、检查集群可更新到的最新正式版 1 2 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting</description>
     </item>
     
     <item>
       <title>kubeadm拉取谷歌镜像被墙问题解决</title>
-      <link>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <link>http://localhost:1313/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
-      <description>很多同学使用kube</description>
+      <guid>http://localhost:1313/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去dock</description>
     </item>
     
     <item>
       <title>kubeadm部署kubernetes集群</title>
-      <link>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</link>
+      <link>http://localhost:1313/post/use-kubeadm-build-kubernetes-cluster/</link>
       <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</guid>
-      <description>kubeadm是Ku</description>
+      <guid>http://localhost:1313/post/use-kubeadm-build-kubernetes-cluster/</guid>
+      <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新</description>
     </item>
     
   </channel>

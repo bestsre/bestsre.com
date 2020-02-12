@@ -5,7 +5,7 @@
     <link>https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
     <description>Recent content in 分布式文件系统 on 叁輪體空</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Sun, 15 Apr 2018 16:33:24 +0800</lastBuildDate>
     
 	<atom:link href="https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
@@ -32,7 +32,7 @@ FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务�
   Tracker Server：跟踪服务器，主要做调度工作，起到均衡的作用；负责管理所有的 storage server和 group，每个 storage 在启动后会连接 Tracker，告知自己所属 group 等信息，并保持周期性心跳。
   Storage Server：存储服务器，主要提供容量和备份服务；以 group 为单位，每个 group 内可以有多台 storage server，数据互为备份。
   Client：客户端，上传下载数据的服务器，也就是我们自己的项目所部署在的服务器
-  环境    ip fastdfs-role     192.168.1.115 Tracker +Storage   192.168.1.104 Tracker +Storage   192.168.1.106 Tracker +Storage    FastDFS安装配置 安装开发环境 1  # yum groupinstall &amp;#34;Development Tools&amp;#34; &amp;#34;Server platform Development&amp;#34; -y   安装libfastcommon 1 2 3 4  # git clone https://github.</description>
+  环境    ip fastdfs-role     192.168.1.115 Tracker +Storage   192.168.1.104 Tracker +Storage   192.168.1.106 Tracker +Storage    FastDFS安装配置 安装开发环境 # yum groupinstall &amp;#34;Development Tools&amp;#34; &amp;#34;Server platform Development&amp;#34; -y 安装libfastcommon # git clone https://github.</description>
     </item>
     
   </channel>

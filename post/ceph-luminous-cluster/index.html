@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
    名词 解释     RADOSGW 对象网关守护进程   RBD 块存储   CEPHFS 文件存储   LIBRADOS 和 RADOS 交互的基本库 librados，Ceph 通过原生协议和 RADOS 交互，Ceph 把这种功能封装进了 librados 库，这样你就能定制自己的客户端   RADOS 存储集群   OSD Object Storage Device,RADOS 的组件，用于存储资源   Monitor 监视器,RADOS 的组件，维护整个 Ceph 集群的全局状态   MDS Ceph 元数据服务器,为 Ceph 文件系统存储元数据    环境节点规划 Ceph分布式存储集群由若干组件组成，包括：Ceph Monitor、Ceph OSD和Ceph MDS，其中如果你仅使用对象存储和块存储时，MDS不是必须的，仅当你要用到Cephfs时，MDS才是需要安装的。我们这需要安装MDS。">
 <meta itemprop="datePublished" content="2018-04-15T16:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-15T16:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="1605">
+<meta itemprop="wordCount" content="1329">
 
 
 
@@ -121,28 +121,35 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://www.bestsre.com/about/">About</a>
           
         
       </li>
@@ -234,7 +241,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/">首页</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/">Home</a>
           
 
         
@@ -245,7 +252,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/post/">归档</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/post/">Archives</a>
           
 
         
@@ -256,7 +263,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/tags/">标签</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/tags/">Tags</a>
           
 
         
@@ -267,7 +274,18 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://www.bestsre.com/categories/">分类</a>
+            <a class="menu-item-link" href="https://www.bestsre.com/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://www.bestsre.com/about/">About</a>
           
 
         
@@ -302,8 +320,8 @@ if (!doNotTrack) {
             <a href="https://www.bestsre.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"> 分布式文件系统 </a>
             
           </div>
-        <span class="more-meta"> 1605 words </span>
-          <span class="more-meta"> 8 min read </span>
+        <span class="more-meta"> 1329 words </span>
+          <span class="more-meta"> 7 min read </span>
 
         
         
@@ -479,21 +497,7 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 <h1 id="heading-1">集群部署</h1>
 <h2 id="heading-2">基础环境</h2>
 <h3 id="hosts">hosts</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span><span class="c1"># cat /etc/hosts</span>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span><span class="c1"># cat /etc/hosts</span>
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
@@ -503,47 +507,11 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 172.24.10.23  node-04
 172.24.10.24  node-05
 172.24.10.25  node-06
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</code></pre></div><blockquote>
 <p>同时管理节点和其他节点做好ssh-key免密码登陆</p>
 </blockquote>
 <h3 id="ceph-yum">所有节点导入ceph yum源</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span><span class="c1"># yum install epel-release -y &amp;&amp; yum upgrade -y</span>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span><span class="c1"># yum install epel-release -y &amp;&amp; yum upgrade -y</span>
 ~<span class="o">]</span><span class="c1"># rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm</span>
 ~<span class="o">]</span><span class="c1"># ansible ceph -a &#39;rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm&#39; # 批量安装</span> 
 
@@ -573,37 +541,8 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 <span class="nv">gpgkey</span><span class="o">=</span>https://download.ceph.com/keys/release.asc
 
 <span class="c1"># ansible ceph -m copy -a &#39;src=/etc/yum.repos.d/ceph.repo dest=/etc/yum.repos.d/ceph.repo&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="cephsudo">所有节点添加ceph用户,并赋予sudo权限</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 创建密码</span>
+</code></pre></div><h3 id="cephsudo">所有节点添加ceph用户,并赋予sudo权限</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 创建密码</span>
 python -c <span class="s2">&#34;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&#34;</span>
 Password: ceph
 <span class="nv">$6</span><span class="nv">$rounds</span><span class="o">=</span>656000<span class="nv">$PZshbGs2TMKtUgB1</span><span class="nv">$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g</span>/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81
@@ -626,54 +565,16 @@ ceph    <span class="nv">ALL</span><span class="o">=</span><span class="o">(</sp
 <span class="c1"># 运行playbook</span>
 ansible-playbook user.yml
 
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="heading-3">部署集群</h2>
+</code></pre></div><h2 id="heading-3">部署集群</h2>
 <h3 id="ceph-deploy">安装ceph-deploy</h3>
 <p>在管理节点进行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span>$ sudo yum install ceph-deploy
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="heading-4">在管理节点，创建集群</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span>$ mkdir ceph-cluster
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span>$ sudo yum install ceph-deploy
+</code></pre></div><h3 id="heading-4">在管理节点，创建集群</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">~<span class="o">]</span>$ mkdir ceph-cluster
 ~<span class="o">]</span>$ <span class="nb">cd</span> ceph-cluster 
 ceph-cluster<span class="o">]</span>$ ceph-deploy new node-01 node-02 node-03
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="-ceph-">更改生成的 ceph 集群配置文件</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat ceph.conf 
+</code></pre></div><h3 id="-ceph-">更改生成的 ceph 集群配置文件</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ cat ceph.conf 
 <span class="o">[</span>global<span class="o">]</span>
 <span class="nv">fsid</span> <span class="o">=</span> 64960081-9cfe-4b6f-a9ae-eb9b2be216bc
 <span class="nv">mon_initial_members</span> <span class="o">=</span> node-01, node-02, node-03
@@ -689,54 +590,15 @@ osd pool default <span class="nv">size</span> <span class="o">=</span> <span cla
 <span class="nv">mon_allow_pool_delete</span> <span class="o">=</span> <span class="nb">true</span>
 <span class="o">[</span>mgr<span class="o">]</span>
 mgr <span class="nv">modules</span> <span class="o">=</span> dashboard
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="-ceph">所有节点安装 ceph</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"> ~<span class="o">]</span>$ ceph-deploy install --no-adjust-repos node-01 node-02 node-03 node-04 node-05 node-06
+</code></pre></div><h3 id="-ceph">所有节点安装 ceph</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"> ~<span class="o">]</span>$ ceph-deploy install --no-adjust-repos node-01 node-02 node-03 node-04 node-05 node-06
  <span class="c1"># 不加--no-adjust-repos 会一直使用ceph-deploy提供的默认的源，很坑</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="ceph-monitor-node">初始化ceph monitor node</h3>
+</code></pre></div><h3 id="ceph-monitor-node">初始化ceph monitor node</h3>
 <p>初始化mon，收集所有密钥</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ceph-cluster/
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ceph-cluster/
 ceph-deploy mon create-initial
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>报错1：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-mon-2 Running command: sudo ceph --cluster<span class="o">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.ceph-mon-2.asok mon_status
+</code></pre></div><p><strong>报错1：</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-mon-2 Running command: sudo ceph --cluster<span class="o">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.ceph-mon-2.asok mon_status
 ceph-mon-2 admin_socket: exception getting <span class="nb">command</span> descriptions: <span class="o">[</span>Errno 2<span class="o">]</span> No such file or directory
 ceph_deploy.mon mon.ceph-mon-2 monitor is not yet in quorum, tries left: <span class="m">1</span>
 ceph_deploy.mon waiting <span class="m">20</span> seconds before retrying
@@ -753,46 +615,12 @@ ceph-mon.k8s-master-01.asok   // 成节点的主机名的方式命名的
 <span class="o">]</span>$ ceph-deploy mon destroy node-01 node-02 node-03 
 还是不行，主机名必须唯一
 
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>清理环境</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy purge node-01 node-02 node-03 node-04 node-05 node-06  // 会移除所有与ceph相关的
+</code></pre></div><p><strong>清理环境</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy purge node-01 node-02 node-03 node-04 node-05 node-06  // 会移除所有与ceph相关的
 $ ceph-deploy purgedata node-01 node-02 node-03 node-04 node-05 node-06
 $ ceph-deploy forgetkeys
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>报错2</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>node-03<span class="o">]</span><span class="o">[</span>INFO  <span class="o">]</span> Running command: sudo ceph --cluster<span class="o">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+</code></pre></div><p><strong>报错2</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>node-03<span class="o">]</span><span class="o">[</span>INFO  <span class="o">]</span> Running command: sudo ceph --cluster<span class="o">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
 <span class="o">[</span>ceph_deploy.mon<span class="o">]</span><span class="o">[</span>WARNIN<span class="o">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span class="m">5</span>
 <span class="o">[</span>ceph_deploy.mon<span class="o">]</span><span class="o">[</span>WARNIN<span class="o">]</span> waiting <span class="m">5</span> seconds before retrying
 <span class="o">[</span>node-03<span class="o">]</span><span class="o">[</span>INFO  <span class="o">]</span> Running command: sudo ceph --cluster<span class="o">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
@@ -811,68 +639,16 @@ $ ceph-deploy forgetkeys
 <span class="o">[</span>ceph_deploy.mon<span class="o">]</span><span class="o">[</span>ERROR <span class="o">]</span> node-02
 <span class="o">[</span>ceph_deploy.mon<span class="o">]</span><span class="o">[</span>ERROR <span class="o">]</span> node-03
 <span class="o">[</span>ceph_deploy.mon<span class="o">]</span><span class="o">[</span>ERROR <span class="o">]</span> node-01
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>解决</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">iptables 策略未通过，可以清空规则，或者添加默认的监听端口6789
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>查看启动服务</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ps -ef<span class="p">|</span>grep ceph
+</code></pre></div><p><strong>解决</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">iptables 策略未通过，可以清空规则，或者添加默认的监听端口6789
+</code></pre></div><p><strong>查看启动服务</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ps -ef<span class="p">|</span>grep ceph
 ceph        <span class="m">4693</span>       <span class="m">1</span>  <span class="m">0</span> 16:45 ?        00:00:00 /usr/bin/ceph-mon -f --cluster ceph --id node-01 --setuser ceph --setgroup ceph
 <span class="c1"># 手动停止方法</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="osd">osd部署</h3>
+</code></pre></div><h3 id="osd">osd部署</h3>
 <p><strong>在管理节点上登录到每个 osd 节点，创建 osd 节点的数据存储目录</strong>(老版本)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># osd-0</span>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># osd-0</span>
 ssh node-01
 sudo mkdir /var/local/osd0
 sudo chown -R ceph.ceph /var/local/osd0
@@ -901,97 +677,27 @@ sudo chown -R ceph.ceph /var/local/osd4
 ssh node-06
 sudo mkdir /var/local/osd5
 sudo chown -R ceph.ceph /var/local/osd5
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>在管理节点上执行命令，使每个 osd 就绪(prepare)</strong>（老版本）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd prepare node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
+</code></pre></div><p><strong>在管理节点上执行命令，使每个 osd 就绪(prepare)</strong>（老版本）</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd prepare node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
 <span class="c1"># --overwrite-conf</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>激活每个osd节点</strong>（老版本）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd activate node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>添加激活osd磁盘</strong>(老版本的)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd create --bluestore node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5   
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>新版ceph-deploy直接使用create</strong>
+</code></pre></div><p><strong>激活每个osd节点</strong>（老版本）</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd activate node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
+</code></pre></div><p><strong>添加激活osd磁盘</strong>(老版本的)</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd create --bluestore node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5   
+</code></pre></div><p><strong>新版ceph-deploy直接使用create</strong>
 相当于prepare,activate,osd create &ndash;bluestore</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd create --data /dev/sdb node-01
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy osd create --data /dev/sdb node-01
 ceph-deploy osd create --data /dev/sdb node-02
 ceph-deploy osd create --data /dev/sdb node-03
 ceph-deploy osd create --data /dev/sdb node-04
 ceph-deploy osd create --data /dev/sdb node-05
 ceph-deploy osd create --data /dev/sdb node-06
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>在管理节点把配置文件和 admin 密钥拷贝到管理节点和 Ceph 节点</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy admin node-01 node-02 node-03 node-04 node-05 node-06
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>在每个节点上赋予 ceph.client.admin.keyring 有操作权限</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"> sudo ansible ceph -a <span class="s1">&#39;chmod +r /etc/ceph/ceph.client.admin.keyring&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="heading-5">部署完成，查看集群状态</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph -s
+</code></pre></div><p><strong>在管理节点把配置文件和 admin 密钥拷贝到管理节点和 Ceph 节点</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ceph-deploy admin node-01 node-02 node-03 node-04 node-05 node-06
+</code></pre></div><p><strong>在每个节点上赋予 ceph.client.admin.keyring 有操作权限</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"> sudo ansible ceph -a <span class="s1">&#39;chmod +r /etc/ceph/ceph.client.admin.keyring&#39;</span>
+</code></pre></div><h3 id="heading-5">部署完成，查看集群状态</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph -s
   cluster:
     id:     64960081-9cfe-4b6f-a9ae-eb9b2be216bc
     health: HEALTH_WARN
@@ -1007,37 +713,8 @@ ceph-deploy osd create --data /dev/sdb node-06
     objects: <span class="m">0</span> objects, <span class="m">0</span> bytes
     usage:   <span class="m">6337</span> MB used, <span class="m">113</span> GB / <span class="m">119</span> GB avail
     pgs:     
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>health问题解决</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">health: HEALTH_WARN
+</code></pre></div><p><strong>health问题解决</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">health: HEALTH_WARN
             clock skew detected on mon.node-02, mon.node-03
 这个是时间同步造成的
 $ sudo ansible ceph -a <span class="s1">&#39;yum install ntpdate -y&#39;</span>
@@ -1060,29 +737,8 @@ $ ceph -s
     objects: <span class="m">21</span> objects, <span class="m">2246</span> bytes
     usage:   <span class="m">6354</span> MB used, <span class="m">113</span> GB / <span class="m">119</span> GB avail
     pgs:     <span class="m">192</span> active+clean
-</code></pre></td></tr></table>
-</div>
-</div><p>查看状态</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph osd tree
+</code></pre></div><p>查看状态</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph osd tree
 ID  CLASS WEIGHT  TYPE NAME        STATUS REWEIGHT PRI-AFF 
  -1       0.11691 root default                             
  -3       0.01949     host node-01                         
@@ -1097,27 +753,8 @@ ID  CLASS WEIGHT  TYPE NAME        STATUS REWEIGHT PRI-AFF
   <span class="m">4</span>   hdd 0.01949         osd.4        up  1.00000 1.00000 
 -13       0.01949     host node-06                         
   <span class="m">5</span>   hdd 0.01949         osd.5        up  1.00000 1.00000 
-</code></pre></td></tr></table>
-</div>
-</div><p>查看挂载</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ df -Th        
+</code></pre></div><p>查看挂载</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ df -Th        
 Filesystem              Type      Size  Used Avail Use% Mounted on
 /dev/mapper/centos-root xfs        17G  1.5G   16G   9% /
 devtmpfs                devtmpfs  478M     <span class="m">0</span>  478M   0% /dev
@@ -1130,45 +767,17 @@ tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-0
 
 <span class="o">]</span>$ cat /var/lib/ceph/osd/ceph-0/type
 bluestore
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="ceph-mgr">配置ceph-mgr</h3>
+</code></pre></div><h3 id="ceph-mgr">配置ceph-mgr</h3>
 <p>自从ceph 12开始，manager是必须的。应该为每个运行monitor的机器添加一个mgr，否则集群处于WARN状态。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy mgr create node-01 node-02 node-03
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy mgr create node-01 node-02 node-03
 ceph config-key put mgr/dashboard/server_addr 172.24.10.20
 ceph config-key put mgr/dashboard/server_port <span class="m">7000</span>
 ceph mgr module <span class="nb">enable</span> dashboard 
 http://172.24.10.20:7000/
 
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="ceph-fs">部署ceph-fs</h3>
+</code></pre></div><h3 id="ceph-fs">部署ceph-fs</h3>
 <p><a href="http://docs.ceph.com/docs/master/rados/operations/placement-groups/">http://docs.ceph.com/docs/master/rados/operations/placement-groups/</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy mds create node-01 node-02 node-03 
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ceph-deploy mds create node-01 node-02 node-03 
 $ ceph osd pool create cephfs_data <span class="m">128</span>
 $ ceph osd pool create cephfs_metadata <span class="m">64</span>
 $ ceph fs new cephfs cephfs_metadata cephfs_data
@@ -1178,37 +787,10 @@ name: cephfs, metadata pool: cephfs_metadata, data pools: <span class="o">[</spa
 $ ceph mds stat 
 cephfs-1/1/1 up  <span class="o">{</span><span class="nv">0</span><span class="o">=</span>node-02<span class="o">=</span>up:active<span class="o">}</span>, <span class="m">2</span> up:standby
 虽然支持多 active mds并行运行，但官方文档建议保持一个active mds，其他mds作为standby
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="fs">挂载fs</h3>
+</code></pre></div><h3 id="fs">挂载fs</h3>
 <p>client是规划在node2上的
 在物理机上挂载cephfs可以使用mount命令、mount.ceph(apt-get install ceph-fs-common)或ceph-fuse(apt-get install ceph-fuse)，我们先用mount命令挂载</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo mkdir /data/ceph-storage/ -p
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo mkdir /data/ceph-storage/ -p
 $ sudo chown -R ceph.ceph /data/ceph-storage
 
 $ ceph-authtool -l /etc/ceph/ceph.client.admin.keyring
@@ -1229,9 +811,7 @@ tmpfs                   tmpfs      98M     <span class="m">0</span>   98M   0% /
 tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-1
 tmpfs                   tmpfs      98M     <span class="m">0</span>   98M   0% /run/user/1000
 172.24.10.21:6789:/     ceph      120G  6.3G  114G   6% /data/ceph-storage
-</code></pre></td></tr></table>
-</div>
-</div>
+</code></pre></div>
     </div>
 
     

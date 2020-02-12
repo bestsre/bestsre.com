@@ -368,8 +368,8 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubeadm config images list
-I0508 13:47:27.777458   <span style="color:#099">11521</span> version.go:96<span style="color:#000;font-weight:bold">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="color:#d14">&#34;https://dl.k8s.io/release/stable-1.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span style="color:#000;font-weight:bold">while</span> waiting <span style="color:#000;font-weight:bold">for</span> connection <span style="color:#000;font-weight:bold">(</span>Client.Timeout exceeded <span style="color:#000;font-weight:bold">while</span> awaiting headers<span style="color:#000;font-weight:bold">)</span>
-I0508 13:47:27.777532   <span style="color:#099">11521</span> version.go:97<span style="color:#000;font-weight:bold">]</span> falling back to the <span style="color:#0086b3">local</span> client version: v1.14.1
+I0508 13:47:27.777458   <span style="color:#60e;font-weight:bold">11521</span> version.go:96<span style="color:#333">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span style="background-color:#fff0f0">&#34;https://dl.k8s.io/release/stable-1.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span style="color:#080;font-weight:bold">while</span> waiting <span style="color:#080;font-weight:bold">for</span> connection <span style="color:#333">(</span>Client.Timeout exceeded <span style="color:#080;font-weight:bold">while</span> awaiting headers<span style="color:#333">)</span>
+I0508 13:47:27.777532   <span style="color:#60e;font-weight:bold">11521</span> version.go:97<span style="color:#333">]</span> falling back to the <span style="color:#007020">local</span> client version: v1.14.1
 k8s.gcr.io/kube-apiserver:v1.14.1
 k8s.gcr.io/kube-controller-manager:v1.14.1
 k8s.gcr.io/kube-scheduler:v1.14.1
@@ -387,7 +387,7 @@ k8s.gcr.io/coredns:1.3.1
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkdir /opt/kuberentes_containers/<span style="color:#000;font-weight:bold">{</span>etcd,kube-apiserver,kube-controller-manager,kube-scheduler,kube-proxy,pause,coredns<span style="color:#000;font-weight:bold">}</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkdir /opt/kuberentes_containers/<span style="color:#333">{</span>etcd,kube-apiserver,kube-controller-manager,kube-scheduler,kube-proxy,pause,coredns<span style="color:#333">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>dockerfile</strong></p>
@@ -415,25 +415,25 @@ k8s.gcr.io/coredns:1.3.1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># etcd/Dockerfile</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># etcd/Dockerfile</span>
 FROM k8s.gcr.io/etcd:3.3.10
 
-<span style="color:#998;font-style:italic"># kube-apiserver/Dockerfile</span>
+<span style="color:#888"># kube-apiserver/Dockerfile</span>
 FROM k8s.gcr.io/kube-apiserver:v1.14.1
 
-<span style="color:#998;font-style:italic"># kube-controller-manager/Dockerfile</span>
+<span style="color:#888"># kube-controller-manager/Dockerfile</span>
 FROM k8s.gcr.io/kube-controller-manager:v1.14.1
 
-<span style="color:#998;font-style:italic"># kube-scheduler/Dockerfile</span>
+<span style="color:#888"># kube-scheduler/Dockerfile</span>
 FROM k8s.gcr.io/kube-scheduler:v1.14.1
 
-<span style="color:#998;font-style:italic"># pause/Dockerfile</span>
+<span style="color:#888"># pause/Dockerfile</span>
 FROM k8s.gcr.io/pause:3.1
 
-<span style="color:#998;font-style:italic"># kube-proxy/Dockerfile</span>
+<span style="color:#888"># kube-proxy/Dockerfile</span>
 FROM k8s.gcr.io/kube-proxy:v1.14.1
 
-<span style="color:#998;font-style:italic"># coredns/Dockerfile</span>
+<span style="color:#888"># coredns/Dockerfile</span>
 FROM k8s.gcr.io/coredns:1.3.1
 </code></pre></td></tr></table>
 </div>
@@ -456,11 +456,11 @@ FROM k8s.gcr.io/coredns:1.3.1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubeadm init <span style="color:#d14">\
-</span><span style="color:#d14"></span>--kubernetes-version<span style="color:#000;font-weight:bold">=</span>v1.14.1 <span style="color:#d14">\
-</span><span style="color:#d14"></span>--pod-network-cidr<span style="color:#000;font-weight:bold">=</span>10.244.0.0/16 <span style="color:#d14">\
-</span><span style="color:#d14"></span>--apiserver-advertise-address<span style="color:#000;font-weight:bold">=</span>192.168.2.11 <span style="color:#d14">\
-</span><span style="color:#d14"></span>--image-repository<span style="color:#000;font-weight:bold">=</span>registry.cn-hangzhou.aliyuncs.com/google_con <span style="color:#998;font-style:italic"># 你自己的仓库地址就可以</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubeadm init <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--kubernetes-version<span style="color:#333">=</span>v1.14.1 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--pod-network-cidr<span style="color:#333">=</span>10.244.0.0/16 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--apiserver-advertise-address<span style="color:#333">=</span>192.168.2.11 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--image-repository<span style="color:#333">=</span>registry.cn-hangzhou.aliyuncs.com/google_con <span style="color:#888"># 你自己的仓库地址就可以</span>
 </code></pre></td></tr></table>
 </div>
 </div>

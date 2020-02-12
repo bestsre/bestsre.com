@@ -493,7 +493,7 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># cat /etc/hosts</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#333">]</span><span style="color:#888"># cat /etc/hosts</span>
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
@@ -543,36 +543,36 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># yum install epel-release -y &amp;&amp; yum upgrade -y</span>
-~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm</span>
-~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># ansible ceph -a &#39;rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm&#39; # 批量安装</span> 
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#333">]</span><span style="color:#888"># yum install epel-release -y &amp;&amp; yum upgrade -y</span>
+~<span style="color:#333">]</span><span style="color:#888"># rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm</span>
+~<span style="color:#333">]</span><span style="color:#888"># ansible ceph -a &#39;rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm&#39; # 批量安装</span> 
 
-<span style="color:#998;font-style:italic"># 官方源太慢，后面构建集群安装包各种超时</span>
-<span style="color:#000;font-weight:bold">[</span>Ceph<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span>Ceph packages <span style="color:#000;font-weight:bold">for</span> <span style="color:#008080">$basearch</span>
-<span style="color:#008080">baseurl</span><span style="color:#000;font-weight:bold">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/<span style="color:#008080">$basearch</span>
-<span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">gpgcheck</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span>rpm-md
-<span style="color:#008080">gpgkey</span><span style="color:#000;font-weight:bold">=</span>https://download.ceph.com/keys/release.asc
+<span style="color:#888"># 官方源太慢，后面构建集群安装包各种超时</span>
+<span style="color:#333">[</span>Ceph<span style="color:#333">]</span>
+<span style="color:#963">name</span><span style="color:#333">=</span>Ceph packages <span style="color:#080;font-weight:bold">for</span> <span style="color:#963">$basearch</span>
+<span style="color:#963">baseurl</span><span style="color:#333">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/<span style="color:#963">$basearch</span>
+<span style="color:#963">enabled</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">gpgcheck</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">type</span><span style="color:#333">=</span>rpm-md
+<span style="color:#963">gpgkey</span><span style="color:#333">=</span>https://download.ceph.com/keys/release.asc
 
-<span style="color:#000;font-weight:bold">[</span>Ceph-noarch<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span>Ceph noarch packages
-<span style="color:#008080">baseurl</span><span style="color:#000;font-weight:bold">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch
-<span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">gpgcheck</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span>rpm-md
-<span style="color:#008080">gpgkey</span><span style="color:#000;font-weight:bold">=</span>https://download.ceph.com/keys/release.asc
+<span style="color:#333">[</span>Ceph-noarch<span style="color:#333">]</span>
+<span style="color:#963">name</span><span style="color:#333">=</span>Ceph noarch packages
+<span style="color:#963">baseurl</span><span style="color:#333">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch
+<span style="color:#963">enabled</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">gpgcheck</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">type</span><span style="color:#333">=</span>rpm-md
+<span style="color:#963">gpgkey</span><span style="color:#333">=</span>https://download.ceph.com/keys/release.asc
 
-<span style="color:#000;font-weight:bold">[</span>ceph-source<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span>Ceph <span style="color:#0086b3">source</span> packages
-<span style="color:#008080">baseurl</span><span style="color:#000;font-weight:bold">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/SRPMS
-<span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">gpgcheck</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span>rpm-md
-<span style="color:#008080">gpgkey</span><span style="color:#000;font-weight:bold">=</span>https://download.ceph.com/keys/release.asc
+<span style="color:#333">[</span>ceph-source<span style="color:#333">]</span>
+<span style="color:#963">name</span><span style="color:#333">=</span>Ceph <span style="color:#007020">source</span> packages
+<span style="color:#963">baseurl</span><span style="color:#333">=</span>http://mirrors.aliyun.com/ceph/rpm-luminous/el7/SRPMS
+<span style="color:#963">enabled</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">gpgcheck</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">type</span><span style="color:#333">=</span>rpm-md
+<span style="color:#963">gpgkey</span><span style="color:#333">=</span>https://download.ceph.com/keys/release.asc
 
-<span style="color:#998;font-style:italic"># ansible ceph -m copy -a &#39;src=/etc/yum.repos.d/ceph.repo dest=/etc/yum.repos.d/ceph.repo&#39;</span>
+<span style="color:#888"># ansible ceph -m copy -a &#39;src=/etc/yum.repos.d/ceph.repo dest=/etc/yum.repos.d/ceph.repo&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="cephsudo">所有节点添加ceph用户,并赋予sudo权限</h3>
@@ -603,27 +603,27 @@ Ceph 有很多术语，了解这些术语，对理解 Ceph 的体系结构是非
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># 创建密码</span>
-python -c <span style="color:#d14">&#34;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&#34;</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># 创建密码</span>
+python -c <span style="background-color:#fff0f0">&#34;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&#34;</span>
 Password: ceph
-<span style="color:#008080">$6</span><span style="color:#008080">$rounds</span><span style="color:#000;font-weight:bold">=</span>656000<span style="color:#008080">$PZshbGs2TMKtUgB1</span><span style="color:#008080">$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g</span>/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81
-<span style="color:#998;font-style:italic"># 本机sudo</span>
+<span style="color:#963">$6</span><span style="color:#963">$rounds</span><span style="color:#333">=</span>656000<span style="color:#963">$PZshbGs2TMKtUgB1</span><span style="color:#963">$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g</span>/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81
+<span style="color:#888"># 本机sudo</span>
 visudo 
-Defaults:ceph <span style="color:#008080">timestamp_timeout</span><span style="color:#000;font-weight:bold">=</span>-1
-ceph    <span style="color:#008080">ALL</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">(</span>root<span style="color:#000;font-weight:bold">)</span>     NOPASSWD:ALL
+Defaults:ceph <span style="color:#963">timestamp_timeout</span><span style="color:#333">=</span>-1
+ceph    <span style="color:#963">ALL</span><span style="color:#333">=</span><span style="color:#333">(</span>root<span style="color:#333">)</span>     NOPASSWD:ALL
 
-<span style="color:#998;font-style:italic"># ansible创建用户密码yaml</span>
-~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># vim user.yml</span>             
+<span style="color:#888"># ansible创建用户密码yaml</span>
+~<span style="color:#333">]</span><span style="color:#888"># vim user.yml</span>             
 - hosts: ceph
   remote_user: root
   tasks:
   - name: add user
-    user: <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span>ceph <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;$6$rounds=656000$PZshbGs2TMKtUgB1$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81&#39;</span>
+    user: <span style="color:#963">name</span><span style="color:#333">=</span>ceph <span style="color:#963">password</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;$6$rounds=656000$PZshbGs2TMKtUgB1$LTdZj9xxHsJH5wRNSLYQL8CH7bAaE4415g/aRZD39RJiRrPx.Bzu19Y5/aOqQuFUunr7griuDN7BAlcTOkuw81&#39;</span>
   - name: sudo config
-    copy: <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span>/etc/sudoers <span style="color:#008080">dest</span><span style="color:#000;font-weight:bold">=</span>/etc/sudoers
+    copy: <span style="color:#963">src</span><span style="color:#333">=</span>/etc/sudoers <span style="color:#963">dest</span><span style="color:#333">=</span>/etc/sudoers
   - name: sync ssh key
-    authorized_key: <span style="color:#008080">user</span><span style="color:#000;font-weight:bold">=</span>ceph <span style="color:#008080">state</span><span style="color:#000;font-weight:bold">=</span>present <span style="color:#008080">exclusive</span><span style="color:#000;font-weight:bold">=</span>yes <span style="color:#008080">key</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;{{lookup(&#39;</span>file<span style="color:#d14">&#39;, &#39;</span>/home/ceph/.ssh/id_rsa.pub<span style="color:#d14">&#39;)}}&#39;</span>
-<span style="color:#998;font-style:italic"># 运行playbook</span>
+    authorized_key: <span style="color:#963">user</span><span style="color:#333">=</span>ceph <span style="color:#963">state</span><span style="color:#333">=</span>present <span style="color:#963">exclusive</span><span style="color:#333">=</span>yes <span style="color:#963">key</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;{{lookup(&#39;</span>file<span style="background-color:#fff0f0">&#39;, &#39;</span>/home/ceph/.ssh/id_rsa.pub<span style="background-color:#fff0f0">&#39;)}}&#39;</span>
+<span style="color:#888"># 运行playbook</span>
 ansible-playbook user.yml
 
 </code></pre></td></tr></table>
@@ -636,7 +636,7 @@ ansible-playbook user.yml
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#000;font-weight:bold">]</span>$ sudo yum install ceph-deploy
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#333">]</span>$ sudo yum install ceph-deploy
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="heading-4">在管理节点，创建集群</h3>
@@ -647,9 +647,9 @@ ansible-playbook user.yml
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#000;font-weight:bold">]</span>$ mkdir ceph-cluster
-~<span style="color:#000;font-weight:bold">]</span>$ <span style="color:#0086b3">cd</span> ceph-cluster 
-ceph-cluster<span style="color:#000;font-weight:bold">]</span>$ ceph-deploy new node-01 node-02 node-03
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~<span style="color:#333">]</span>$ mkdir ceph-cluster
+~<span style="color:#333">]</span>$ <span style="color:#007020">cd</span> ceph-cluster 
+ceph-cluster<span style="color:#333">]</span>$ ceph-deploy new node-01 node-02 node-03
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="-ceph-">更改生成的 ceph 集群配置文件</h3>
@@ -674,21 +674,21 @@ ceph-cluster<span style="color:#000;font-weight:bold">]</span>$ ceph-deploy new 
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat ceph.conf 
-<span style="color:#000;font-weight:bold">[</span>global<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">fsid</span> <span style="color:#000;font-weight:bold">=</span> 64960081-9cfe-4b6f-a9ae-eb9b2be216bc
-<span style="color:#008080">mon_initial_members</span> <span style="color:#000;font-weight:bold">=</span> node-01, node-02, node-03
-<span style="color:#008080">mon_host</span> <span style="color:#000;font-weight:bold">=</span> 172.24.10.20,172.24.10.21,172.24.10.22
-<span style="color:#008080">auth_cluster_required</span> <span style="color:#000;font-weight:bold">=</span> cephx
-<span style="color:#008080">auth_service_required</span> <span style="color:#000;font-weight:bold">=</span> cephx
-<span style="color:#008080">auth_client_required</span> <span style="color:#000;font-weight:bold">=</span> cephx
+<span style="color:#333">[</span>global<span style="color:#333">]</span>
+<span style="color:#963">fsid</span> <span style="color:#333">=</span> 64960081-9cfe-4b6f-a9ae-eb9b2be216bc
+<span style="color:#963">mon_initial_members</span> <span style="color:#333">=</span> node-01, node-02, node-03
+<span style="color:#963">mon_host</span> <span style="color:#333">=</span> 172.24.10.20,172.24.10.21,172.24.10.22
+<span style="color:#963">auth_cluster_required</span> <span style="color:#333">=</span> cephx
+<span style="color:#963">auth_service_required</span> <span style="color:#333">=</span> cephx
+<span style="color:#963">auth_client_required</span> <span style="color:#333">=</span> cephx
 
-<span style="color:#998;font-style:italic">#更改 osd 个数</span>
-osd pool default <span style="color:#008080">size</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">6</span>
-<span style="color:#000;font-weight:bold">[</span>mon<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#998;font-style:italic">#允许 ceph 集群删除 pool</span>
-<span style="color:#008080">mon_allow_pool_delete</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">true</span>
-<span style="color:#000;font-weight:bold">[</span>mgr<span style="color:#000;font-weight:bold">]</span>
-mgr <span style="color:#008080">modules</span> <span style="color:#000;font-weight:bold">=</span> dashboard
+<span style="color:#888">#更改 osd 个数</span>
+osd pool default <span style="color:#963">size</span> <span style="color:#333">=</span> <span style="color:#60e;font-weight:bold">6</span>
+<span style="color:#333">[</span>mon<span style="color:#333">]</span>
+<span style="color:#888">#允许 ceph 集群删除 pool</span>
+<span style="color:#963">mon_allow_pool_delete</span> <span style="color:#333">=</span> <span style="color:#007020">true</span>
+<span style="color:#333">[</span>mgr<span style="color:#333">]</span>
+mgr <span style="color:#963">modules</span> <span style="color:#333">=</span> dashboard
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="-ceph">所有节点安装 ceph</h3>
@@ -698,8 +698,8 @@ mgr <span style="color:#008080">modules</span> <span style="color:#000;font-weig
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> ~<span style="color:#000;font-weight:bold">]</span>$ ceph-deploy install --no-adjust-repos node-01 node-02 node-03 node-04 node-05 node-06
- <span style="color:#998;font-style:italic"># 不加--no-adjust-repos 会一直使用ceph-deploy提供的默认的源，很坑</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> ~<span style="color:#333">]</span>$ ceph-deploy install --no-adjust-repos node-01 node-02 node-03 node-04 node-05 node-06
+ <span style="color:#888"># 不加--no-adjust-repos 会一直使用ceph-deploy提供的默认的源，很坑</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="ceph-monitor-node">初始化ceph monitor node</h3>
@@ -710,7 +710,7 @@ mgr <span style="color:#008080">modules</span> <span style="color:#000;font-weig
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#0086b3">cd</span> ceph-cluster/
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#007020">cd</span> ceph-cluster/
 ceph-deploy mon create-initial
 </code></pre></td></tr></table>
 </div>
@@ -736,21 +736,21 @@ ceph-deploy mon create-initial
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ceph-mon-2 Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.ceph-mon-2.asok mon_status
-ceph-mon-2 admin_socket: exception getting <span style="color:#0086b3">command</span> descriptions: <span style="color:#000;font-weight:bold">[</span>Errno 2<span style="color:#000;font-weight:bold">]</span> No such file or directory
-ceph_deploy.mon mon.ceph-mon-2 monitor is not yet in quorum, tries left: <span style="color:#099">1</span>
-ceph_deploy.mon waiting <span style="color:#099">20</span> seconds before retrying
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ceph-mon-2 Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.ceph-mon-2.asok mon_status
+ceph-mon-2 admin_socket: exception getting <span style="color:#007020">command</span> descriptions: <span style="color:#333">[</span>Errno 2<span style="color:#333">]</span> No such file or directory
+ceph_deploy.mon mon.ceph-mon-2 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">1</span>
+ceph_deploy.mon waiting <span style="color:#60e;font-weight:bold">20</span> seconds before retrying
 ceph_deploy.mon Some monitors have still not reached quorum:
 ceph_deploy.mon ceph-mon-0
 ceph_deploy.mon ceph-mon-1
 ceph_deploy.mon ceph-mon-2
 
-<span style="color:#998;font-style:italic"># 查看/var/run/ceph目录</span>
-<span style="color:#000;font-weight:bold">]</span>$ ls /var/run/ceph/
+<span style="color:#888"># 查看/var/run/ceph目录</span>
+<span style="color:#333">]</span>$ ls /var/run/ceph/
 ceph-mon.k8s-master-01.asok   // 成节点的主机名的方式命名的
 
-<span style="color:#998;font-style:italic"># 移除错误环境</span>
-<span style="color:#000;font-weight:bold">]</span>$ ceph-deploy mon destroy node-01 node-02 node-03 
+<span style="color:#888"># 移除错误环境</span>
+<span style="color:#333">]</span>$ ceph-deploy mon destroy node-01 node-02 node-03 
 还是不行，主机名必须唯一
 
 </code></pre></td></tr></table>
@@ -792,25 +792,25 @@ $ ceph-deploy forgetkeys
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#000;font-weight:bold">[</span>node-03<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>INFO  <span style="color:#000;font-weight:bold">]</span> Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#099">5</span>
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> waiting <span style="color:#099">5</span> seconds before retrying
-<span style="color:#000;font-weight:bold">[</span>node-03<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>INFO  <span style="color:#000;font-weight:bold">]</span> Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#099">4</span>
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> waiting <span style="color:#099">10</span> seconds before retrying
-<span style="color:#000;font-weight:bold">[</span>node-03<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>INFO  <span style="color:#000;font-weight:bold">]</span> Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#099">3</span>
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> waiting <span style="color:#099">10</span> seconds before retrying
-<span style="color:#000;font-weight:bold">[</span>node-03<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>INFO  <span style="color:#000;font-weight:bold">]</span> Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#099">2</span>
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> waiting <span style="color:#099">15</span> seconds before retrying
-<span style="color:#000;font-weight:bold">[</span>node-03<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>INFO  <span style="color:#000;font-weight:bold">]</span> Running command: sudo ceph --cluster<span style="color:#000;font-weight:bold">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#099">1</span>
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>WARNIN<span style="color:#000;font-weight:bold">]</span> waiting <span style="color:#099">20</span> seconds before retrying
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>ERROR <span style="color:#000;font-weight:bold">]</span> Some monitors have still not reached quorum:
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>ERROR <span style="color:#000;font-weight:bold">]</span> node-02
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>ERROR <span style="color:#000;font-weight:bold">]</span> node-03
-<span style="color:#000;font-weight:bold">[</span>ceph_deploy.mon<span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">[</span>ERROR <span style="color:#000;font-weight:bold">]</span> node-01
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#333">[</span>node-03<span style="color:#333">]</span><span style="color:#333">[</span>INFO  <span style="color:#333">]</span> Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">5</span>
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> waiting <span style="color:#60e;font-weight:bold">5</span> seconds before retrying
+<span style="color:#333">[</span>node-03<span style="color:#333">]</span><span style="color:#333">[</span>INFO  <span style="color:#333">]</span> Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">4</span>
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> waiting <span style="color:#60e;font-weight:bold">10</span> seconds before retrying
+<span style="color:#333">[</span>node-03<span style="color:#333">]</span><span style="color:#333">[</span>INFO  <span style="color:#333">]</span> Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">3</span>
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> waiting <span style="color:#60e;font-weight:bold">10</span> seconds before retrying
+<span style="color:#333">[</span>node-03<span style="color:#333">]</span><span style="color:#333">[</span>INFO  <span style="color:#333">]</span> Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">2</span>
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> waiting <span style="color:#60e;font-weight:bold">15</span> seconds before retrying
+<span style="color:#333">[</span>node-03<span style="color:#333">]</span><span style="color:#333">[</span>INFO  <span style="color:#333">]</span> Running command: sudo ceph --cluster<span style="color:#333">=</span>ceph --admin-daemon /var/run/ceph/ceph-mon.node-03.asok mon_status
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> mon.node-03 monitor is not yet in quorum, tries left: <span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>WARNIN<span style="color:#333">]</span> waiting <span style="color:#60e;font-weight:bold">20</span> seconds before retrying
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>ERROR <span style="color:#333">]</span> Some monitors have still not reached quorum:
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>ERROR <span style="color:#333">]</span> node-02
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>ERROR <span style="color:#333">]</span> node-03
+<span style="color:#333">[</span>ceph_deploy.mon<span style="color:#333">]</span><span style="color:#333">[</span>ERROR <span style="color:#333">]</span> node-01
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>解决</strong></p>
@@ -832,8 +832,8 @@ $ ceph-deploy forgetkeys
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ps -ef|grep ceph
-ceph        <span style="color:#099">4693</span>       <span style="color:#099">1</span>  <span style="color:#099">0</span> 16:45 ?        00:00:00 /usr/bin/ceph-mon -f --cluster ceph --id node-01 --setuser ceph --setgroup ceph
-<span style="color:#998;font-style:italic"># 手动停止方法</span>
+ceph        <span style="color:#60e;font-weight:bold">4693</span>       <span style="color:#60e;font-weight:bold">1</span>  <span style="color:#60e;font-weight:bold">0</span> 16:45 ?        00:00:00 /usr/bin/ceph-mon -f --cluster ceph --id node-01 --setuser ceph --setgroup ceph
+<span style="color:#888"># 手动停止方法</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -872,32 +872,32 @@ ceph        <span style="color:#099">4693</span>       <span style="color:#099">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># osd-0</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># osd-0</span>
 ssh node-01
 sudo mkdir /var/local/osd0
 sudo chown -R ceph.ceph /var/local/osd0
 
-<span style="color:#998;font-style:italic"># osd-1</span>
+<span style="color:#888"># osd-1</span>
 ssh node-02
 sudo mkdir /var/local/osd1
 sudo chown -R ceph.ceph /var/local/osd1
 
-<span style="color:#998;font-style:italic"># osd-2</span>
+<span style="color:#888"># osd-2</span>
 ssh node-03
 sudo mkdir /var/local/osd2
 sudo chown -R ceph.ceph /var/local/osd2
 
-<span style="color:#998;font-style:italic"># osd-3</span>
+<span style="color:#888"># osd-3</span>
 ssh node-04
 sudo mkdir /var/local/osd3
 sudo chown -R ceph.ceph /var/local/osd3
 
-<span style="color:#998;font-style:italic"># osd-4</span>
+<span style="color:#888"># osd-4</span>
 ssh node-05
 sudo mkdir /var/local/osd4
 sudo chown -R ceph.ceph /var/local/osd4
 
-<span style="color:#998;font-style:italic"># osd-5</span>
+<span style="color:#888"># osd-5</span>
 ssh node-06
 sudo mkdir /var/local/osd5
 sudo chown -R ceph.ceph /var/local/osd5
@@ -911,7 +911,7 @@ sudo chown -R ceph.ceph /var/local/osd5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ceph-deploy osd prepare node-01:/var/local/osd0 node-02:/var/local/osd1 node-03:/var/local/osd2 node-04:/var/local/osd3 node-05:/var/local/osd4 node-06:/var/local/osd5
-<span style="color:#998;font-style:italic"># --overwrite-conf</span>
+<span style="color:#888"># --overwrite-conf</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>激活每个osd节点</strong>（老版本）</p>
@@ -967,7 +967,7 @@ ceph-deploy osd create --data /dev/sdb node-06
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo ansible ceph -a <span style="color:#d14">&#39;chmod +r /etc/ceph/ceph.client.admin.keyring&#39;</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo ansible ceph -a <span style="background-color:#fff0f0">&#39;chmod +r /etc/ceph/ceph.client.admin.keyring&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="heading-5">部署完成，查看集群状态</h3>
@@ -998,14 +998,14 @@ ceph-deploy osd create --data /dev/sdb node-06
             clock skew detected on mon.node-02, mon.node-03
  
   services:
-    mon: <span style="color:#099">3</span> daemons, quorum node-01,node-02,node-03
-    mgr: node-01<span style="color:#000;font-weight:bold">(</span>active<span style="color:#000;font-weight:bold">)</span>, standbys: node-02, node-03
-    osd: <span style="color:#099">6</span> osds: <span style="color:#099">6</span> up, <span style="color:#099">6</span> in
+    mon: <span style="color:#60e;font-weight:bold">3</span> daemons, quorum node-01,node-02,node-03
+    mgr: node-01<span style="color:#333">(</span>active<span style="color:#333">)</span>, standbys: node-02, node-03
+    osd: <span style="color:#60e;font-weight:bold">6</span> osds: <span style="color:#60e;font-weight:bold">6</span> up, <span style="color:#60e;font-weight:bold">6</span> in
  
   data:
-    pools:   <span style="color:#099">0</span> pools, <span style="color:#099">0</span> pgs
-    objects: <span style="color:#099">0</span> objects, <span style="color:#099">0</span> bytes
-    usage:   <span style="color:#099">6337</span> MB used, <span style="color:#099">113</span> GB / <span style="color:#099">119</span> GB avail
+    pools:   <span style="color:#60e;font-weight:bold">0</span> pools, <span style="color:#60e;font-weight:bold">0</span> pgs
+    objects: <span style="color:#60e;font-weight:bold">0</span> objects, <span style="color:#60e;font-weight:bold">0</span> bytes
+    usage:   <span style="color:#60e;font-weight:bold">6337</span> MB used, <span style="color:#60e;font-weight:bold">113</span> GB / <span style="color:#60e;font-weight:bold">119</span> GB avail
     pgs:     
 </code></pre></td></tr></table>
 </div>
@@ -1040,9 +1040,9 @@ ceph-deploy osd create --data /dev/sdb node-06
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">health: HEALTH_WARN
             clock skew detected on mon.node-02, mon.node-03
 这个是时间同步造成的
-$ sudo ansible ceph -a <span style="color:#d14">&#39;yum install ntpdate -y&#39;</span>
-$ sudo ansible ceph -a <span style="color:#d14">&#39;systemctl stop ntpdate&#39;</span> 
-$ sudo ansible ceph -a <span style="color:#d14">&#39;ntpdate time.windows.com&#39;</span>
+$ sudo ansible ceph -a <span style="background-color:#fff0f0">&#39;yum install ntpdate -y&#39;</span>
+$ sudo ansible ceph -a <span style="background-color:#fff0f0">&#39;systemctl stop ntpdate&#39;</span> 
+$ sudo ansible ceph -a <span style="background-color:#fff0f0">&#39;ntpdate time.windows.com&#39;</span>
 
 $ ceph -s
   cluster:
@@ -1050,16 +1050,16 @@ $ ceph -s
     health: HEALTH_OK
  
   services:
-    mon: <span style="color:#099">3</span> daemons, quorum node-01,node-02,node-03
-    mgr: node-01<span style="color:#000;font-weight:bold">(</span>active<span style="color:#000;font-weight:bold">)</span>, standbys: node-03, node-02
-    mds: cephfs-1/1/1 up  <span style="color:#000;font-weight:bold">{</span><span style="color:#008080">0</span><span style="color:#000;font-weight:bold">=</span>node-02<span style="color:#000;font-weight:bold">=</span>up:active<span style="color:#000;font-weight:bold">}</span>, <span style="color:#099">2</span> up:standby
-    osd: <span style="color:#099">6</span> osds: <span style="color:#099">6</span> up, <span style="color:#099">6</span> in
+    mon: <span style="color:#60e;font-weight:bold">3</span> daemons, quorum node-01,node-02,node-03
+    mgr: node-01<span style="color:#333">(</span>active<span style="color:#333">)</span>, standbys: node-03, node-02
+    mds: cephfs-1/1/1 up  <span style="color:#333">{</span><span style="color:#963">0</span><span style="color:#333">=</span>node-02<span style="color:#333">=</span>up:active<span style="color:#333">}</span>, <span style="color:#60e;font-weight:bold">2</span> up:standby
+    osd: <span style="color:#60e;font-weight:bold">6</span> osds: <span style="color:#60e;font-weight:bold">6</span> up, <span style="color:#60e;font-weight:bold">6</span> in
  
   data:
-    pools:   <span style="color:#099">2</span> pools, <span style="color:#099">192</span> pgs
-    objects: <span style="color:#099">21</span> objects, <span style="color:#099">2246</span> bytes
-    usage:   <span style="color:#099">6354</span> MB used, <span style="color:#099">113</span> GB / <span style="color:#099">119</span> GB avail
-    pgs:     <span style="color:#099">192</span> active+clean
+    pools:   <span style="color:#60e;font-weight:bold">2</span> pools, <span style="color:#60e;font-weight:bold">192</span> pgs
+    objects: <span style="color:#60e;font-weight:bold">21</span> objects, <span style="color:#60e;font-weight:bold">2246</span> bytes
+    usage:   <span style="color:#60e;font-weight:bold">6354</span> MB used, <span style="color:#60e;font-weight:bold">113</span> GB / <span style="color:#60e;font-weight:bold">119</span> GB avail
+    pgs:     <span style="color:#60e;font-weight:bold">192</span> active+clean
 </code></pre></td></tr></table>
 </div>
 </div><p>查看状态</p>
@@ -1086,17 +1086,17 @@ $ ceph -s
 ID  CLASS WEIGHT  TYPE NAME        STATUS REWEIGHT PRI-AFF 
  -1       0.11691 root default                             
  -3       0.01949     host node-01                         
-  <span style="color:#099">0</span>   hdd 0.01949         osd.0        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">0</span>   hdd 0.01949         osd.0        up  1.00000 1.00000 
  -5       0.01949     host node-02                         
-  <span style="color:#099">1</span>   hdd 0.01949         osd.1        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">1</span>   hdd 0.01949         osd.1        up  1.00000 1.00000 
  -7       0.01949     host node-03                         
-  <span style="color:#099">2</span>   hdd 0.01949         osd.2        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">2</span>   hdd 0.01949         osd.2        up  1.00000 1.00000 
  -9       0.01949     host node-04                         
-  <span style="color:#099">3</span>   hdd 0.01949         osd.3        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">3</span>   hdd 0.01949         osd.3        up  1.00000 1.00000 
 -11       0.01949     host node-05                         
-  <span style="color:#099">4</span>   hdd 0.01949         osd.4        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">4</span>   hdd 0.01949         osd.4        up  1.00000 1.00000 
 -13       0.01949     host node-06                         
-  <span style="color:#099">5</span>   hdd 0.01949         osd.5        up  1.00000 1.00000 
+  <span style="color:#60e;font-weight:bold">5</span>   hdd 0.01949         osd.5        up  1.00000 1.00000 
 </code></pre></td></tr></table>
 </div>
 </div><p>查看挂载</p>
@@ -1120,15 +1120,15 @@ ID  CLASS WEIGHT  TYPE NAME        STATUS REWEIGHT PRI-AFF
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ df -Th        
 Filesystem              Type      Size  Used Avail Use% Mounted on
 /dev/mapper/centos-root xfs        17G  1.5G   16G   9% /
-devtmpfs                devtmpfs  478M     <span style="color:#099">0</span>  478M   0% /dev
-tmpfs                   tmpfs     488M     <span style="color:#099">0</span>  488M   0% /dev/shm
+devtmpfs                devtmpfs  478M     <span style="color:#60e;font-weight:bold">0</span>  478M   0% /dev
+tmpfs                   tmpfs     488M     <span style="color:#60e;font-weight:bold">0</span>  488M   0% /dev/shm
 tmpfs                   tmpfs     488M  6.6M  482M   2% /run
-tmpfs                   tmpfs     488M     <span style="color:#099">0</span>  488M   0% /sys/fs/cgroup
+tmpfs                   tmpfs     488M     <span style="color:#60e;font-weight:bold">0</span>  488M   0% /sys/fs/cgroup
 /dev/sda1               xfs      1014M  153M  862M  16% /boot
-tmpfs                   tmpfs      98M     <span style="color:#099">0</span>   98M   0% /run/user/0
+tmpfs                   tmpfs      98M     <span style="color:#60e;font-weight:bold">0</span>   98M   0% /run/user/0
 tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-0
 
-<span style="color:#000;font-weight:bold">]</span>$ cat /var/lib/ceph/osd/ceph-0/type
+<span style="color:#333">]</span>$ cat /var/lib/ceph/osd/ceph-0/type
 bluestore
 </code></pre></td></tr></table>
 </div>
@@ -1146,8 +1146,8 @@ bluestore
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ceph-deploy mgr create node-01 node-02 node-03
 ceph config-key put mgr/dashboard/server_addr 172.24.10.20
-ceph config-key put mgr/dashboard/server_port <span style="color:#099">7000</span>
-ceph mgr module <span style="color:#0086b3">enable</span> dashboard 
+ceph config-key put mgr/dashboard/server_port <span style="color:#60e;font-weight:bold">7000</span>
+ceph mgr module <span style="color:#007020">enable</span> dashboard 
 http://172.24.10.20:7000/
 
 </code></pre></td></tr></table>
@@ -1169,14 +1169,14 @@ http://172.24.10.20:7000/
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ceph-deploy mds create node-01 node-02 node-03 
-$ ceph osd pool create cephfs_data <span style="color:#099">128</span>
-$ ceph osd pool create cephfs_metadata <span style="color:#099">64</span>
+$ ceph osd pool create cephfs_data <span style="color:#60e;font-weight:bold">128</span>
+$ ceph osd pool create cephfs_metadata <span style="color:#60e;font-weight:bold">64</span>
 $ ceph fs new cephfs cephfs_metadata cephfs_data
 $ ceph fs ls
-name: cephfs, metadata pool: cephfs_metadata, data pools: <span style="color:#000;font-weight:bold">[</span>cephfs_data <span style="color:#000;font-weight:bold">]</span>
+name: cephfs, metadata pool: cephfs_metadata, data pools: <span style="color:#333">[</span>cephfs_data <span style="color:#333">]</span>
 
 $ ceph mds stat 
-cephfs-1/1/1 up  <span style="color:#000;font-weight:bold">{</span><span style="color:#008080">0</span><span style="color:#000;font-weight:bold">=</span>node-02<span style="color:#000;font-weight:bold">=</span>up:active<span style="color:#000;font-weight:bold">}</span>, <span style="color:#099">2</span> up:standby
+cephfs-1/1/1 up  <span style="color:#333">{</span><span style="color:#963">0</span><span style="color:#333">=</span>node-02<span style="color:#333">=</span>up:active<span style="color:#333">}</span>, <span style="color:#60e;font-weight:bold">2</span> up:standby
 虽然支持多 active mds并行运行，但官方文档建议保持一个active mds，其他mds作为standby
 </code></pre></td></tr></table>
 </div>
@@ -1212,22 +1212,22 @@ cephfs-1/1/1 up  <span style="color:#000;font-weight:bold">{</span><span style="
 $ sudo chown -R ceph.ceph /data/ceph-storage
 
 $ ceph-authtool -l /etc/ceph/ceph.client.admin.keyring
-<span style="color:#000;font-weight:bold">[</span>client.admin<span style="color:#000;font-weight:bold">]</span>
-        <span style="color:#008080">key</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#008080">AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">=</span>
+<span style="color:#333">[</span>client.admin<span style="color:#333">]</span>
+        <span style="color:#963">key</span> <span style="color:#333">=</span> <span style="color:#963">AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ</span><span style="color:#333">=</span><span style="color:#333">=</span>
 
-$ sudo mount -t ceph 172.24.10.21:6789:/ /data/ceph-storage/ -o <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span>admin,secret<span style="color:#000;font-weight:bold">=</span><span style="color:#008080">AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">=</span>
+$ sudo mount -t ceph 172.24.10.21:6789:/ /data/ceph-storage/ -o <span style="color:#963">name</span><span style="color:#333">=</span>admin,secret<span style="color:#333">=</span><span style="color:#963">AQAEKJFa54MlFRAAg76JDhpwlHD1F8J2G76baQ</span><span style="color:#333">=</span><span style="color:#333">=</span>
 
 $ df -Th
 Filesystem              Type      Size  Used Avail Use% Mounted on
 /dev/mapper/centos-root xfs        17G  1.5G   16G   9% /
-devtmpfs                devtmpfs  478M     <span style="color:#099">0</span>  478M   0% /dev
-tmpfs                   tmpfs     488M     <span style="color:#099">0</span>  488M   0% /dev/shm
+devtmpfs                devtmpfs  478M     <span style="color:#60e;font-weight:bold">0</span>  478M   0% /dev
+tmpfs                   tmpfs     488M     <span style="color:#60e;font-weight:bold">0</span>  488M   0% /dev/shm
 tmpfs                   tmpfs     488M  6.7M  481M   2% /run
-tmpfs                   tmpfs     488M     <span style="color:#099">0</span>  488M   0% /sys/fs/cgroup
+tmpfs                   tmpfs     488M     <span style="color:#60e;font-weight:bold">0</span>  488M   0% /sys/fs/cgroup
 /dev/sda1               xfs      1014M  153M  862M  16% /boot
-tmpfs                   tmpfs      98M     <span style="color:#099">0</span>   98M   0% /run/user/0
+tmpfs                   tmpfs      98M     <span style="color:#60e;font-weight:bold">0</span>   98M   0% /run/user/0
 tmpfs                   tmpfs     488M   48K  488M   1% /var/lib/ceph/osd/ceph-1
-tmpfs                   tmpfs      98M     <span style="color:#099">0</span>   98M   0% /run/user/1000
+tmpfs                   tmpfs      98M     <span style="color:#60e;font-weight:bold">0</span>   98M   0% /run/user/1000
 172.24.10.21:6789:/     ceph      120G  6.3G  114G   6% /data/ceph-storage
 </code></pre></td></tr></table>
 </div>

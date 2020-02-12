@@ -422,7 +422,7 @@ if (!doNotTrack) {
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># yum groupinstall &#34;Development Tools&#34; &#34;Server platform Development&#34; -y</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># yum groupinstall &#34;Development Tools&#34; &#34;Server platform Development&#34; -y</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="libfastcommon">安装libfastcommon</h3>
@@ -434,10 +434,10 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># git clone https://github.com/happyfish100/libfastcommon.git</span>
-<span style="color:#998;font-style:italic"># cd libfastcommon/</span>
-<span style="color:#998;font-style:italic"># ./make.sh</span>
-<span style="color:#998;font-style:italic"># ./make.sh install</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># git clone https://github.com/happyfish100/libfastcommon.git</span>
+<span style="color:#888"># cd libfastcommon/</span>
+<span style="color:#888"># ./make.sh</span>
+<span style="color:#888"># ./make.sh install</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="fastdfs-1">安装Fastdfs</h3>
@@ -449,10 +449,10 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># git clone https://github.com/happyfish100/fastdfs.git</span>
-<span style="color:#998;font-style:italic"># cd fastdfs/</span>
-<span style="color:#998;font-style:italic"># ./make.sh</span>
-<span style="color:#998;font-style:italic"># ./make.sh install</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># git clone https://github.com/happyfish100/fastdfs.git</span>
+<span style="color:#888"># cd fastdfs/</span>
+<span style="color:#888"># ./make.sh</span>
+<span style="color:#888"># ./make.sh install</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>3台机器都按这种方式安装好</p>
@@ -467,12 +467,12 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># cd /etc/fdfs/</span>
-<span style="color:#998;font-style:italic"># cp tracker.conf.sample tracker.conf</span>
-<span style="color:#998;font-style:italic"># vim tracker.conf</span>
-<span style="color:#008080">base_path</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/tracker
-<span style="color:#998;font-style:italic"># mkdir -pv /data/fdfs/tracker</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_trackerd start  启动服务</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># cd /etc/fdfs/</span>
+<span style="color:#888"># cp tracker.conf.sample tracker.conf</span>
+<span style="color:#888"># vim tracker.conf</span>
+<span style="color:#963">base_path</span><span style="color:#333">=</span>/data/fdfs/tracker
+<span style="color:#888"># mkdir -pv /data/fdfs/tracker</span>
+<span style="color:#888"># /etc/init.d/fdfs_trackerd start  启动服务</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="storage">配置Storage</h3>
@@ -494,20 +494,20 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># cd /etc/fdfs/</span>
-<span style="color:#998;font-style:italic"># cp storage.conf.sample storage.conf</span>
-<span style="color:#998;font-style:italic"># vim storage.conf</span>
-<span style="color:#008080">group_name</span><span style="color:#000;font-weight:bold">=</span>G1  <span style="color:#998;font-style:italic">#指定组名</span>
-<span style="color:#008080">base_path</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/storage <span style="color:#998;font-style:italic"># 用于存储数据</span>
-<span style="color:#008080">store_path_count</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span> <span style="color:#998;font-style:italic"># 设置设备数量</span>
-<span style="color:#008080">store_path0</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/storage/m0 <span style="color:#998;font-style:italic">#指定存储路径0</span>
-  <span style="color:#998;font-style:italic"># 注意：同一组内存储路径不能冲突，例如：下一个节点的存储路径就是m2,m3....等</span>
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.115:22122 <span style="color:#998;font-style:italic">#指定tracker</span>
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.104:22122
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.106:22122
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># cd /etc/fdfs/</span>
+<span style="color:#888"># cp storage.conf.sample storage.conf</span>
+<span style="color:#888"># vim storage.conf</span>
+<span style="color:#963">group_name</span><span style="color:#333">=</span>G1  <span style="color:#888">#指定组名</span>
+<span style="color:#963">base_path</span><span style="color:#333">=</span>/data/fdfs/storage <span style="color:#888"># 用于存储数据</span>
+<span style="color:#963">store_path_count</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span> <span style="color:#888"># 设置设备数量</span>
+<span style="color:#963">store_path0</span><span style="color:#333">=</span>/data/fdfs/storage/m0 <span style="color:#888">#指定存储路径0</span>
+  <span style="color:#888"># 注意：同一组内存储路径不能冲突，例如：下一个节点的存储路径就是m2,m3....等</span>
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.115:22122 <span style="color:#888">#指定tracker</span>
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.104:22122
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.106:22122
 
-<span style="color:#998;font-style:italic"># mkdir -pv /data/fdfs/storage/m0</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_storaged start</span>
+<span style="color:#888"># mkdir -pv /data/fdfs/storage/m0</span>
+<span style="color:#888"># /etc/init.d/fdfs_storaged start</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="client">配置client</h3>
@@ -523,14 +523,14 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># cp client.conf.sample client.conf</span>
-<span style="color:#998;font-style:italic"># vim client.conf</span>
-<span style="color:#008080">base_path</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/client
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.115:22122
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.104:22122
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.106:22122
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># cp client.conf.sample client.conf</span>
+<span style="color:#888"># vim client.conf</span>
+<span style="color:#963">base_path</span><span style="color:#333">=</span>/data/fdfs/client
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.115:22122
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.104:22122
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.106:22122
 
-<span style="color:#998;font-style:italic"># mkdir /data/fdfs/client</span>
+<span style="color:#888"># mkdir /data/fdfs/client</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>将3个配置文件分别拷贝到另外两台机器</p>
@@ -542,10 +542,10 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># scp client.conf storage.conf tracker.conf 192.168.1.106:/etc/fdfs/</span>
-<span style="color:#998;font-style:italic"># scp client.conf storage.conf tracker.conf 192.168.1.115:/etc/fdfs/</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_trackerd restart</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_storaged restart</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># scp client.conf storage.conf tracker.conf 192.168.1.106:/etc/fdfs/</span>
+<span style="color:#888"># scp client.conf storage.conf tracker.conf 192.168.1.115:/etc/fdfs/</span>
+<span style="color:#888"># /etc/init.d/fdfs_trackerd restart</span>
+<span style="color:#888"># /etc/init.d/fdfs_storaged restart</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="fastdfs-2">测试FastDFS</h2>
@@ -562,10 +562,10 @@ if (!doNotTrack) {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># fdfs_upload_file /etc/fdfs/client.conf /etc/issue</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># fdfs_upload_file /etc/fdfs/client.conf /etc/issue</span>
 G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622
 报错：
-<span style="color:#000;font-weight:bold">[</span>2016-08-17 18:06:28<span style="color:#000;font-weight:bold">]</span> ERROR - file: connection_pool.c, line: 130, connect to 192.168.1.115:22122 fail, errno: 113, error info: No route to host
+<span style="color:#333">[</span>2016-08-17 18:06:28<span style="color:#333">]</span> ERROR - file: connection_pool.c, line: 130, connect to 192.168.1.115:22122 fail, errno: 113, error info: No route to host
 防火墙的原因 iptables -F
 </code></pre></td></tr></table>
 </div>
@@ -583,12 +583,12 @@ G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># fdfs_file_info /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
-<span style="color:#0086b3">source</span> storage id: <span style="color:#099">0</span>
-<span style="color:#0086b3">source</span> ip address: 192.168.1.104
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># fdfs_file_info /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
+<span style="color:#007020">source</span> storage id: <span style="color:#60e;font-weight:bold">0</span>
+<span style="color:#007020">source</span> ip address: 192.168.1.104
 file create timestamp: 2016-08-17 19:32:55
-file size: <span style="color:#099">23</span>
-file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;font-weight:bold">(</span>0x7D0272AF<span style="color:#000;font-weight:bold">)</span>
+file size: <span style="color:#60e;font-weight:bold">23</span>
+file crc32: <span style="color:#60e;font-weight:bold">2097312431</span> <span style="color:#333">(</span>0x7D0272AF<span style="color:#333">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="heading-4">下载文件</h3>
@@ -600,7 +600,7 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># fdfs_download_file /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># fdfs_download_file /etc/fdfs/client.conf G1/M00/00/00/wKgBaFe0S2eAZx-wAAAAF30Ccq87825622</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="heading-5">查看存储节点状态</h3>
@@ -609,7 +609,7 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># fdfs_monitor /etc/fdfs/client.conf</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># fdfs_monitor /etc/fdfs/client.conf</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="nginxstorage-serverhttp">配置nginx为storage server提供http访问接口</h2>
@@ -619,7 +619,7 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># git clone https://github.com/happyfish100/fastdfs-nginx-module.git</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># git clone https://github.com/happyfish100/fastdfs-nginx-module.git</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="nginxfastdfs">下载nginx源码，并编译支持fastdfs</h3>
@@ -644,23 +644,23 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># yum install openssl-devel pcre-devel -y &amp;&gt;/dev/null</span>
-<span style="color:#998;font-style:italic"># wget http://nginx.org/download/nginx-1.10.1.tar.gz &amp;&gt;/dev/null</span>
-<span style="color:#998;font-style:italic"># tar -xf nginx-1.10.1.tar.gz</span>
-<span style="color:#998;font-style:italic"># useradd -s /sbin/nologin -M nginx</span>
-<span style="color:#998;font-style:italic"># cd nginx-1.10.1</span>
-./configure --prefix<span style="color:#000;font-weight:bold">=</span>/usr/local/nginx <span style="color:#d14">\
-</span><span style="color:#d14"></span>--conf-path<span style="color:#000;font-weight:bold">=</span>/etc/nginx/nginx.conf <span style="color:#d14">\
-</span><span style="color:#d14"></span>--error-log-path<span style="color:#000;font-weight:bold">=</span>/var/log/nginx/error.log <span style="color:#d14">\
-</span><span style="color:#d14"></span>--http-log-path<span style="color:#000;font-weight:bold">=</span>/var/log/nginx/access.log <span style="color:#d14">\
-</span><span style="color:#d14"></span>--pid-path<span style="color:#000;font-weight:bold">=</span>/run/nginx.pid <span style="color:#d14">\
-</span><span style="color:#d14"></span>--lock-path<span style="color:#000;font-weight:bold">=</span>/var/lock/nginx.lock <span style="color:#d14">\
-</span><span style="color:#d14"></span>--user<span style="color:#000;font-weight:bold">=</span>nginx --group<span style="color:#000;font-weight:bold">=</span>nginx <span style="color:#d14">\
-</span><span style="color:#d14"></span>--with-http_ssl_module <span style="color:#d14">\
-</span><span style="color:#d14"></span>--with-http_stub_status_module <span style="color:#d14">\
-</span><span style="color:#d14"></span>--with-pcre --add-module<span style="color:#000;font-weight:bold">=</span>../fastdfs-nginx-module/src
-<span style="color:#998;font-style:italic"># make -j 8</span>
-<span style="color:#998;font-style:italic"># make install</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># yum install openssl-devel pcre-devel -y &amp;&gt;/dev/null</span>
+<span style="color:#888"># wget http://nginx.org/download/nginx-1.10.1.tar.gz &amp;&gt;/dev/null</span>
+<span style="color:#888"># tar -xf nginx-1.10.1.tar.gz</span>
+<span style="color:#888"># useradd -s /sbin/nologin -M nginx</span>
+<span style="color:#888"># cd nginx-1.10.1</span>
+./configure --prefix<span style="color:#333">=</span>/usr/local/nginx <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--conf-path<span style="color:#333">=</span>/etc/nginx/nginx.conf <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--error-log-path<span style="color:#333">=</span>/var/log/nginx/error.log <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--http-log-path<span style="color:#333">=</span>/var/log/nginx/access.log <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--pid-path<span style="color:#333">=</span>/run/nginx.pid <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--lock-path<span style="color:#333">=</span>/var/lock/nginx.lock <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--user<span style="color:#333">=</span>nginx --group<span style="color:#333">=</span>nginx <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--with-http_ssl_module <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--with-http_stub_status_module <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--with-pcre --add-module<span style="color:#333">=</span>../fastdfs-nginx-module/src
+<span style="color:#888"># make -j 8</span>
+<span style="color:#888"># make install</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="heading-6">复制配置文件</h3>
@@ -670,8 +670,8 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic">#  cp /root/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/</span>
-<span style="color:#998;font-style:italic">#  cp /root/fastdfs/conf/{http.conf,mime.types}  /etc/fdfs/</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888">#  cp /root/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/</span>
+<span style="color:#888">#  cp /root/fastdfs/conf/{http.conf,mime.types}  /etc/fdfs/</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="fastdfs-nginx-module-1">配置fastdfs-nginx-module配置文件</h3>
@@ -695,22 +695,22 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008080">base_path</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/storage <span style="color:#998;font-style:italic">#存储节点的目录位置</span>
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.115:22122
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.104:22122
-<span style="color:#008080">tracker_server</span><span style="color:#000;font-weight:bold">=</span>192.168.1.106:22122   <span style="color:#998;font-style:italic">#指定定tracker-server</span>
-<span style="color:#008080">storage_server_port</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">23000</span>
-<span style="color:#008080">group_name</span><span style="color:#000;font-weight:bold">=</span>G1  <span style="color:#998;font-style:italic">#指定组名</span>
-<span style="color:#008080">url_have_group_name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">true</span>  <span style="color:#998;font-style:italic">#访问路径中是否包括组名</span>
-<span style="color:#008080">store_path_count</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span> <span style="color:#998;font-style:italic">#配置路径个数</span>
-<span style="color:#008080">store_path0</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/storage/m0  <span style="color:#998;font-style:italic">#指定要查看的路径</span>
-<span style="color:#000;font-weight:bold">[</span>group1<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">group_name</span><span style="color:#000;font-weight:bold">=</span>G1
-<span style="color:#008080">storage_server_port</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">23000</span>
-<span style="color:#008080">store_path_count</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-<span style="color:#008080">store_path0</span><span style="color:#000;font-weight:bold">=</span>/data/fdfs/storage/m0
-<span style="color:#998;font-style:italic"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.106:/etc/fdfs</span>
-<span style="color:#998;font-style:italic"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.115:/etc/fdfs</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#963">base_path</span><span style="color:#333">=</span>/data/fdfs/storage <span style="color:#888">#存储节点的目录位置</span>
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.115:22122
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.104:22122
+<span style="color:#963">tracker_server</span><span style="color:#333">=</span>192.168.1.106:22122   <span style="color:#888">#指定定tracker-server</span>
+<span style="color:#963">storage_server_port</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">23000</span>
+<span style="color:#963">group_name</span><span style="color:#333">=</span>G1  <span style="color:#888">#指定组名</span>
+<span style="color:#963">url_have_group_name</span> <span style="color:#333">=</span> <span style="color:#007020">true</span>  <span style="color:#888">#访问路径中是否包括组名</span>
+<span style="color:#963">store_path_count</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span> <span style="color:#888">#配置路径个数</span>
+<span style="color:#963">store_path0</span><span style="color:#333">=</span>/data/fdfs/storage/m0  <span style="color:#888">#指定要查看的路径</span>
+<span style="color:#333">[</span>group1<span style="color:#333">]</span>
+<span style="color:#963">group_name</span><span style="color:#333">=</span>G1
+<span style="color:#963">storage_server_port</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">23000</span>
+<span style="color:#963">store_path_count</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#963">store_path0</span><span style="color:#333">=</span>/data/fdfs/storage/m0
+<span style="color:#888"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.106:/etc/fdfs</span>
+<span style="color:#888"># scp /etc/fdfs/mod_fastdfs.conf 192.168.1.115:/etc/fdfs</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="nginx">配置nginx</h3>
@@ -724,12 +724,12 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># vim /etc/nginx/nginx.conf</span>
- location ~ /G<span style="color:#000;font-weight:bold">[</span>0-9<span style="color:#000;font-weight:bold">]</span>+/M00/ <span style="color:#000;font-weight:bold">{</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># vim /etc/nginx/nginx.conf</span>
+ location ~ /G<span style="color:#333">[</span>0-9<span style="color:#333">]</span>+/M00/ <span style="color:#333">{</span>
         root /data/fdfs/storage/m0/data/;
         ngx_fastdfs_module;
-        <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#998;font-style:italic"># /usr/local/nginx/sbin/nginx</span>
+        <span style="color:#333">}</span>
+<span style="color:#888"># /usr/local/nginx/sbin/nginx</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="m00">为存储文件路径穿件链接至M00</h3>
@@ -738,7 +738,7 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># ln -sv /data/fdfs/storage/m0/data  /data/fdfs/storage/m0/data/M00</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># ln -sv /data/fdfs/storage/m0/data  /data/fdfs/storage/m0/data/M00</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="nginxstorage">启动nginx和重启storage并上传文件测试</h3>
@@ -749,8 +749,8 @@ file crc32: <span style="color:#099">2097312431</span> <span style="color:#000;f
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># /usr/local/nginx/sbin/nginx</span>
-<span style="color:#998;font-style:italic"># fdfs_upload_file /etc/fdfs/client.conf /usr/share/wallpapers/CentOS7/contents/images/2560x1600.jpg</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># /usr/local/nginx/sbin/nginx</span>
+<span style="color:#888"># fdfs_upload_file /etc/fdfs/client.conf /usr/share/wallpapers/CentOS7/contents/images/2560x1600.jpg</span>
 G1/M00/00/00/wKgBc1e0UamAEKGjAA6q2wjnW8s725.jpg
 </code></pre></td></tr></table>
 </div>
@@ -767,8 +767,8 @@ http://192.168.1.115/G1/M00/00/00/wKgBaFe0UhKAbRbCAA6q2wjnW8s458.jpg</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># default value is false</span>
-<span style="color:#008080">url_have_group_name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">true</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># default value is false</span>
+<span style="color:#963">url_have_group_name</span> <span style="color:#333">=</span> <span style="color:#007020">true</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>修改之后重启nginx，和storage</p>
@@ -788,13 +788,13 @@ http://192.168.1.115/G1/M00/00/00/wKgBaFe0UhKAbRbCAA6q2wjnW8s458.jpg</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#000;font-weight:bold">[</span>root@FastDFS-S1 ~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># fdfs_upload_file /etc/fdfs/client.conf 1.txt</span>
-<span style="color:#000;font-weight:bold">[</span>2017-05-01 15:10:33<span style="color:#000;font-weight:bold">]</span> ERROR - file: tracker_proto.c, line: 48, server: 192.168.1.106:22122, response status <span style="color:#099">28</span> !<span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#333">[</span>root@FastDFS-S1 ~<span style="color:#333">]</span><span style="color:#888"># fdfs_upload_file /etc/fdfs/client.conf 1.txt</span>
+<span style="color:#333">[</span>2017-05-01 15:10:33<span style="color:#333">]</span> ERROR - file: tracker_proto.c, line: 48, server: 192.168.1.106:22122, response status <span style="color:#60e;font-weight:bold">28</span> !<span style="color:#333">=</span> <span style="color:#60e;font-weight:bold">0</span>
 tracker_query_storage fail, error no: 28, error info: No space left on device
-<span style="color:#000;font-weight:bold">[</span>root@FastDFS-S1 ~<span style="color:#000;font-weight:bold">]</span><span style="color:#998;font-style:italic"># df -h</span>
+<span style="color:#333">[</span>root@FastDFS-S1 ~<span style="color:#333">]</span><span style="color:#888"># df -h</span>
 Filesystem            Size  Used Avail Use% Mounted on
 /dev/xvda1             40G  3.8G   34G  11% /
-tmpfs                 3.9G     <span style="color:#099">0</span>  3.9G   0% /dev/shm
+tmpfs                 3.9G     <span style="color:#60e;font-weight:bold">0</span>  3.9G   0% /dev/shm
 /dev/mapper/vgs_data-lvol0
                       983G  835G   99G  90% /opt
 
@@ -807,8 +807,8 @@ tmpfs                 3.9G     <span style="color:#099">0</span>  3.9G   0% /dev
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># vim /etc/fdfs/tracker.conf</span>
-<span style="color:#008080">reserved_storage_space</span> <span style="color:#000;font-weight:bold">=</span> 10%  <span style="color:#998;font-style:italic"># 预留了10%的空间，很显然现在空间只剩10%的样子</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># vim /etc/fdfs/tracker.conf</span>
+<span style="color:#963">reserved_storage_space</span> <span style="color:#333">=</span> 10%  <span style="color:#888"># 预留了10%的空间，很显然现在空间只剩10%的样子</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>临时解决方案：</strong>
@@ -824,11 +824,11 @@ tmpfs                 3.9G     <span style="color:#099">0</span>  3.9G   0% /dev
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># vim /etc/fdfs/tracker.conf</span>
-<span style="color:#008080">reserved_storage_space</span> <span style="color:#000;font-weight:bold">=</span> 5%   <span style="color:#998;font-style:italic"># 所有tracker节点都修改下，然后重启服务</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_trackerd restart</span>
-<span style="color:#998;font-style:italic"># /etc/init.d/fdfs_storaged restart</span>
-<span style="color:#998;font-style:italic"># fdfs_upload_file /etc/fdfs/client.conf 1.txt   上传测试</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#888"># vim /etc/fdfs/tracker.conf</span>
+<span style="color:#963">reserved_storage_space</span> <span style="color:#333">=</span> 5%   <span style="color:#888"># 所有tracker节点都修改下，然后重启服务</span>
+<span style="color:#888"># /etc/init.d/fdfs_trackerd restart</span>
+<span style="color:#888"># /etc/init.d/fdfs_storaged restart</span>
+<span style="color:#888"># fdfs_upload_file /etc/fdfs/client.conf 1.txt   上传测试</span>
 G1/M00/83/8D/CixLa1kG4U-ARX-uAAAAAAAAAAA379.txt
 </code></pre></td></tr></table>
 </div>

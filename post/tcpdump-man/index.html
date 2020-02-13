@@ -48,7 +48,7 @@
 <meta itemprop="description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据">
 <meta itemprop="datePublished" content="2019-01-25T11:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-25T11:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="3395">
+<meta itemprop="wordCount" content="3387">
 
 
 
@@ -124,7 +124,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> Linux </a>
             </div>
-          <span class="more-meta"> 约 3395 字 </span>
+          <span class="more-meta"> 约 3387 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -143,7 +143,6 @@
       </ul>
     </li>
     <li><a href="#heading-7">怎么看输出的报文信息</a></li>
-    <li><a href="#heading-8">参考文档</a></li>
   </ul>
 </nav>
   </div>
@@ -566,38 +565,18 @@ tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<sp
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>
-<p>2019-01-23 14:24:11.889635: 详细的可读时间</p>
-</li>
-<li>
-<p>IP: ip协议，默认ipv4,如果ipv6则显示ip6</p>
-</li>
-<li>
-<p>tos: 表示服务类型，4bit的tos分别表示最小时延，最大吞吐量，最高可靠性，最小费用。这里都是0，表示一般服务，其余4bit废用，置0</p>
-</li>
-<li>
-<p>ttl: 数据报的生存时间,每经过一个路由器减1</p>
-</li>
-<li>
-<p>id: 对应IP报文头的Identification,用于IP分片重组</p>
-</li>
-<li>
-<p>offset: 用于IP分片重组，表示相对于原始未分片的报文的位置</p>
-</li>
-<li>
-<p>flags: MF表示有更多分片，DF表示不分片，这里是DF，未使用分片，所以id和offset的值都可以忽略</p>
-</li>
-<li>
-<p>proto: 表示协议，可以是TCP，UDP等</p>
-</li>
-<li>
-<p>length: 总长度字段，是指整个IP数据报的长度</p>
-</li>
-<li>
-<p>172.27.0.14.22 &gt; 125.226.39.220.63970: 表示数据是从IP为172.27.0.14端口为22发送的IP为115.236.39.210端口为63970，分别对应ip报文头的源地址、目的地址，源端口、目标端口</p>
-</li>
-<li>
-<p>Flags: tcp报文标记段</p>
+<li>2019-01-23 14:24:11.889635: 详细的可读时间</li>
+<li>IP: ip协议，默认ipv4,如果ipv6则显示ip6</li>
+<li>tos: 表示服务类型，4bit的tos分别表示最小时延，最大吞吐量，最高可靠性，最小费用。这里都是0，表示一般服务，其余4bit废用，置0</li>
+<li>ttl: 数据报的生存时间,每经过一个路由器减1</li>
+<li>id: 对应IP报文头的Identification,用于IP分片重组</li>
+<li>offset: 用于IP分片重组，表示相对于原始未分片的报文的位置</li>
+<li>flags: MF表示有更多分片，DF表示不分片，这里是DF，未使用分片，所以id和offset的值都可以忽略</li>
+<li>proto: 表示协议，可以是TCP，UDP等</li>
+<li>length: 总长度字段，是指整个IP数据报的长度</li>
+<li>172.27.0.14.22 &gt; 125.226.39.220.63970: 表示数据是从IP为172.27.0.14端口为22发送的IP为115.236.39.210端口为63970，分别对应ip报文头的源地址、目的地址，源端口、目标端口</li>
+<li>Flags: tcp报文标记段</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -634,28 +613,13 @@ tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<sp
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>chksum: IP首部检验和和TCP报文段(包括TCP首部和数据)检验和</p>
-</li>
-<li>
-<p>seq:  代表该数据包包含该数据流的第 2687384271 到 2687384395 字节 这里使用的是绝对序列号</p>
-</li>
-<li>
-<p>ack: TCP是可靠连接，所以收到发送方的数据，接受方就会发送ack确认，告诉发送方，接受方已经接收到数据，否则，发送方认为数据没有发送成功，重复发送数据;如果该数据包是数据发送方，ack 值为 1，在数据接收方，该字段代表数据流上的下一个预期字节数据。</p>
-</li>
-<li>
-<p>win: 接收窗口大小,它表示接收缓冲区中可用的字节数，后跟 TCP 选项如 MSS（最大段大小）或者窗口比例值</p>
-</li>
-<li>
-<p>length: 代表数据包有效载荷字节长度。这个长度和 seq 序列号中字节数值长度是不一样的</p>
-</li>
+<ul>
+<li>chksum: IP首部检验和和TCP报文段(包括TCP首部和数据)检验和</li>
+<li>seq:  代表该数据包包含该数据流的第 2687384271 到 2687384395 字节 这里使用的是绝对序列号</li>
+<li>ack: TCP是可靠连接，所以收到发送方的数据，接受方就会发送ack确认，告诉发送方，接受方已经接收到数据，否则，发送方认为数据没有发送成功，重复发送数据;如果该数据包是数据发送方，ack 值为 1，在数据接收方，该字段代表数据流上的下一个预期字节数据。</li>
+<li>win: 接收窗口大小,它表示接收缓冲区中可用的字节数，后跟 TCP 选项如 MSS（最大段大小）或者窗口比例值</li>
+<li>length: 代表数据包有效载荷字节长度。这个长度和 seq 序列号中字节数值长度是不一样的</li>
 </ul>
-<h2 id="heading-8">参考文档</h2>
-<p><a href="https://www.tcpdump.org/manpages/tcpdump.1.html">https://www.tcpdump.org/manpages/tcpdump.1.html</a></p>
-<p><a href="https://blog.wains.be/2007/2007-10-01-tcpdump-advanced-filters/">https://blog.wains.be/2007/2007-10-01-tcpdump-advanced-filters/</a></p>
-<p><a href="https://linuxwiki.github.io/NetTools/tcpdump.html">https://linuxwiki.github.io/NetTools/tcpdump.html</a></p>
-<p><a href="https://www.iana.org/assignments/tcp-parameters/tcp-parameters.xhtml">https://www.iana.org/assignments/tcp-parameters/tcp-parameters.xhtml</a></p>
 
     </div>
 

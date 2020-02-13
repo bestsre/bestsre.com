@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>抓包神器tcpdump基本使用</title>
-      <link>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</link>
+      <title>tcpdump基本使用</title>
+      <link>https://www.bestsre.com/post/tcpdump-man/</link>
       <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/tcpdump%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://www.bestsre.com/post/tcpdump-man/</guid>
       <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据</description>
     </item>
     

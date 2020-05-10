@@ -9,14 +9,14 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/categories/linux/</loc>
+    <loc>https://www.bestsre.com/tags/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/linux/</loc>
+    <loc>https://www.bestsre.com/categories/linux/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -37,21 +37,7 @@
   </url>
   
   <url>
-    <loc>https://www.bestsre.com/tags/tcp/ip/</loc>
-    <lastmod>2019-01-25T11:33:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://www.bestsre.com/post/tcpdump-man/</loc>
-    <lastmod>2019-01-25T11:33:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.bestsre.com/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -67,6 +53,19 @@
   <url>
     <loc>https://www.bestsre.com/archives/</loc>
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/</loc>
+    <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/tcp/ip/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

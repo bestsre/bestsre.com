@@ -12,12 +12,17 @@
     
     
     <item>
-      <title>tcpdump基本使用</title>
-      <link>https://www.bestsre.com/post/tcpdump-man/</link>
-      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
+      <title>Awesome Go</title>
+      <link>https://www.bestsre.com/post/awesome-go/</link>
+      <pubDate>Mon, 11 May 2020 00:19:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/tcpdump-man/</guid>
-      <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据</description>
+      <guid>https://www.bestsre.com/post/awesome-go/</guid>
+      <description>Awesome Go    
+
+Financial support to Awesome Go
+We have no monthly cost, but we have employees hard working to maintain the Awesome Go, with money raised we can repay the effort of each person involved!
+A curated list of awesome Go frameworks, libraries and software. Inspired by awesome-python.
+Contributing Please take a quick gander at the contribution guidelines first. Thanks to all contributors; you rock!</description>
     </item>
     
     <item>

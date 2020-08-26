@@ -3,6 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+<<<<<<< HEAD
     <loc>https://bestsre.com/categories/</loc>
     <lastmod>2019-01-25T11:33:24+08:00</lastmod>
   </url>
@@ -204,11 +205,67 @@
   
   <url>
     <loc>https://bestsre.com/archives/</loc>
+=======
+    <loc>https://www.bestsre.com/post/awesome-go/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/categories/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/golang/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/categories/golang/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/post/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/</loc>
+    <lastmod>2020-05-11T00:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/about/</loc>
+    <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/archives/</loc>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
   </url>
   
   <url>
+<<<<<<< HEAD
     <loc>https://bestsre.com/</loc>
+=======
+    <loc>https://www.bestsre.com/</loc>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
   </url>
   

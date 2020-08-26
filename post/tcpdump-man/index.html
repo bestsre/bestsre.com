@@ -43,8 +43,12 @@
     
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+<<<<<<< HEAD
     
     <link rel="stylesheet" href="/css/hux-blog.min.css">
+=======
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
 
     
     <link rel="stylesheet" href="/css/zanshang.css">
@@ -65,8 +69,12 @@
     
     <script src="/js/hux-blog.min.js"></script>
 
+<<<<<<< HEAD
     
     
+=======
+<link href="/sass/main.min.789801f93ee57ed7e2e55e93539d06db7169b0ce4361cd8fcf733d4117cd8725.css" rel="stylesheet">
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
 
 </head>
 
@@ -222,6 +230,7 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
+<<<<<<< HEAD
     <li>
       <ul>
         <li><a href="#tcpdump常用选项">tcpdump常用选项</a></li>
@@ -243,6 +252,51 @@
 	<span style="color:#f92672">[</span> -E spi@ipaddr algo:secret,... <span style="color:#f92672">]</span>
 	<span style="color:#f92672">[</span> -y datalinktype <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -z postrotate-command <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -Z user <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> expression <span style="color:#f92672">]</span>
 </code></pre></div><table>
+=======
+    <li><a href="#tcpdump常用选项">tcpdump常用选项</a></li>
+    <li><a href="#过滤数据包">过滤数据包</a>
+      <ul>
+        <li><a href="#过滤规则表达式">过滤规则表达式</a></li>
+        <li><a href="#常用过滤规则">常用过滤规则</a></li>
+      </ul>
+    </li>
+    <li><a href="#怎么看输出的报文信息">怎么看输出的报文信息</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-01-25T11:33:24" title="January 25, 2019">January 25, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <p>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于<code>截取网络分组</code>，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。</p>
+<h2 id="tcpdump常用选项">tcpdump常用选项</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">tcpdump <span class="o">[</span> -AdDefIKlLnNOpqRStuUvxX <span class="o">]</span> <span class="o">[</span> -B buffer_size <span class="o">]</span> <span class="o">[</span> -c count <span class="o">]</span>
+
+	<span class="o">[</span> -C file_size <span class="o">]</span> <span class="o">[</span> -G rotate_seconds <span class="o">]</span> <span class="o">[</span> -F file <span class="o">]</span>
+	<span class="o">[</span> -i interface <span class="o">]</span> <span class="o">[</span> -m module <span class="o">]</span> <span class="o">[</span> -M secret <span class="o">]</span>
+	<span class="o">[</span> -r file <span class="o">]</span> <span class="o">[</span> -s snaplen <span class="o">]</span> <span class="o">[</span> -T <span class="nb">type</span> <span class="o">]</span> <span class="o">[</span> -w file <span class="o">]</span>
+	<span class="o">[</span> -W filecount <span class="o">]</span>
+	<span class="o">[</span> -E spi@ipaddr algo:secret,... <span class="o">]</span>
+	<span class="o">[</span> -y datalinktype <span class="o">]</span> <span class="o">[</span> -z postrotate-command <span class="o">]</span> <span class="o">[</span> -Z user <span class="o">]</span> <span class="o">[</span> expression <span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><table>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
 <thead>
 <tr>
 <th align="center">选项</th>
@@ -379,6 +433,7 @@
 </code></pre></div><p><strong>过滤网段，ip段：</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any net 172.17.16.0/24
 sudo tcpdump -i any net 172.17.16.0 mask 255.255.255.0
+<<<<<<< HEAD
 </code></pre></div><h4 id="过滤端口">过滤端口</h4>
 <p><strong>过滤指定端口：</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Avvv port <span style="color:#ae81ff">8888</span> -c <span style="color:#ae81ff">10</span>
@@ -428,6 +483,185 @@ tcpdump grater <span style="color:#ae81ff">128</span>
 tcpdump &gt; <span style="color:#ae81ff">32</span>
 tcpdump &lt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
 </code></pre></div><p>过滤器的更多详细信息，请访问 tcpdump 官方 map page 的 <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">PCAP-FILTER</a> 部分。</p>
+=======
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="过滤端口">过滤端口</h4>
+<p><strong>过滤指定端口：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Avvv port <span class="m">8888</span> -c <span class="m">10</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤源和目的端口：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -nvvv <span class="s1">&#39;port 22 &amp;&amp; port 62644&#39;</span> -c <span class="m">3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>排除指定端口:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0  not port <span class="m">22</span>
+sudo tcpdump -i eth0 not <span class="se">\(</span>port <span class="m">443</span> or port <span class="m">80</span> or port 22<span class="se">\)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤端口范围:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 portrange 79-81
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="过滤协议">过滤协议</h4>
+<p>限制抓取指定协议,tcpdump可识别的关键字包括<code>ip</code>,<code>ip6</code>,<code>arp</code>,<code>igmp</code>,<code>tcp</code>,<code>udp</code>,<code>icmp</code>
+有很多传输层服务没有可以识别的关键字。在这种情况下，可以使用关键字<code>proto</code>或ip proto加上/etc/protocols能够找到的协议名或相应的协议编号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i macvlan0 arp
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="过滤协议头">过滤协议头</h4>
+<p>常用的 tcp 标记:<code>tcp-fin</code>, <code>tcp-syn</code>, <code>tcp-rst</code>, <code>tcp-push</code>, <code>tcp-ack</code>, <code>tcp-urg</code>, <code>tcp-ece</code>, <code>tcp-cwr</code></p>
+<p><strong>过滤 <code>tcp SYN</code> 消息包:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span class="s1">&#39;tcp[tcpflags] &amp; (tcp-syn) != 0&#39;</span> -c <span class="m">1</span>
+13:52:32.070747 IP 125.226.39.220.54500 &gt; bestsre.microsoft-ds: Flags <span class="o">[</span>S<span class="o">]</span>, seq 3744066256, win 8192, options <span class="o">[</span>mss 1200,nop,wscale 2,sackOK,TS val <span class="m">1380022</span> ecr 0<span class="o">]</span>, length <span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 <code>tcp SYN/ACK</code>消息包:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span class="s1">&#39;tcp[tcpflags] &amp; (tcp-syn|tcp-ack) != 0&#39;</span> -c <span class="m">1</span>
+13:54:47.889653 IP bestsre.ssh &gt; YZ.62644: Flags <span class="o">[</span>P.<span class="o">]</span>, seq 4178293879:4178294067, ack 3163427986, win 314, options <span class="o">[</span>nop,nop,TS val <span class="m">3890058229</span> ecr 558951371<span class="o">]</span>, length <span class="m">188</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="过滤http">过滤HTTP</h4>
+<p><strong>过滤 GET 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv  <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420 and port 8888&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>0x47455420</code> 为GET的16进制表示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">hex</span><span class="p">,</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;GET &#39;</span><span class="p">]))</span>
+<span class="p">[</span><span class="s1">&#39;0x47&#39;</span><span class="p">,</span> <span class="s1">&#39;0x45&#39;</span><span class="p">,</span> <span class="s1">&#39;0x54&#39;</span><span class="p">,</span> <span class="s1">&#39;0x20&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 POST 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x504f5354 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤PUT请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50555420&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 PATCH 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50415443 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x4820&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 DELETE 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x44454c45 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x5445 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x20&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 HEAD 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48454144 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 OPTIONS 请求:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x4f505449 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:4] = 0x4f4e5320&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤 HTTP 响应 (HTTP/1.):</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48545450 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x2f31 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x2e&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="根据包大小过滤">根据包大小过滤</h4>
+<p>数据报大小，单位是字节</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">tcpdump less <span class="m">32</span>
+tcpdump grater <span class="m">128</span>
+tcpdump &gt; <span class="m">32</span>
+tcpdump &lt;<span class="o">=</span> <span class="m">128</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>过滤器的更多详细信息，请访问 tcpdump 官方 map page 的 <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">PCAP-FILTER</a> 部分。</p>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
 <h2 id="怎么看输出的报文信息">怎么看输出的报文信息</h2>
 <p>tcpdump 能够抓取并解码多种协议类型的数据报文，如 TCP、UDP、ICMP 等等。虽然这里我们不可能介绍所有的数据报文类型，但可以分析下 TCP 类型的数据报文，来帮助你入门。</p>
 <p>tcpdump 抓取的 TCP 报文看起来如下：</p>

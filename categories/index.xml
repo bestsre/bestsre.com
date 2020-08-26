@@ -5,13 +5,19 @@
     <link>https://bestsre.com/categories/</link>
     <description>Recent content in Categories on 黑夜浮屠</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <language>en-us</language>
     <lastBuildDate>Fri, 25 Jan 2019 11:33:24 +0800</lastBuildDate>
+=======
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 11 May 2020 00:19:24 +0800</lastBuildDate>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
     
 	<atom:link href="https://bestsre.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< HEAD
       <title>Linux</title>
       <link>https://bestsre.com/categories/linux/</link>
       <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
@@ -44,6 +50,13 @@
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://bestsre.com/categories/life/</guid>
+=======
+      <title>Golang</title>
+      <link>https://www.bestsre.com/categories/golang/</link>
+      <pubDate>Mon, 11 May 2020 00:19:24 +0800</pubDate>
+      
+      <guid>https://www.bestsre.com/categories/golang/</guid>
+>>>>>>> eefd10afea4f23cf67ed717e0458dd5f0f39cb2a
       <description></description>
     </item>
     

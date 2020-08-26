@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubernetes on 一个小破站</title>
-    <link>https://www.bestsre.com/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on 一个小破站</description>
+    <title>Kubernetes on 黑夜浮屠</title>
+    <link>https://bestsre.com/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on 黑夜浮屠</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sun, 10 Mar 2019 11:33:24 +0800</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.bestsre.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bestsre.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>kubeadm平滑升级kubernetes集群</title>
-      <link>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</link>
-      <pubDate>Sun, 10 Mar 2019 11:33:24 +0800</pubDate>
+      <title>Istio Sidecar自动注入原理</title>
+      <link>https://bestsre.com/2018/05/23/istio-auto-injection-with-webhook/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bestsre.com/post/kubeadm%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7kubernetes%E9%9B%86%E7%BE%A4/</guid>
-      <description>1、检查集群可更新到的最新正式版 1 2 这步需要访问google上的文件，被Wall，超时 I0215 11:50:19.097435 24591 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;#34;https://dl.k8s.io/release/stable.txt&amp;#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable.txt: net/http: request canceled (Client.Timeout exceeded while awaiting</description>
+      <guid>https://bestsre.com/2018/05/23/istio-auto-injection-with-webhook/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Kubernets 1.9版本引入了Admission Webhook(web 回调)扩展机制，通过Webhook,开发者可以非常灵活地对Kubernets API Server的功能进行扩展，在API Server创建资源时对资源进行验证或者修改。&lt;/p&gt;
+&lt;p&gt;使用webhook的优势是不需要对API Server的源码进行修改和重新编译就可以扩展其功能。插入的逻辑实现为一个独立的web进程，通过参数方式传入到kubernets中，由kubernets在进行自身逻辑处理时对扩展逻辑进行回调。&lt;/p&gt;
+&lt;p&gt;Istio 0.7版本就利用了Kubernets webhook实现了sidecar的自动注入。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>kubeadm拉取谷歌镜像被墙问题解决</title>
-      <link>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Helm介绍</title>
+      <link>https://bestsre.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</link>
+      <pubDate>Mon, 16 Apr 2018 15:00:00 +0000</pubDate>
       
-      <guid>https://www.bestsre.com/post/kubeadm%E9%83%A8%E7%BD%B2%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
-      <description>很多同学使用kubeadm安装kubernetes集群最大的拦路虎可能就是几个k8s.gcr.io镜像的下载了，比较肉的方法可能是去dock</description>
+      <guid>https://bestsre.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</guid>
+      <description>前言 Helm是Kubernetes生态系统中的一个软件包管理工具。本文将介绍为何要使用Helm进行Kubernetes软件包管理，澄清Hel</description>
     </item>
     
     <item>
-      <title>kubeadm部署kubernetes集群</title>
-      <link>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</link>
-      <pubDate>Sat, 10 Nov 2018 11:33:24 +0800</pubDate>
+      <title>如何从外部访问Kubernetes集群中的应用？</title>
+      <link>https://bestsre.com/2017/11/28/access-application-from-outside/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0000</pubDate>
       
-      <guid>https://www.bestsre.com/post/use-kubeadm-build-kubernetes-cluster/</guid>
-      <description>kubeadm是Kubernetes官方提供的用于快速安装Kubernetes集群的工具，伴随Kubernetes每个版本的发布都会同步更新</description>
+      <guid>https://bestsre.com/2017/11/28/access-application-from-outside/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;我们知道，kubernetes的Cluster Network属于私有网络，只能在cluster Network内部才能访问部署的应用，那如何才能将Kubernetes集群中的应用暴露到外部网络，为外部用户提供服务呢？本文探讨了从外部网络访问kubernetes cluster中应用的几种实现方式。&lt;/p&gt;</description>
     </item>
     
   </channel>

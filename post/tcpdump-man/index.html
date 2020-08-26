@@ -1,184 +1,248 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>tcpdump基本使用 - 白起的博客</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+    
+    <meta property="og:site_name" content="黑夜浮屠">
+    <meta property="og:type" content="article">
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+    
+    <meta property="og:image" content="https://bestsre.com/img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://bestsre.com/img/home-bg-jeep.jpg" />
+    
 
+    
+    <meta name="title" content="tcpdump基本使用" />
+    <meta property="og:title" content="tcpdump基本使用" />
+    <meta property="twitter:title" content="tcpdump基本使用" />
+    
 
-<meta name="author" content="白起" /><meta name="description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据" /><meta name="keywords" content="sre, kubernetes, golang" />
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
 
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
 
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
+    <title>tcpdump基本使用-黑夜浮屠|heiye</title>
 
+    <link rel="canonical" href="/post/tcpdump-man/">
 
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
 
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<link rel="canonical" href="https://www.bestsre.com/post/tcpdump-man/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    
+    
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
 
-<link href="/sass/main.min.57d152e5dcddcf01818e0c2fa8b5adf29b0ef35c0d7c5c37058f4601df937bf0.css" rel="stylesheet">
-
-
-
-<meta property="og:title" content="tcpdump基本使用" />
-<meta property="og:description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.bestsre.com/post/tcpdump-man/" />
-<meta property="article:published_time" content="2019-01-25T11:33:24+08:00" />
-<meta property="article:modified_time" content="2019-01-25T11:33:24+08:00" />
-<meta itemprop="name" content="tcpdump基本使用">
-<meta itemprop="description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据">
-<meta itemprop="datePublished" content="2019-01-25T11:33:24&#43;08:00" />
-<meta itemprop="dateModified" content="2019-01-25T11:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="3387">
-
-
-
-<meta itemprop="keywords" content="Linux,tcp/ip," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="tcpdump基本使用"/>
-<meta name="twitter:description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+    
+    
 
 </head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">白起的博客</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">白起的博客</a>
-</div>
 
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
 
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">tcpdump基本使用</h1>
 
-      <div class="post-meta">
-        <span class="post-time"> 2019-01-25 </span>
-        <div class="post-category">
-            <a href="/categories/linux/"> Linux </a>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">黑夜浮屠</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/life">life</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tips">tips</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
             </div>
-          <span class="more-meta"> 约 3387 字 </span>
-          <span class="more-meta"> 预计阅读 7 分钟 </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
-      </div>
-    </header>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linux" title="Linux">
+                            Linux
+                        </a>
+                        
+                        <a class="tag" href="/tags/tcp/ip" title="tcp/ip">
+                            tcp/ip
+                        </a>
+                        
+                    </div>
+                    <h1>tcpdump基本使用</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                黑夜浮屠
+                         
+                        on 
+                        Friday, January 25, 2019
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
   <ul>
-    <li><a href="#tcpdump">tcpdump常用选项</a></li>
-    <li><a href="#heading">过滤数据包</a>
+    <li>
       <ul>
-        <li><a href="#heading-1">过滤规则表达式</a></li>
-        <li><a href="#heading-2">常用过滤规则</a></li>
+        <li><a href="#tcpdump常用选项">tcpdump常用选项</a></li>
+        <li><a href="#过滤数据包">过滤数据包</a></li>
+        <li><a href="#怎么看输出的报文信息">怎么看输出的报文信息</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">怎么看输出的报文信息</a></li>
   </ul>
 </nav>
-  </div>
-</div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-01-25T11:33:24" title="January 25, 2019">January 25, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
-    </div>
-  </div>
-    <div class="post-content">
-      <p>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于<code>截取网络分组</code>，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。</p>
-<h2 id="tcpdump">tcpdump常用选项</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">tcpdump <span class="o">[</span> -AdDefIKlLnNOpqRStuUvxX <span class="o">]</span> <span class="o">[</span> -B buffer_size <span class="o">]</span> <span class="o">[</span> -c count <span class="o">]</span>
+                
+                <p>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于<code>截取网络分组</code>，并输出分组内容的工具。tcpdump可以将网络中传送的数据包的报文头完全截获下来提供分析，它支持针对网络层、协议、主机、网络或端口的过滤，并提供and, or, not等逻辑语句来帮助用户去掉无用的信息。抓包还是偏向于非HTTP协议，常用于服务器端，客户端可以使用wireshark，也可以使用tcpdump抓包保存数据文件，使用wireshark分析。</p>
+<h2 id="tcpdump常用选项">tcpdump常用选项</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tcpdump <span style="color:#f92672">[</span> -AdDefIKlLnNOpqRStuUvxX <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -B buffer_size <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -c count <span style="color:#f92672">]</span>
 
-	<span class="o">[</span> -C file_size <span class="o">]</span> <span class="o">[</span> -G rotate_seconds <span class="o">]</span> <span class="o">[</span> -F file <span class="o">]</span>
-	<span class="o">[</span> -i interface <span class="o">]</span> <span class="o">[</span> -m module <span class="o">]</span> <span class="o">[</span> -M secret <span class="o">]</span>
-	<span class="o">[</span> -r file <span class="o">]</span> <span class="o">[</span> -s snaplen <span class="o">]</span> <span class="o">[</span> -T <span class="nb">type</span> <span class="o">]</span> <span class="o">[</span> -w file <span class="o">]</span>
-	<span class="o">[</span> -W filecount <span class="o">]</span>
-	<span class="o">[</span> -E spi@ipaddr algo:secret,... <span class="o">]</span>
-	<span class="o">[</span> -y datalinktype <span class="o">]</span> <span class="o">[</span> -z postrotate-command <span class="o">]</span> <span class="o">[</span> -Z user <span class="o">]</span> <span class="o">[</span> expression <span class="o">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><table>
+	<span style="color:#f92672">[</span> -C file_size <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -G rotate_seconds <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -F file <span style="color:#f92672">]</span>
+	<span style="color:#f92672">[</span> -i interface <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -m module <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -M secret <span style="color:#f92672">]</span>
+	<span style="color:#f92672">[</span> -r file <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -s snaplen <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -T type <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -w file <span style="color:#f92672">]</span>
+	<span style="color:#f92672">[</span> -W filecount <span style="color:#f92672">]</span>
+	<span style="color:#f92672">[</span> -E spi@ipaddr algo:secret,... <span style="color:#f92672">]</span>
+	<span style="color:#f92672">[</span> -y datalinktype <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -z postrotate-command <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> -Z user <span style="color:#f92672">]</span> <span style="color:#f92672">[</span> expression <span style="color:#f92672">]</span>
+</code></pre></div><table>
 <thead>
 <tr>
 <th align="center">选项</th>
@@ -288,8 +352,8 @@
 <strong>4）混杂模式（Promiscuous Model）</strong>:工作在混杂模式下的网卡接收所有的流过网卡的帧，信包捕获程序就是在这种模式下运行的。
 网卡的缺省工作模式包含广播模式和直接模式，即它只接收广播帧和发给自己的帧。如果采用混杂模式，一个站点的网卡将接受同一网络内所有站点所发送的数据包这样就可以到达对于网络信息监视捕获的目的。</p>
 </blockquote>
-<h2 id="heading">过滤数据包</h2>
-<h3 id="heading-1">过滤规则表达式</h3>
+<h2 id="过滤数据包">过滤数据包</h2>
+<h3 id="过滤规则表达式">过滤规则表达式</h3>
 <p>过滤规则一般包含三种修饰符的组合：</p>
 <ul>
 <li>type: 指定id 所代表的对象类型, id可以是名字也可以是数字. 可选的对象类型有: host, net, port 以及portrange，默认是 <code>host</code></li>
@@ -302,270 +366,87 @@
 <li>与操作: &amp;&amp; 或 and</li>
 <li>或操作: || 或 or</li>
 </ul>
-<h3 id="heading-2">常用过滤规则</h3>
-<h4 id="ip">过滤地址ip/域名</h4>
+<h3 id="常用过滤规则">常用过滤规则</h3>
+<h4 id="过滤地址ip域名">过滤地址ip/域名</h4>
 <p><strong>过滤目标是www.baidu.com的域名:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv dst host www.baidu.com
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤源ip或目标ip是172.27.0.14:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv host 172.27.0.14
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤源ip是172.27.0.14:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv src 172.27.0.14
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤目标ip是172.27.0.14:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv dst host 172.27.0.14
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤网段，ip段：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i any net 172.17.16.0/24
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv dst host www.baidu.com
+</code></pre></div><p><strong>过滤源ip或目标ip是172.27.0.14:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv host 172.27.0.14
+</code></pre></div><p><strong>过滤源ip是172.27.0.14:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv src 172.27.0.14
+</code></pre></div><p><strong>过滤目标ip是172.27.0.14:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any -Avvv dst host 172.27.0.14
+</code></pre></div><p><strong>过滤网段，ip段：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i any net 172.17.16.0/24
 sudo tcpdump -i any net 172.17.16.0 mask 255.255.255.0
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="heading-3">过滤端口</h4>
+</code></pre></div><h4 id="过滤端口">过滤端口</h4>
 <p><strong>过滤指定端口：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Avvv port <span class="m">8888</span> -c <span class="m">10</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤源和目的端口：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -nvvv <span class="s1">&#39;port 22 &amp;&amp; port 62644&#39;</span> -c <span class="m">3</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>排除指定端口:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0  not port <span class="m">22</span>
-sudo tcpdump -i eth0 not <span class="se">\(</span>port <span class="m">443</span> or port <span class="m">80</span> or port 22<span class="se">\)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤端口范围:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 portrange 79-81
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="heading-4">过滤协议</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Avvv port <span style="color:#ae81ff">8888</span> -c <span style="color:#ae81ff">10</span>
+</code></pre></div><p><strong>过滤源和目的端口：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -nvvv <span style="color:#e6db74">&#39;port 22 &amp;&amp; port 62644&#39;</span> -c <span style="color:#ae81ff">3</span>
+</code></pre></div><p><strong>排除指定端口:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0  not port <span style="color:#ae81ff">22</span>
+sudo tcpdump -i eth0 not <span style="color:#ae81ff">\(</span>port <span style="color:#ae81ff">443</span> or port <span style="color:#ae81ff">80</span> or port 22<span style="color:#ae81ff">\)</span>
+</code></pre></div><p><strong>过滤端口范围:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 portrange 79-81
+</code></pre></div><h4 id="过滤协议">过滤协议</h4>
 <p>限制抓取指定协议,tcpdump可识别的关键字包括<code>ip</code>,<code>ip6</code>,<code>arp</code>,<code>igmp</code>,<code>tcp</code>,<code>udp</code>,<code>icmp</code>
 有很多传输层服务没有可以识别的关键字。在这种情况下，可以使用关键字<code>proto</code>或ip proto加上/etc/protocols能够找到的协议名或相应的协议编号</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i macvlan0 arp
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="heading-5">过滤协议头</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i macvlan0 arp
+</code></pre></div><h4 id="过滤协议头">过滤协议头</h4>
 <p>常用的 tcp 标记:<code>tcp-fin</code>, <code>tcp-syn</code>, <code>tcp-rst</code>, <code>tcp-push</code>, <code>tcp-ack</code>, <code>tcp-urg</code>, <code>tcp-ece</code>, <code>tcp-cwr</code></p>
 <p><strong>过滤 <code>tcp SYN</code> 消息包:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span class="s1">&#39;tcp[tcpflags] &amp; (tcp-syn) != 0&#39;</span> -c <span class="m">1</span>
-13:52:32.070747 IP 125.226.39.220.54500 &gt; bestsre.microsoft-ds: Flags <span class="o">[</span>S<span class="o">]</span>, seq 3744066256, win 8192, options <span class="o">[</span>mss 1200,nop,wscale 2,sackOK,TS val <span class="m">1380022</span> ecr 0<span class="o">]</span>, length <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 <code>tcp SYN/ACK</code>消息包:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span class="s1">&#39;tcp[tcpflags] &amp; (tcp-syn|tcp-ack) != 0&#39;</span> -c <span class="m">1</span>
-13:54:47.889653 IP bestsre.ssh &gt; YZ.62644: Flags <span class="o">[</span>P.<span class="o">]</span>, seq 4178293879:4178294067, ack 3163427986, win 314, options <span class="o">[</span>nop,nop,TS val <span class="m">3890058229</span> ecr 558951371<span class="o">]</span>, length <span class="m">188</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="http">过滤HTTP</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span style="color:#e6db74">&#39;tcp[tcpflags] &amp; (tcp-syn) != 0&#39;</span> -c <span style="color:#ae81ff">1</span>
+13:52:32.070747 IP 125.226.39.220.54500 &gt; bestsre.microsoft-ds: Flags <span style="color:#f92672">[</span>S<span style="color:#f92672">]</span>, seq 3744066256, win 8192, options <span style="color:#f92672">[</span>mss 1200,nop,wscale 2,sackOK,TS val <span style="color:#ae81ff">1380022</span> ecr 0<span style="color:#f92672">]</span>, length <span style="color:#ae81ff">0</span>
+</code></pre></div><p><strong>过滤 <code>tcp SYN/ACK</code>消息包:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 <span style="color:#e6db74">&#39;tcp[tcpflags] &amp; (tcp-syn|tcp-ack) != 0&#39;</span> -c <span style="color:#ae81ff">1</span>
+13:54:47.889653 IP bestsre.ssh &gt; YZ.62644: Flags <span style="color:#f92672">[</span>P.<span style="color:#f92672">]</span>, seq 4178293879:4178294067, ack 3163427986, win 314, options <span style="color:#f92672">[</span>nop,nop,TS val <span style="color:#ae81ff">3890058229</span> ecr 558951371<span style="color:#f92672">]</span>, length <span style="color:#ae81ff">188</span>
+</code></pre></div><h4 id="过滤http">过滤HTTP</h4>
 <p><strong>过滤 GET 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv  <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420 and port 8888&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>0x47455420</code> 为GET的16进制表示</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">hex</span><span class="p">,</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">GET </span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
-<span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">0x47</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">0x45</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">0x54</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">0x20</span><span class="s1">&#39;</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 POST 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x504f5354 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤PUT请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50555420&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 PATCH 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50415443 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x4820&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 DELETE 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x44454c45 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x5445 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x20&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 HEAD 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48454144 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 OPTIONS 请求:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x4f505449 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:4] = 0x4f4e5320&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>过滤 HTTP 响应 (HTTP/1.):</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span class="s1">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48545450 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x2f31 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x2e&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="heading-6">根据包大小过滤</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv  <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420 and port 8888&#39;</span>
+</code></pre></div><p><code>0x47455420</code> 为GET的16进制表示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> list(map(hex, [ord(x) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;GET &#39;</span>]))
+[<span style="color:#e6db74">&#39;0x47&#39;</span>, <span style="color:#e6db74">&#39;0x45&#39;</span>, <span style="color:#e6db74">&#39;0x54&#39;</span>, <span style="color:#e6db74">&#39;0x20&#39;</span>]
+</code></pre></div><p><strong>过滤 POST 请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x504f5354 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
+</code></pre></div><p><strong>过滤PUT请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50555420&#39;</span>
+</code></pre></div><p><strong>过滤 PATCH 请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x50415443 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x4820&#39;</span>
+</code></pre></div><p><strong>过滤 DELETE 请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x44454c45 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x5445 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x20&#39;</span>
+</code></pre></div><p><strong>过滤 HEAD 请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48454144 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:1] = 0x20&#39;</span>
+</code></pre></div><p><strong>过滤 OPTIONS 请求:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x4f505449 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:4] = 0x4f4e5320&#39;</span>
+</code></pre></div><p><strong>过滤 HTTP 响应 (HTTP/1.):</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -Anvvv <span style="color:#e6db74">&#39;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x48545450 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 4:2] = 0x2f31 &amp;&amp; tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2) + 6:1] = 0x2e&#39;</span>
+</code></pre></div><h4 id="根据包大小过滤">根据包大小过滤</h4>
 <p>数据报大小，单位是字节</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">tcpdump less <span class="m">32</span>
-tcpdump grater <span class="m">128</span>
-tcpdump &gt; <span class="m">32</span>
-tcpdump &lt;<span class="o">=</span> <span class="m">128</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>过滤器的更多详细信息，请访问 tcpdump 官方 map page 的 <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">PCAP-FILTER</a> 部分。</p>
-<h2 id="heading-7">怎么看输出的报文信息</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tcpdump less <span style="color:#ae81ff">32</span>
+tcpdump grater <span style="color:#ae81ff">128</span>
+tcpdump &gt; <span style="color:#ae81ff">32</span>
+tcpdump &lt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+</code></pre></div><p>过滤器的更多详细信息，请访问 tcpdump 官方 map page 的 <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">PCAP-FILTER</a> 部分。</p>
+<h2 id="怎么看输出的报文信息">怎么看输出的报文信息</h2>
 <p>tcpdump 能够抓取并解码多种协议类型的数据报文，如 TCP、UDP、ICMP 等等。虽然这里我们不可能介绍所有的数据报文类型，但可以分析下 TCP 类型的数据报文，来帮助你入门。</p>
 <p>tcpdump 抓取的 TCP 报文看起来如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -SXttttvvvnn -c <span class="m">3</span>
-tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">262144</span> bytes
-2019-01-23 14:24:11.889635 IP <span class="o">(</span>tos 0x10, ttl 64, id 58162, offset 0, flags <span class="o">[</span>DF<span class="o">]</span>, proto TCP <span class="o">(</span>6<span class="o">)</span>, length 176<span class="o">)</span>
-    172.27.0.14.22 &gt; 125.226.39.220.63970: Flags <span class="o">[</span>P.<span class="o">]</span>, cksum 0x488a <span class="o">(</span>incorrect -&gt; 0xdcc4<span class="o">)</span>, seq 2687384271:2687384395, ack 2449155490, win 314, options <span class="o">[</span>nop,nop,TS val <span class="m">4064622229</span> ecr 643829509<span class="o">]</span>, length <span class="m">124</span>
-	0x0000:  <span class="m">4510</span> 00b0 e332 <span class="m">4000</span> <span class="m">4006</span> 0f1e ac1b 000e  E....2@.@.......
-	0x0010:  73ec 27d2 <span class="m">0016</span> f9e2 a02e 3acf 91fb 25a2  s.<span class="err">&#39;</span>.......:...%.
-	0x0020:  <span class="m">8018</span> 013a 488a <span class="m">0000</span> <span class="m">0101</span> 080a f245 <span class="m">3695</span>  ...:H........E6.
-	0x0030:  <span class="m">2660</span> 0f05 86a8 9dad 926d 03c7 f118 6a29  <span class="p">&amp;</span><span class="sb">`</span>.......m....j<span class="o">)</span>
-	0x0040:  28f2 03e9 aa82 00e2 7b89 3f8f ac0e 32eb  <span class="o">(</span>.......<span class="o">{</span>.?...2.
-	0x0050:  7b56 9ce3 245f bef7 82a1 56b6 <span class="m">9793</span> 3fa2  <span class="o">{</span>V..<span class="nv">$_</span>....V...?.
-	0x0060:  f04c bbd7 396a <span class="m">8774</span> fb66 <span class="m">2683</span> <span class="m">9195</span> efe3  .L..9j.t.f<span class="p">&amp;</span>.....
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tcpdump -i eth0 -SXttttvvvnn -c <span style="color:#ae81ff">3</span>
+tcpdump: listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
+2019-01-23 14:24:11.889635 IP <span style="color:#f92672">(</span>tos 0x10, ttl 64, id 58162, offset 0, flags <span style="color:#f92672">[</span>DF<span style="color:#f92672">]</span>, proto TCP <span style="color:#f92672">(</span>6<span style="color:#f92672">)</span>, length 176<span style="color:#f92672">)</span>
+    172.27.0.14.22 &gt; 125.226.39.220.63970: Flags <span style="color:#f92672">[</span>P.<span style="color:#f92672">]</span>, cksum 0x488a <span style="color:#f92672">(</span>incorrect -&gt; 0xdcc4<span style="color:#f92672">)</span>, seq 2687384271:2687384395, ack 2449155490, win 314, options <span style="color:#f92672">[</span>nop,nop,TS val <span style="color:#ae81ff">4064622229</span> ecr 643829509<span style="color:#f92672">]</span>, length <span style="color:#ae81ff">124</span>
+	0x0000:  <span style="color:#ae81ff">4510</span> 00b0 e332 <span style="color:#ae81ff">4000</span> <span style="color:#ae81ff">4006</span> 0f1e ac1b 000e  E....2@.@.......
+	0x0010:  73ec 27d2 <span style="color:#ae81ff">0016</span> f9e2 a02e 3acf 91fb 25a2  s.<span style="color:#960050;background-color:#1e0010">&#39;</span>.......:...%.
+	0x0020:  <span style="color:#ae81ff">8018</span> 013a 488a <span style="color:#ae81ff">0000</span> <span style="color:#ae81ff">0101</span> 080a f245 <span style="color:#ae81ff">3695</span>  ...:H........E6.
+	0x0030:  <span style="color:#ae81ff">2660</span> 0f05 86a8 9dad 926d 03c7 f118 6a29  &amp;<span style="color:#e6db74">`</span>.......m....j<span style="color:#f92672">)</span>
+	0x0040:  28f2 03e9 aa82 00e2 7b89 3f8f ac0e 32eb  <span style="color:#f92672">(</span>.......<span style="color:#f92672">{</span>.?...2.
+	0x0050:  7b56 9ce3 245f bef7 82a1 56b6 <span style="color:#ae81ff">9793</span> 3fa2  <span style="color:#f92672">{</span>V..$_....V...?.
+	0x0060:  f04c bbd7 396a <span style="color:#ae81ff">8774</span> fb66 <span style="color:#ae81ff">2683</span> <span style="color:#ae81ff">9195</span> efe3  .L..9j.t.f&amp;.....
 	0x0070:  70e1 e295 c712 0b93 c168 c348 51cd 66e6  p........h.HQ.f.
-	0x0080:  <span class="m">9336</span> 20b0 d304 d754 3ed4 6f45 20a0 b574  .6.....T&gt;.oE...t
-	0x0090:  29c4 9ac0 9d00 166a b9dd 369f 465e fc7b  <span class="o">)</span>......j..6.F^.<span class="o">{</span>
-	0x00a0:  1f11 <span class="m">4795</span> 826f 4cbb 045f 00c5 d908 1ba3  ..G..oL.._......
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+	0x0080:  <span style="color:#ae81ff">9336</span> 20b0 d304 d754 3ed4 6f45 20a0 b574  .6.....T&gt;.oE...t
+	0x0090:  29c4 9ac0 9d00 166a b9dd 369f 465e fc7b  <span style="color:#f92672">)</span>......j..6.F^.<span style="color:#f92672">{</span>
+	0x00a0:  1f11 <span style="color:#ae81ff">4795</span> 826f 4cbb 045f 00c5 d908 1ba3  ..G..oL.._......
+</code></pre></div><ul>
 <li>2019-01-23 14:24:11.889635: 详细的可读时间</li>
 <li>IP: ip协议，默认ipv4,如果ipv6则显示ip6</li>
 <li>tos: 表示服务类型，4bit的tos分别表示最小时延，最大吞吐量，最高可靠性，最小费用。这里都是0，表示一般服务，其余4bit废用，置0</li>
@@ -622,111 +503,299 @@ tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<sp
 <li>length: 代表数据包有效载荷字节长度。这个长度和 seq 序列号中字节数值长度是不一样的</li>
 </ul>
 
-    </div>
 
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">白起</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-01-25
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/linux/">Linux</a>
-          <a href="/tags/tcp/ip/">tcp/ip</a>
-          </div>
-      <nav class="post-nav">
-        
-        
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="https://www.bestsre.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2018 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">白起</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  
-    <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
-    <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-129052460-1', 'auto');
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
 	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://bestsre.com"><img src="/img/favicon.png" />黑夜浮屠</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
 
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/readme/" data-toggle="tooltip" data-placement="top" title="Clean White Theme for Hugo">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/docker" title="docker">
+                            docker
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/microservice" title="microservice">
+                            microservice
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/security" title="security">
+                            security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/service-mesh" title="service-mesh">
+                            service-mesh
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tips" title="tips">
+                            tips
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="黑夜浮屠" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:youremail@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 黑夜浮屠 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
 

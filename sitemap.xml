@@ -33,11 +33,6 @@
   </url>
   
   <url>
-    <loc>https://bestsre.com/post/readme/</loc>
-    <lastmod>2019-01-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bestsre.com/tags/istio/</loc>
     <lastmod>2018-06-04T00:00:00+00:00</lastmod>
   </url>
@@ -203,6 +198,21 @@
   </url>
   
   <url>
+    <loc>https://bestsre.com/top/about/</loc>
+    <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bestsre.com/top/books/</loc>
+    <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bestsre.com/top/</loc>
+    <lastmod>2018-01-01T20:53:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bestsre.com/archives/</loc>
     <lastmod>2018-01-01T20:53:54+08:00</lastmod>
   </url>
@@ -242,23 +252,11 @@
   </url>
   
   <url>
-    <loc>https://bestsre.com/top/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://bestsre.com/top/books/</loc>
-  </url>
-  
-  <url>
     <loc>https://bestsre.com/search/</loc>
   </url>
   
   <url>
     <loc>https://bestsre.com/tags/tcp/ip/</loc>
-  </url>
-  
-  <url>
-    <loc>https://bestsre.com/top/</loc>
   </url>
   
 </urlset>

@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tops on 黑夜浮屠</title>
-    <link>https://bestsre.com/top/</link>
-    <description>Recent content in Tops on 黑夜浮屠</description>
+    <title>Tops on 黑夜</title>
+    <link>https://www.bestsre.com/top/</link>
+    <description>Recent content in Tops on 黑夜</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Mon, 01 Jan 2018 20:53:54 +0800</lastBuildDate>
     
-	<atom:link href="https://bestsre.com/top/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bestsre.com/top/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About me</title>
-      <link>https://bestsre.com/top/about/</link>
+      <link>https://www.bestsre.com/top/about/</link>
       <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
-      <guid>https://bestsre.com/top/about/</guid>
+      <guid>https://www.bestsre.com/top/about/</guid>
       <description>  </description>
     </item>
     
     <item>
       <title>Books</title>
-      <link>https://bestsre.com/top/books/</link>
+      <link>https://www.bestsre.com/top/books/</link>
       <pubDate>Mon, 01 Jan 2018 20:53:54 +0800</pubDate>
       
-      <guid>https://bestsre.com/top/books/</guid>
+      <guid>https://www.bestsre.com/top/books/</guid>
       <description>  </description>
     </item>
     

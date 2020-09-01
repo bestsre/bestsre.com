@@ -1,642 +1,427 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 <head>
-	<meta name="generator" content="Hugo 0.69.1" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>黑夜</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta property="og:site_name" content="黑夜浮屠">
-    <meta property="og:type" content="article">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta property="og:image" content="https://bestsre.com/img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="https://bestsre.com/img/home-bg-jeep.jpg" />
-    
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
-    
 
-    
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
-    
+<meta name="author" content="黑夜浮屠" /><meta name="keywords" content="sre, kubernetes, golang" />
 
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
 
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>黑夜浮屠-黑夜浮屠</title>
 
-    <link rel="canonical" href="/">
 
-    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
-	
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
+<meta name="generator" content="Hugo 0.69.1 with theme even" />
 
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-    
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    
-    
+<link rel="canonical" href="https://www.bestsre.com/" />
+  <link href="https://www.bestsre.com/index.xml" rel="alternate" type="application/rss+xml" title="黑夜" />
+  <link href="https://www.bestsre.com/index.xml" rel="feed" type="application/rss+xml" title="黑夜" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-    
-    
-    <script src="/js/jquery.min.js"></script>
-    
-    
-    <script src="/js/bootstrap.min.js"></script>
-    
-    
-    <script src="/js/hux-blog.min.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-    
-    
+<link href="/sass/main.min.90f615f2a5a0a299553f9d529a29f0e2f277b66402bca2b0a529b04f255b1d10.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="黑夜" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.bestsre.com/" />
+<meta property="og:updated_time" content="2018-01-01T20:53:54+08:00" />
+<meta itemprop="name" content="黑夜">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="黑夜"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">黑夜浮屠</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    
-                        
-                        <li>
-                            <a href="/categories/life">life</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/linux">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/tech">tech</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/tips">tips</a>
-                        </li>
-                        
-                    
-                    
-		    
-                        <li><a href="/top/books/">BOOKS</a></li>
-                    
-                        <li><a href="/top/about/">ABOUT</a></li>
-                    
-
-                    
-		    <li>
-                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
-		    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">黑夜</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
 </nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">黑夜</a>
+</div>
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
 
-
-
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>黑夜浮屠 </h1>
-                    
-		    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/tcpdump-man/">tcpdump基本使用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-01-25 </span>
+      <div class="post-category">
+          <a href="/categories/linux/"> Linux </a>
+          </div>
+        <span class="more-meta"> 约 3387 字 </span>
+        <span class="more-meta"> 预计阅读 7 分钟 </span>
     </div>
-</header>
-
-
-
+  </header>
   
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
-
-<div class="post-preview">
-    <a href="https://bestsre.com/post/tcpdump-man/">
-        <h2 class="post-title">
-            tcpdump基本使用
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by 黑夜浮屠 Friday, January 25, 2019
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://bestsre.com/2018/06/04/introducing-the-istio-v1alpha3-routing-api/">
-        <h2 class="post-title">
-            Istio v1aplha3 routing API介绍(译文）
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            介绍Istio v1alpha3 routing API及其设计原则
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;赵化冰&#34; Monday, June 4, 2018
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://bestsre.com/2018/06/02/istio08/">
-        <h2 class="post-title">
-            Istio 0.8 Release发布
-        </h2>
-	
-        <h3 class="post-subtitle">
-            来自Istio的儿童节礼物
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;赵化冰&#34; Saturday, June 2, 2018
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://bestsre.com/2018/05/24/set_up_my_ubuntu_desktop/">
-        <h2 class="post-title">
-            Everything about Setting Up My Ubuntu Desktop
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Everything about setting up my own ubuntu desktop, it&#39;s just a Note in case I need it later
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;赵化冰&#34; Thursday, May 24, 2018
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://bestsre.com/2018/05/23/external_system_auth/">
-        <h2 class="post-title">
-            微服务安全沉思录之三
-        </h2>
-	
-        <h3 class="post-subtitle">
-            外部系统访问控制
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            一些外部的第三方系统可能需要访问系统内部的微服务。例如在网上商店的例子中，外部的推荐服务可能需要接入系统，以获取商店的商品目录信息。相对于内部服务之间的访问而言，外部系统的访问需要进行严格的安全控制。
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;赵化冰&#34; Wednesday, May 23, 2018
-    
-    
-    </p>
-
-</div>
-<hr>
-
-
-            
-
-
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
-
-
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-             
-            
-                
-            
-                
-                    <a href="/tags/docker" title="docker">
-                        docker
-                    </a>
-                
-            
-                
-            
-                
-                    <a href="/tags/istio" title="istio">
-                        istio
-                    </a>
-                
-            
-                
-                    <a href="/tags/kubernetes" title="kubernetes">
-                        kubernetes
-                    </a>
-                
-            
-                
-            
-                
-                    <a href="/tags/microservice" title="microservice">
-                        microservice
-                    </a>
-                
-            
-                
-            
-                
-                    <a href="/tags/security" title="security">
-                        security
-                    </a>
-                
-            
-                
-                    <a href="/tags/service-mesh" title="service-mesh">
-                        service-mesh
-                    </a>
-                
-            
-                
-            
-                
-                    <a href="/tags/tips" title="tips">
-                        tips
-                    </a>
-                
-            
-                
-            
-                
-            
-                
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
-        <div class="short-about">
-            
-            <a href="/top/about">
-               <img src="/img/zhaohuabing.png" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>专业摸鱼</p>
-            
-           
-           <ul class="list-inline"> 
-               
-               <li>
-                   <a href='/index.xml' rel="alternate" type="application/rss+xml" title="黑夜浮屠" >
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/yourgithub">
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-            
-            
-            
-               
-               
-               
-               
-                </ul>
-            </div>
-    </section>
-	
-    
-    
-
-    
-    
-</div>
-
-	</div>
-</div>
-
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                   
-                   <li>
-                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="黑夜浮屠" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fa fa-circle fa-stack-2x"></i>
-                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-                    
-                    <li>
-                        <a href="mailto:youremail@gmail.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    
-
-                    
-
-		    
-                    
-                    <li>
-                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/yourgithub">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-            
-                    
-                    
-                    
-            
-            
-            
-                </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; 黑夜浮屠 2020
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
+  <div class="post-content">
+    <div class="post-summary">
+      tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据
     </div>
-</footer>
+    <div class="read-more">
+      <a href="/post/tcpdump-man/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/06/04/introducing-the-istio-v1alpha3-routing-api/">Istio v1aplha3 routing API介绍(译文）</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-04 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 5354 字 </span>
+        <span class="more-meta"> 预计阅读 11 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/06/04/introducing-the-istio-v1alpha3-routing-api/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/06/02/istio08/">Istio 0.8 Release发布</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-02 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 1837 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：</p>
+</blockquote>
+    </div>
+    <div class="read-more">
+      <a href="/2018/06/02/istio08/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/24/set_up_my_ubuntu_desktop/">Everything about Setting Up My Ubuntu Desktop</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-24 </span>
+      <div class="post-category">
+          <a href="/categories/tips/"> Tips </a>
+          </div>
+        <span class="more-meta"> 约 148 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Generate SSH Key Pair 1 ssh-keygen -C &#34;zhaohuabing@gmail.com&#34; Shadowsocks Install shadowsokcs 1 2 3 sudo apt-get install python3-pip sudo pip3 install shadowsocks Create config at config/shadowsocks.json, with the following content: 1 2 3 4 5 6 7 8 9 10 11 { &#34;server&#34;:&#34;remote-shadowsocks-server-ip-addr&#34;, &#34;server_port&#34;:443, &#34;local_address&#34;:&#34;127.0.0.1&#34;, &#34;local_port&#34;:1080, &#34;password&#34;:&#34;your-passwd&#34;, &#34;timeout&#34;:300, &#34;method&#34;:&#34;aes-256-cfb&#34;, &#34;fast_open&#34;:false, &#34;workers&#34;:1 } Start a local socks proxy 1 sudo sslocal -c config/shadowsocks.json -d start In case there is an openssl
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/24/set_up_my_ubuntu_desktop/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/23/external_system_auth/">微服务安全沉思录之三</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-23 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 2350 字 </span>
+        <span class="more-meta"> 预计阅读 5 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      外部系统访问控制 除用户访问和微服务之间的相互访问外，外部的第三方系统也可能需要访问系统内部的微服务。例如在上一篇博客的网上商店例子中，外部的
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/23/external_system_auth/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/23/service_2_service_auth/">微服务安全沉思录之二</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-23 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 1935 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="服务间认证与鉴权">服务间认证与鉴权</h2>
+<p>除来自用户的访问请求以外，微服务应用中的各个微服务相互之间还有大量的访问，包括下述场景：</p>
+<ul>
+<li>用户间接触发的微服务之间的相互访问<!-- raw HTML omitted -->
+例如在一个网上商店应用中，用户访问购物车微服务进行结算时，购物车微服务可能需要访问用户评级微服务获取用户的会员级别，以得到用户可以享受购物折扣。</li>
+<li>非用户触发的微服务之间的相互访问<!-- raw HTML omitted -->
+例如数据同步或者后台定时任务导致的微服务之间的相互访问。</li>
+</ul>
+<p>根据应用系统的数据敏感程度的不同，对于系统内微服务的相互访问可能有不同的安全要求。</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/23/service_2_service_auth/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/22/user_authentication_authorization/">微服务安全沉思录之一</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-23 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 3064 字 </span>
+        <span class="more-meta"> 预计阅读 7 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      这段时间对之前微服务安全相关的一些想法进行了进一步总结和归纳，理清了在之前文章里面没有想得太清楚的地方，例如服务间的认证与鉴权以及用户身份在
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/22/user_authentication_authorization/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/23/istio-auto-injection-with-webhook/">Istio Sidecar自动注入原理</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-23 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 1169 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="前言">前言</h2>
+<hr>
+<p>Kubernets 1.9版本引入了Admission Webhook(web 回调)扩展机制，通过Webhook,开发者可以非常灵活地对Kubernets API Server的功能进行扩展，在API Server创建资源时对资源进行验证或者修改。</p>
+<p>使用webhook的优势是不需要对API Server的源码进行修改和重新编译就可以扩展其功能。插入的逻辑实现为一个独立的web进程，通过参数方式传入到kubernets中，由kubernets在进行自身逻辑处理时对扩展逻辑进行回调。</p>
+<p>Istio 0.7版本就利用了Kubernets webhook实现了sidecar的自动注入。</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/23/istio-auto-injection-with-webhook/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/05/01/may-day-jiulonghu/">川西秘境探险</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-01 </span>
+      <div class="post-category">
+          <a href="/categories/life/"> Life </a>
+          </div>
+        <span class="more-meta"> 约 3568 字 </span>
+        <span class="more-meta"> 预计阅读 8 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="寻浮云牧场不遇">寻浮云牧场不遇</h2>
+<p>五一节前的一周内，几个朋友就纷纷坐不住了，一个二个不再安心上班，开始在微信群里讨论过节要到哪里耍。
+大家思来想去，最后决定还是去理县方向。因为根据多年自驾的经验，只要出了汶川，沿途都是风景。</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/05/01/may-day-jiulonghu/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/04/16/using-helm-to-deploy-to-kubernetes/">Helm介绍</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-16 </span>
+      <div class="post-category">
+          <a href="/categories/tech/"> Tech </a>
+          </div>
+        <span class="more-meta"> 约 5088 字 </span>
+        <span class="more-meta"> 预计阅读 11 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      前言 Helm是Kubernetes生态系统中的一个软件包管理工具。本文将介绍为何要使用Helm进行Kubernetes软件包管理，澄清Hel
+    </div>
+    <div class="read-more">
+      <a href="/2018/04/16/using-helm-to-deploy-to-kubernetes/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
 
-<script>
+    </section>
+  
+  <nav class="pagination">
     
-    if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
+    <a class="next" href="/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://www.bestsre.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">黑夜浮屠</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+    <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
+    <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 
 
-<script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
 
-
-
-
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
 
 
 <script type="application/javascript">
@@ -649,6 +434,10 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
 
 
 

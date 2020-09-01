@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on 黑夜浮屠</title>
-    <link>https://bestsre.com/tags/docker/</link>
-    <description>Recent content in Docker on 黑夜浮屠</description>
+    <title>Docker on 黑夜</title>
+    <link>https://www.bestsre.com/tags/docker/</link>
+    <description>Recent content in Docker on 黑夜</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Tue, 13 Mar 2018 18:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://bestsre.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.bestsre.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>如何配置docker使用HTTP代理</title>
-      <link>https://bestsre.com/2018/03/13/use-docker-behind-http-proxy/</link>
+      <link>https://www.bestsre.com/2018/03/13/use-docker-behind-http-proxy/</link>
       <pubDate>Tue, 13 Mar 2018 18:00:00 +0000</pubDate>
       
-      <guid>https://bestsre.com/2018/03/13/use-docker-behind-http-proxy/</guid>
+      <guid>https://www.bestsre.com/2018/03/13/use-docker-behind-http-proxy/</guid>
       <description>&lt;h2 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h2&gt;
 &lt;h3 id=&#34;设置docker使用http-proxy&#34;&gt;设置docker使用http proxy&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo /etc/default/docker
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;sudo /etc/default/docker
 
-export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export https_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export HTTP_PROXY=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export HTTPS_PROXY=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;</description>
+export http_proxy=&amp;#34;http://127.0.0.1:3128/&amp;#34;
+export https_proxy=&amp;#34;http://127.0.0.1:3128/&amp;#34;
+export HTTP_PROXY=&amp;#34;http://127.0.0.1:3128/&amp;#34;
+export HTTPS_PROXY=&amp;#34;http://127.0.0.1:3128/&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>如何使用非root用户执行docker命令</title>
-      <link>https://bestsre.com/2018/02/09/docker-without-sudo/</link>
+      <link>https://www.bestsre.com/2018/02/09/docker-without-sudo/</link>
       <pubDate>Fri, 09 Feb 2018 10:00:00 +0000</pubDate>
       
-      <guid>https://bestsre.com/2018/02/09/docker-without-sudo/</guid>
+      <guid>https://www.bestsre.com/2018/02/09/docker-without-sudo/</guid>
       <description>Add the docker group if it doesn&amp;rsquo;t already exist: sudo groupadd docker Add the connected user &amp;ldquo;$USER&amp;rdquo; to the docker group. Change the user name to match your preferred user if you do not want to use your current user: sudo gpasswd -a $USER docker Either do a newgrp docker or log out/in to activate the changes to groups.</description>
     </item>
     

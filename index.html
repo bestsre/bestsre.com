@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.bestsre.com/" />
@@ -45,7 +45,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.bestsre.com/" />
-<meta property="og:updated_time" content="2018-01-01T20:53:54+08:00" />
+<meta property="og:updated_time" content="2019-01-25T11:33:24+08:00" />
 <meta itemprop="name" content="黑夜浮屠">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="黑夜浮屠"/>
@@ -133,237 +133,11 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/06/04/introducing-the-istio-v1alpha3-routing-api/">Istio v1aplha3 routing API介绍(译文）</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-04 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 5354 字 </span>
-        <span class="more-meta"> 预计阅读 11 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2018/06/04/introducing-the-istio-v1alpha3-routing-api/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/06/02/istio08/">Istio 0.8 Release发布</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-02 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 1837 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：</p>
-</blockquote>
-    </div>
-    <div class="read-more">
-      <a href="/2018/06/02/istio08/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/24/set_up_my_ubuntu_desktop/">Everything about Setting Up My Ubuntu Desktop</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-24 </span>
-      <div class="post-category">
-          <a href="/categories/tips/"> Tips </a>
-          </div>
-        <span class="more-meta"> 约 148 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Generate SSH Key Pair 1 ssh-keygen -C &#34;zhaohuabing@gmail.com&#34; Shadowsocks Install shadowsokcs 1 2 3 sudo apt-get install python3-pip sudo pip3 install shadowsocks Create config at config/shadowsocks.json, with the following content: 1 2 3 4 5 6 7 8 9 10 11 { &#34;server&#34;:&#34;remote-shadowsocks-server-ip-addr&#34;, &#34;server_port&#34;:443, &#34;local_address&#34;:&#34;127.0.0.1&#34;, &#34;local_port&#34;:1080, &#34;password&#34;:&#34;your-passwd&#34;, &#34;timeout&#34;:300, &#34;method&#34;:&#34;aes-256-cfb&#34;, &#34;fast_open&#34;:false, &#34;workers&#34;:1 } Start a local socks proxy 1 sudo sslocal -c config/shadowsocks.json -d start In case there is an openssl
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/24/set_up_my_ubuntu_desktop/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/23/external_system_auth/">微服务安全沉思录之三</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-23 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 2350 字 </span>
-        <span class="more-meta"> 预计阅读 5 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      外部系统访问控制 除用户访问和微服务之间的相互访问外，外部的第三方系统也可能需要访问系统内部的微服务。例如在上一篇博客的网上商店例子中，外部的
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/23/external_system_auth/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/23/service_2_service_auth/">微服务安全沉思录之二</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-23 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 1935 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="服务间认证与鉴权">服务间认证与鉴权</h2>
-<p>除来自用户的访问请求以外，微服务应用中的各个微服务相互之间还有大量的访问，包括下述场景：</p>
-<ul>
-<li>用户间接触发的微服务之间的相互访问<!-- raw HTML omitted -->
-例如在一个网上商店应用中，用户访问购物车微服务进行结算时，购物车微服务可能需要访问用户评级微服务获取用户的会员级别，以得到用户可以享受购物折扣。</li>
-<li>非用户触发的微服务之间的相互访问<!-- raw HTML omitted -->
-例如数据同步或者后台定时任务导致的微服务之间的相互访问。</li>
-</ul>
-<p>根据应用系统的数据敏感程度的不同，对于系统内微服务的相互访问可能有不同的安全要求。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/23/service_2_service_auth/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/22/user_authentication_authorization/">微服务安全沉思录之一</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-23 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 3064 字 </span>
-        <span class="more-meta"> 预计阅读 7 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      这段时间对之前微服务安全相关的一些想法进行了进一步总结和归纳，理清了在之前文章里面没有想得太清楚的地方，例如服务间的认证与鉴权以及用户身份在
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/22/user_authentication_authorization/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/23/istio-auto-injection-with-webhook/">Istio Sidecar自动注入原理</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-23 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 1169 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="前言">前言</h2>
-<hr>
-<p>Kubernets 1.9版本引入了Admission Webhook(web 回调)扩展机制，通过Webhook,开发者可以非常灵活地对Kubernets API Server的功能进行扩展，在API Server创建资源时对资源进行验证或者修改。</p>
-<p>使用webhook的优势是不需要对API Server的源码进行修改和重新编译就可以扩展其功能。插入的逻辑实现为一个独立的web进程，通过参数方式传入到kubernets中，由kubernets在进行自身逻辑处理时对扩展逻辑进行回调。</p>
-<p>Istio 0.7版本就利用了Kubernets webhook实现了sidecar的自动注入。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/23/istio-auto-injection-with-webhook/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/05/01/may-day-jiulonghu/">川西秘境探险</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-01 </span>
-      <div class="post-category">
-          <a href="/categories/life/"> Life </a>
-          </div>
-        <span class="more-meta"> 约 3568 字 </span>
-        <span class="more-meta"> 预计阅读 8 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="寻浮云牧场不遇">寻浮云牧场不遇</h2>
-<p>五一节前的一周内，几个朋友就纷纷坐不住了，一个二个不再安心上班，开始在微信群里讨论过节要到哪里耍。
-大家思来想去，最后决定还是去理县方向。因为根据多年自驾的经验，只要出了汶川，沿途都是风景。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2018/05/01/may-day-jiulonghu/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/04/16/using-helm-to-deploy-to-kubernetes/">Helm介绍</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-04-16 </span>
-      <div class="post-category">
-          <a href="/categories/tech/"> Tech </a>
-          </div>
-        <span class="more-meta"> 约 5088 字 </span>
-        <span class="more-meta"> 预计阅读 11 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 Helm是Kubernetes生态系统中的一个软件包管理工具。本文将介绍为何要使用Helm进行Kubernetes软件包管理，澄清Hel
-    </div>
-    <div class="read-more">
-      <a href="/2018/04/16/using-helm-to-deploy-to-kubernetes/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
     
-    <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
+    
   </nav>
         </div>
         

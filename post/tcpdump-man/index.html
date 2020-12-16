@@ -49,7 +49,7 @@
 <meta itemprop="description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据">
 <meta itemprop="datePublished" content="2019-01-25T11:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-25T11:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="3387">
+<meta itemprop="wordCount" content="3487">
 
 
 
@@ -125,7 +125,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> Linux </a>
             </div>
-          <span class="more-meta"> 约 3387 字 </span>
+          <span class="more-meta"> 约 3487 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -178,116 +178,50 @@
 	<span class="o">[</span> -y datalinktype <span class="o">]</span> <span class="o">[</span> -z postrotate-command <span class="o">]</span> <span class="o">[</span> -Z user <span class="o">]</span> <span class="o">[</span> expression <span class="o">]</span>
 </code></pre></td></tr></table>
 </div>
-</div><table>
-<thead>
-<tr>
-<th align="center">选项</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">-i</td>
-<td align="center">指定抓取的网络接口<code>-i interface</code>,<code>-i any</code>可以抓取所有网络接口</td>
-</tr>
-<tr>
-<td align="center">-D</td>
-<td align="center">列出机器所有的网络接口</td>
-</tr>
-<tr>
-<td align="center">-w</td>
-<td align="center">将捕获的包数据写入到文件中，后面再进行分析；<code>-w -</code>可以进行标准输出，会出现一大串的乱码,也可以使用重定向或tee</td>
-</tr>
-<tr>
-<td align="center">-r</td>
-<td align="center">从文件中读取包数据,回放场景</td>
-</tr>
-<tr>
-<td align="center">-c size</td>
-<td align="center">指定要捕获报文数量，使用 <code>-w</code> 写入文件时,使用<code>-C</code>，限制文件的最大大小，超出时新开一个文件(单位是 1,000,000 bytes)</td>
-</tr>
-<tr>
-<td align="center">-p</td>
-<td align="center">将网卡接口设置为非混杂模式</td>
-</tr>
-<tr>
-<td align="center">-s</td>
-<td align="center">控制数据的截取长度,一般tcpdump默认为一最大字节数量并只会从单一报文中截取到该数量长度, 为 0 时表示让 tcpdump 自动选择合适的长度来抓取数据包.</td>
-</tr>
-<tr>
-<td align="center">-S</td>
-<td align="center">打印绝对序列号,一般分析数据还是使用相对的</td>
-</tr>
-<tr>
-<td align="center">-a</td>
-<td align="center">强制将网络地址显示为名称,默认的选项</td>
-</tr>
-<tr>
-<td align="center">-n</td>
-<td align="center">不要将主机地址转换为名称。这可用于避免DNS查找</td>
-</tr>
-<tr>
-<td align="center">-nn</td>
-<td align="center">不要将协议和端口号等转换为名称</td>
-</tr>
-<tr>
-<td align="center">-N</td>
-<td align="center">阻止将域名转换FQDN</td>
-</tr>
-<tr>
-<td align="center">-f</td>
-<td align="center">阻止远端名称解析</td>
-</tr>
-<tr>
-<td align="center">-t</td>
-<td align="center">不显示时间</td>
-</tr>
-<tr>
-<td align="center">-tt</td>
-<td align="center">输出时间戳</td>
-</tr>
-<tr>
-<td align="center">-tttt</td>
-<td align="center">00:00:00.000000 详细输出时间信息</td>
-</tr>
-<tr>
-<td align="center">-v</td>
-<td align="center">显示详细信息，<code>-v</code>会显示ttl信息，使用<code>-vv,-vvv</code>抓包时输出包的更多附加信息</td>
-</tr>
-<tr>
-<td align="center">-q</td>
-<td align="center">显示更少的输出信息</td>
-</tr>
-<tr>
-<td align="center">-e</td>
-<td align="center">显示链路层头信息</td>
-</tr>
-<tr>
-<td align="center">-x</td>
-<td align="center">将报文以十六进制形式dump出来，排除了链路层报文头,<code>-xx</code>增加以太网header的显示</td>
-</tr>
-<tr>
-<td align="center">-A</td>
-<td align="center">以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据</td>
-</tr>
-<tr>
-<td align="center">-X</td>
-<td align="center">:以hex和ASCII两种形式显示包的内容,<code>-XX</code>增加以太网header的显示</td>
-</tr>
-</tbody>
-</table>
+</div><p>|选项|说明|
+|||
+|-i| 指定抓取的网络接口<code>-i interface</code>,<code>-i any</code>可以抓取所有网络接口|
+|-D| 列出机器所有的网络接口|
+|-w|将捕获的包数据写入到文件中，后面再进行分析；<code>-w -</code>可以进行标准输出，会出现一大串的乱码,也可以使用重定向或tee|
+|-r|从文件中读取包数据,回放场景|
+|-c size| 指定要捕获报文数量，使用 <code>-w</code> 写入文件时,使用<code>-C</code>，限制文件的最大大小，超出时新开一个文件(单位是 1,000,000 bytes)|
+|-p| 将网卡接口设置为非混杂模式|
+|-s|控制数据的截取长度,一般tcpdump默认为一最大字节数量并只会从单一报文中截取到该数量长度, 为 0 时表示让 tcpdump 自动选择合适的长度来抓取数据包.|
+|-S|打印绝对序列号,一般分析数据还是使用相对的|
+|-a|强制将网络地址显示为名称,默认的选项|
+|-n|不要将主机地址转换为名称。这可用于避免DNS查找|
+|-nn|不要将协议和端口号等转换为名称|
+|-N|阻止将域名转换FQDN|
+|-f|阻止远端名称解析|
+|-t|不显示时间|
+|-tt|输出时间戳|
+|-tttt| 00:00:00.000000 详细输出时间信息|
+|-v| 显示详细信息，<code>-v</code>会显示ttl信息，使用<code>-vv,-vvv</code>抓包时输出包的更多附加信息|
+|-q| 显示更少的输出信息|
+|-e|显示链路层头信息|
+|-x|将报文以十六进制形式dump出来，排除了链路层报文头,<code>-xx</code>增加以太网header的显示|
+|-A|以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据|
+|-X|:以hex和ASCII两种形式显示包的内容,<code>-XX</code>增加以太网header的显示|</p>
 <blockquote>
 <p>混杂模式就是接收所有经过网卡的数据包，包括不是发给本机的包，即不验证MAC地址。普通模式下网卡只接收发给本机的包（包括广播包）传递给上层程序，其它的包一律丢弃。
 一般来说，混杂模式不会影响网卡的正常工作，多在网络监听工具上使用。</p>
 </blockquote>
-<blockquote>
-<p>网卡具有如下的几种工作模式：
-<strong>1) 广播模式（Broad Cast Model）</strong>:它的物理地址（MAC）地址是 0Xffffff 的帧为广播帧，工作在广播模式的网卡接收广播帧。
-<strong>2）多播传送（MultiCast Model）</strong>：多播传送地址作为目的物理地址的帧可以被组内的其它主机同时接收，而组外主机却接收不到。但是，如果将网卡设置为多播传送模式，它可以接收所有的多播传送帧，而不论它是不是组内成员。
-<strong>3）直接模式（Direct Model）</strong>:工作在直接模式下的网卡只接收目地址是自己 Mac地址的帧。
-<strong>4）混杂模式（Promiscuous Model）</strong>:工作在混杂模式下的网卡接收所有的流过网卡的帧，信包捕获程序就是在这种模式下运行的。
+<p><strong>网卡具有如下的几种工作模式：</strong></p>
+<ul>
+<li>
+<p><strong>1) 广播模式（Broad Cast Model）</strong>:它的物理地址（MAC）地址是 0Xffffff 的帧为广播帧，工作在广播模式的网卡接收广播帧。</p>
+</li>
+<li>
+<p><strong>2）多播传送（MultiCast Model）</strong>：多播传送地址作为目的物理地址的帧可以被组内的其它主机同时接收，而组外主机却接收不到。但是，如果将网卡设置为多播传送模式，它可以接收所有的多播传送帧，而不论它是不是组内成员。</p>
+</li>
+<li>
+<p><strong>3）直接模式（Direct Model）</strong>:工作在直接模式下的网卡只接收目地址是自己 Mac地址的帧。</p>
+</li>
+<li>
+<p><strong>4）混杂模式（Promiscuous Model）</strong>:工作在混杂模式下的网卡接收所有的流过网卡的帧，信包捕获程序就是在这种模式下运行的。
 网卡的缺省工作模式包含广播模式和直接模式，即它只接收广播帧和发给自己的帧。如果采用混杂模式，一个站点的网卡将接受同一网络内所有站点所发送的数据包这样就可以到达对于网络信息监视捕获的目的。</p>
-</blockquote>
+</li>
+</ul>
 <h2 id="过滤数据包">过滤数据包</h2>
 <h3 id="过滤规则表达式">过滤规则表达式</h3>
 <p>过滤规则一般包含三种修饰符的组合：</p>
@@ -528,7 +462,7 @@ tcpdump &lt;<span class="o">=</span> <span class="m">128</span>
 </div><p>过滤器的更多详细信息，请访问 tcpdump 官方 map page 的 <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">PCAP-FILTER</a> 部分。</p>
 <h2 id="怎么看输出的报文信息">怎么看输出的报文信息</h2>
 <p>tcpdump 能够抓取并解码多种协议类型的数据报文，如 TCP、UDP、ICMP 等等。虽然这里我们不可能介绍所有的数据报文类型，但可以分析下 TCP 类型的数据报文，来帮助你入门。</p>
-<p>tcpdump 抓取的 TCP 报文看起来如下：</p>
+<p><strong>tcpdump 抓取的 TCP 报文看起来如下：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -578,42 +512,13 @@ tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<sp
 <li>172.27.0.14.22 &gt; 125.226.39.220.63970: 表示数据是从IP为172.27.0.14端口为22发送的IP为115.236.39.210端口为63970，分别对应ip报文头的源地址、目的地址，源端口、目标端口</li>
 <li>Flags: tcp报文标记段</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">标志类型</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">S</td>
-<td align="center">SYN</td>
-<td align="center">Connection Start</td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">FIN</td>
-<td align="center">Connection Finish</td>
-</tr>
-<tr>
-<td align="center">P</td>
-<td align="center">PUSH</td>
-<td align="center">Data push</td>
-</tr>
-<tr>
-<td align="center">R</td>
-<td align="center">RST</td>
-<td align="center">Connection reset</td>
-</tr>
-<tr>
-<td align="center">.</td>
-<td align="center">ACK</td>
-<td align="center">Acknowledgment</td>
-</tr>
-</tbody>
-</table>
+<p>|  值   | 标志类型 |       描述        |
+| | | |
+|   S   |   SYN    | Connection Start  |
+|   F   |   FIN    | Connection Finish |
+|   P   |   PUSH   |     Data push     |
+|   R   |   RST    | Connection reset  |
+|   .   |   ACK    |  Acknowledgment   |</p>
 <ul>
 <li>chksum: IP首部检验和和TCP报文段(包括TCP首部和数据)检验和</li>
 <li>seq:  代表该数据包包含该数据流的第 2687384271 到 2687384395 字节 这里使用的是绝对序列号</li>

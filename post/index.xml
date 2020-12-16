@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>文章标题</title>
+      <link>https://www.bestsre.com/post/template/</link>
+      <pubDate>Fri, 06 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bestsre.com/post/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tcpdump基本使用</title>
       <link>https://www.bestsre.com/post/tcpdump-man/</link>
       <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>

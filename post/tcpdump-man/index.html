@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.df7321ce677abb15bfe865d803c5e25d444e21c04c946bd7446c0c4464a0f98b.css" rel="stylesheet">
+<link href="/sass/main.min.fa8b488cb2c45b55e5cb8eccae2d627a2e464b9de14df1034ede9112adb3222a.css" rel="stylesheet">
 
 
 
@@ -49,7 +49,7 @@
 <meta itemprop="description" content="tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据">
 <meta itemprop="datePublished" content="2019-01-25T11:33:24&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-25T11:33:24&#43;08:00" />
-<meta itemprop="wordCount" content="3484">
+<meta itemprop="wordCount" content="3387">
 
 
 
@@ -125,7 +125,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> Linux </a>
             </div>
-          <span class="more-meta"> 约 3484 字 </span>
+          <span class="more-meta"> 约 3387 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -178,30 +178,104 @@
 	<span class="o">[</span> -y datalinktype <span class="o">]</span> <span class="o">[</span> -z postrotate-command <span class="o">]</span> <span class="o">[</span> -Z user <span class="o">]</span> <span class="o">[</span> expression <span class="o">]</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>|选项|说明|
-|::|::|
-|-i| 指定抓取的网络接口<code>-i interface</code>,<code>-i any</code>可以抓取所有网络接口|
-|-D| 列出机器所有的网络接口|
-|-w|将捕获的包数据写入到文件中，后面再进行分析；<code>-w -</code>可以进行标准输出，会出现一大串的乱码,也可以使用重定向或tee|
-|-r|从文件中读取包数据,回放场景|
-|-c size| 指定要捕获报文数量，使用 <code>-w</code> 写入文件时,使用<code>-C</code>，限制文件的最大大小，超出时新开一个文件(单位是 1,000,000 bytes)|
-|-p| 将网卡接口设置为非混杂模式|
-|-s|控制数据的截取长度,一般tcpdump默认为一最大字节数量并只会从单一报文中截取到该数量长度, 为 0 时表示让 tcpdump 自动选择合适的长度来抓取数据包.|
-|-S|打印绝对序列号,一般分析数据还是使用相对的|
-|-a|强制将网络地址显示为名称,默认的选项|
-|-n|不要将主机地址转换为名称。这可用于避免DNS查找|
-|-nn|不要将协议和端口号等转换为名称|
-|-N|阻止将域名转换FQDN|
-|-f|阻止远端名称解析|
-|-t|不显示时间|
-|-tt|输出时间戳|
-|-tttt| 00:00:00.000000 详细输出时间信息|
-|-v| 显示详细信息，<code>-v</code>会显示ttl信息，使用<code>-vv,-vvv</code>抓包时输出包的更多附加信息|
-|-q| 显示更少的输出信息|
-|-e|显示链路层头信息|
-|-x|将报文以十六进制形式dump出来，排除了链路层报文头,<code>-xx</code>增加以太网header的显示|
-|-A|以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据|
-|-X|:以hex和ASCII两种形式显示包的内容,<code>-XX</code>增加以太网header的显示|</p>
+</div><table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-i</td>
+<td align="left">指定抓取的网络接口<code>-i interface</code>,<code>-i any</code>可以抓取所有网络接口</td>
+</tr>
+<tr>
+<td align="left">-D</td>
+<td align="left">列出机器所有的网络接口</td>
+</tr>
+<tr>
+<td align="left">-w</td>
+<td align="left">将捕获的包数据写入到文件中，后面再进行分析；<code>-w -</code>可以进行标准输出，会出现一大串的乱码,也可以使用重定向或tee</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">从文件中读取包数据,回放场景</td>
+</tr>
+<tr>
+<td align="left">-c size</td>
+<td align="left">指定要捕获报文数量，使用 <code>-w</code> 写入文件时,使用<code>-C</code>，限制文件的最大大小，超出时新开一个文件(单位是 1,000,000 bytes)</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">将网卡接口设置为非混杂模式</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">控制数据的截取长度,一般tcpdump默认为一最大字节数量并只会从单一报文中截取到该数量长度, 为 0 时表示让 tcpdump 自动选择合适的长度来抓取数据包.</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">打印绝对序列号,一般分析数据还是使用相对的</td>
+</tr>
+<tr>
+<td align="left">-a</td>
+<td align="left">强制将网络地址显示为名称,默认的选项</td>
+</tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">不要将主机地址转换为名称。这可用于避免DNS查找</td>
+</tr>
+<tr>
+<td align="left">-nn</td>
+<td align="left">不要将协议和端口号等转换为名称</td>
+</tr>
+<tr>
+<td align="left">-N</td>
+<td align="left">阻止将域名转换FQDN</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">阻止远端名称解析</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">不显示时间</td>
+</tr>
+<tr>
+<td align="left">-tt</td>
+<td align="left">输出时间戳</td>
+</tr>
+<tr>
+<td align="left">-tttt</td>
+<td align="left">00:00:00.000000 详细输出时间信息</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示详细信息，<code>-v</code>会显示ttl信息，使用<code>-vv,-vvv</code>抓包时输出包的更多附加信息</td>
+</tr>
+<tr>
+<td align="left">-q</td>
+<td align="left">显示更少的输出信息</td>
+</tr>
+<tr>
+<td align="left">-e</td>
+<td align="left">显示链路层头信息</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">将报文以十六进制形式dump出来，排除了链路层报文头,<code>-xx</code>增加以太网header的显示</td>
+</tr>
+<tr>
+<td align="left">-A</td>
+<td align="left">以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">:以hex和ASCII两种形式显示包的内容,<code>-XX</code>增加以太网header的显示</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>混杂模式就是接收所有经过网卡的数据包，包括不是发给本机的包，即不验证MAC地址。普通模式下网卡只接收发给本机的包（包括广播包）传递给上层程序，其它的包一律丢弃。
 一般来说，混杂模式不会影响网卡的正常工作，多在网络监听工具上使用。</p>
@@ -512,13 +586,42 @@ tcpdump: listening on eth0, link-type EN10MB <span class="o">(</span>Ethernet<sp
 <li>172.27.0.14.22 &gt; 125.226.39.220.63970: 表示数据是从IP为172.27.0.14端口为22发送的IP为115.236.39.210端口为63970，分别对应ip报文头的源地址、目的地址，源端口、目标端口</li>
 <li>Flags: tcp报文标记段</li>
 </ul>
-<p>|  值   | 标志类型 |       描述        |
-|::|::|::|
-|   S   |   SYN    | Connection Start  |
-|   F   |   FIN    | Connection Finish |
-|   P   |   PUSH   |     Data push     |
-|   R   |   RST    | Connection reset  |
-|   .   |   ACK    |  Acknowledgment   |</p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">标志类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">S</td>
+<td align="left">SYN</td>
+<td align="left">Connection Start</td>
+</tr>
+<tr>
+<td align="left">F</td>
+<td align="left">FIN</td>
+<td align="left">Connection Finish</td>
+</tr>
+<tr>
+<td align="left">P</td>
+<td align="left">PUSH</td>
+<td align="left">Data push</td>
+</tr>
+<tr>
+<td align="left">R</td>
+<td align="left">RST</td>
+<td align="left">Connection reset</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">ACK</td>
+<td align="left">Acknowledgment</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>chksum: IP首部检验和和TCP报文段(包括TCP首部和数据)检验和</li>
 <li>seq:  代表该数据包包含该数据流的第 2687384271 到 2687384395 字节 这里使用的是绝对序列号</li>

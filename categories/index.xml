@@ -6,19 +6,10 @@
     <description>Recent content in Categories on SRE-系统重启工程师之路</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Jan 2019 11:33:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jan 2019 11:33:24 +0800</lastBuildDate>
     
 	<atom:link href="https://www.bestsre.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Linux</title>
-      <link>https://www.bestsre.com/categories/linux/</link>
-      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
-      
-      <guid>https://www.bestsre.com/categories/linux/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Hugo</title>

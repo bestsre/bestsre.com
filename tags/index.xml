@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on SRE-系统重启工程师之路</title>
+    <title>Tags on 如是我闻</title>
     <link>https://www.bestsre.com/tags/</link>
-    <description>Recent content in Tags on SRE-系统重启工程师之路</description>
+    <description>Recent content in Tags on 如是我闻</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Jan 2019 11:33:24 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.bestsre.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 24 Jan 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
       <link>https://www.bestsre.com/tags/hugo/</link>

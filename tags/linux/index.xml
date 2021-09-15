@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on SRE-系统重启工程师之路</title>
+    <title>linux on 如是我闻</title>
     <link>https://www.bestsre.com/tags/linux/</link>
-    <description>Recent content in Linux on SRE-系统重启工程师之路</description>
+    <description>Recent content in linux on 如是我闻</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Jan 2019 11:33:24 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.bestsre.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 24 Sep 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>tcpdump基本使用</title>
-      <link>https://www.bestsre.com/post/tcpdump-man/</link>
-      <pubDate>Fri, 25 Jan 2019 11:33:24 +0800</pubDate>
+      <title>CentOS7 docker下支持aufs</title>
+      <link>https://www.bestsre.com/post/aufs-centos7/</link>
+      <pubDate>Tue, 24 Sep 2019 11:33:24 +0800</pubDate>
       
-      <guid>https://www.bestsre.com/post/tcpdump-man/</guid>
-      <description>tcpdump命令最初设计用于观察TCP/IP性能问题，它是一个用于截取网络分组，并输出分组内容的工具。tcpdump可以将网络中传送的数据</description>
+      <guid>https://www.bestsre.com/post/aufs-centos7/</guid>
+      <description>1、更新内核，支持aufs 2、修改docker-ce daemon.json 更新内核，支持aufs 查看当前系统版本、内核版本及是否支持AUFS 1 2 3 4 5 # cat /etc/centos-release CentOS Linux</description>
     </item>
     
   </channel>

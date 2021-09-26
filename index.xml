@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>如是我扯</title>
+    <title>从未开始</title>
     <link>https://www.bestsre.com/</link>
-    <description>Recent content on 如是我扯</description>
+    <description>Recent content on 从未开始</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 24 Sep 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CentOS7 docker下支持aufs</title>
-      <link>https://www.bestsre.com/post/aufs-centos7/</link>
-      <pubDate>Tue, 24 Sep 2019 11:33:24 +0800</pubDate>
-      
-      <guid>https://www.bestsre.com/post/aufs-centos7/</guid>
-      <description>1、更新内核，支持aufs 2、修改docker-ce daemon.json 更新内核，支持aufs 查看当前系统版本、内核版本及是否支持AUFS 1 2 3 4 5 # cat /etc/centos-release CentOS Linux</description>
-    </item>
-    
+    <lastBuildDate>Thu, 24 Jan 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo文档模板</title>
       <link>https://www.bestsre.com/post/template/</link>

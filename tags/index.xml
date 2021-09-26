@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 如是我扯</title>
+    <title>Tags on 从未开始</title>
     <link>https://www.bestsre.com/tags/</link>
-    <description>Recent content in Tags on 如是我扯</description>
+    <description>Recent content in Tags on 从未开始</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 24 Sep 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>docker</title>
-      <link>https://www.bestsre.com/tags/docker/</link>
-      <pubDate>Tue, 24 Sep 2019 11:33:24 +0800</pubDate>
-      
-      <guid>https://www.bestsre.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://www.bestsre.com/tags/linux/</link>
-      <pubDate>Tue, 24 Sep 2019 11:33:24 +0800</pubDate>
-      
-      <guid>https://www.bestsre.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 24 Jan 2019 11:33:24 +0800</lastBuildDate><atom:link href="https://www.bestsre.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
       <link>https://www.bestsre.com/tags/hugo/</link>

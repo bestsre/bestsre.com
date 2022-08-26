@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on 黑洞</title>
+    <title>Linux on BlackHole</title>
     <link>https://www.bestsre.com/categories/linux/</link>
-    <description>Recent content in Linux on 黑洞</description>
+    <description>Recent content in Linux on BlackHole</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
+    <language>en</language>
     <lastBuildDate>Wed, 10 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bestsre.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>linux-command-tree</title>

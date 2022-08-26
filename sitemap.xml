@@ -3,14 +3,56 @@
   
   <url>
     <loc>https://www.bestsre.com/</loc>
-    <lastmod>2019-01-24T11:33:24+08:00</lastmod>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://www.bestsre.com/categories/</loc>
-    <lastmod>2019-01-24T11:33:24+08:00</lastmod>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/command/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/linux/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/categories/linux/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/post/%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux-command/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/post/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bestsre.com/tags/</loc>
+    <lastmod>2021-11-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,20 +73,6 @@
   
   <url>
     <loc>https://www.bestsre.com/post/template/</loc>
-    <lastmod>2019-01-24T11:33:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.bestsre.com/post/</loc>
-    <lastmod>2019-01-24T11:33:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.bestsre.com/tags/</loc>
     <lastmod>2019-01-24T11:33:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
